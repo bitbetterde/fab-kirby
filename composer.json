@@ -1,6 +1,6 @@
 {
-  "name": "getkirby/plainkit",
-  "description": "Kirby Plainkit",
+  "name": "bitbetter/fab-bergisch",
+  "description": "Fab Region Bergisches Städtedreieck",
   "type": "project",
   "keywords": [
     "kirby",
@@ -9,9 +9,9 @@
   ],
   "authors": [
     {
-      "name": "Bastian Allgeier",
-      "email": "bastian@getkirby.com",
-      "homepage": "https://getkirby.com"
+      "name": "Moritz Stückler",
+      "email": "moritz@bitbetter.de",
+      "homepage": "https://www.bitbetter.de"
     }
   ],
   "homepage": "https://getkirby.com",
@@ -21,8 +21,8 @@
     "source": "https://github.com/getkirby/plainkit"
   },
   "require": {
-    "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
-    "getkirby/cms": "^4.0"
+    "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
+    "getkirby/cms": "^4.6"
   },
   "config": {
     "allow-plugins": {
