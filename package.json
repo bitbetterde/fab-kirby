@@ -1,0 +1,22 @@
+{
+  "name": "fab-bergisch",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "author": "Moritz Stueckler <moritz@bitbetter.de> (http://bitbetter.de/)",
+  "license": "MIT",
+  "devDependencies": {
+    "laravel-vite-plugin": "^1.2.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "dotenv": "^16.4.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
+  }
+}

@@ -48,3 +48,11 @@ Icon
 # ---------------
 
 /site/config/.license
+
+node_modules
+build
+site/plugins/laravel-vite
+
+vendor
+
+.env
