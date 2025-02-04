@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<?= vite()->reactRefresh() ?>
-	<?= vite(['src/index.tsx']) ?>
-</head>
+	<head>
+		<?= vite()->reactRefresh() ?>
+		<?= vite(['src/index.tsx']) ?>
+		<?= inertiaHead() ?>
+	</head>
 
-<body id="root">
-</body>
+	<body id="root">
+		<?= inertia() ?>
+	</body>
 
 </html>

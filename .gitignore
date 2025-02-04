@@ -51,7 +51,7 @@ Icon
 
 node_modules
 build
-site/plugins/laravel-vite
+site/plugins
 
 vendor
 

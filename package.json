@@ -12,6 +12,9 @@
     "laravel-vite-plugin": "^1.2.0"
   },
   "dependencies": {
+    "@inertiajs/react": "^2.0.3",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
     "dotenv": "^16.4.7",
     "react": "^19.0.0",

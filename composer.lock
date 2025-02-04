@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9e163dfa90d86a97a118ecaeccf5602",
+    "content-hash": "60cf9ea856aae75a2d956153a7942f22",
     "packages": [
         {
             "name": "christian-riesen/base32",
@@ -1228,6 +1228,54 @@
                 }
             ],
             "time": "2025-01-07T09:44:41+00:00"
+        },
+        {
+            "name": "tobimori/kirby-inertia",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tobimori/kirby-inertia.git",
+                "reference": "f1795a181bdf315f109e4cd946a52f5d9140adb6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tobimori/kirby-inertia/zipball/f1795a181bdf315f109e4cd946a52f5d9140adb6",
+                "reference": "f1795a181bdf315f109e4cd946a52f5d9140adb6",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.2.1",
+                "php": ">=8.3.0"
+            },
+            "require-dev": {
+                "getkirby/cms": "^4.0"
+            },
+            "type": "kirby-plugin",
+            "extra": {
+                "kirby-cms-path": false
+            },
+            "autoload": {
+                "psr-4": {
+                    "tobimori\\Inertia\\": "classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Möritz",
+                    "email": "tobias@moeritz.io"
+                }
+            ],
+            "description": "Kirby CMS adapter for Inertia.js",
+            "homepage": "https://github.com/tobimori/kirby-inertia#readme",
+            "support": {
+                "issues": "https://github.com/tobimori/kirby-inertia/issues",
+                "source": "https://github.com/tobimori/kirby-inertia/tree/1.0.0"
+            },
+            "time": "2025-01-13T14:20:29+00:00"
         }
     ],
     "packages-dev": [],
