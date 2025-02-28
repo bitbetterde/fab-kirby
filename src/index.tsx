@@ -4,7 +4,6 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 
 createInertiaApp({
-  id: "root",
   resolve: (name) =>
     resolvePageComponent(
       `./templates/${name}.tsx`,

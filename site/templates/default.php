@@ -4,10 +4,11 @@
 	<head>
 		<?= vite()->reactRefresh() ?>
 		<?= vite(['src/index.tsx']) ?>
+		<title><?= $page->title() ?></title>
 		<?= inertiaHead() ?>
 	</head>
 
-	<body id="root">
+	<body>
 		<?= inertia() ?>
 	</body>
 

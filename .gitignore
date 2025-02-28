@@ -56,3 +56,4 @@ site/plugins
 vendor
 
 .env
+hot

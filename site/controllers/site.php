@@ -4,9 +4,9 @@ use Kirby\Cms\Page;
 use tobimori\Inertia\Inertia;
 
 return function (Page $page) {
-	var_dump("SITE CONTROLLER");
+	// var_dump("SITE CONTROLLER");
 	return Inertia::createResponse(
-		"home",
-    ["bla" => "text"]
+		$page->intendedTemplate(),
+    $page->toArray()
 	);
 };
