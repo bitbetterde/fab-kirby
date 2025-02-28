@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<?= vite()->reactRefresh() ?>
-	<?= vite(['src/index.tsx']) ?>
-</head>
+	<head>
+		<?= vite()->reactRefresh() ?>
+		<?= vite(['src/index.tsx']) ?>
+		<title><?= $page->title() ?></title>
+		<?= inertiaHead() ?>
+	</head>
 
-<body id="root">
-</body>
+	<body>
+		<?= inertia() ?>
+	</body>
 
 </html>
