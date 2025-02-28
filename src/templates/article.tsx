@@ -63,9 +63,9 @@ export default (props) => {
       <Article
         titleImage={props?.page?.files[0]}
         imageTag={"Copyright 2025"}
-        breadcrumbs={[
-          { target: "/home", title: "Home", icon: <Home className="size-6" /> },
-        ]}
+        breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
+          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb
+        )}
         hideFooterSeparator={true}
         title={props?.page?.content.title}
         subtitle={"abc123"}
