@@ -7,7 +7,7 @@ fields:
     type: text
   credits:
     label: Credits
-    typ: text
+    type: text
   caption:
     label: Bildunterschrift
     type: textarea

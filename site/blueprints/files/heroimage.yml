@@ -7,4 +7,4 @@ fields:
     type: text
   credits:
     label: Credits
-    typ: text
+    type: text
