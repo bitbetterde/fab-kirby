@@ -8,8 +8,8 @@ tabs:
       pages:
         type: pages
 
-  toolbar:
-    label: Toolbar
+  global:
+    label: Einstellungen
     icon: list-bullet
     sections:
       menu:

@@ -49,7 +49,7 @@ export default (props) => {
         <div style={{ paddingTop: "4rem" }}>
           {JSON.parse(props?.page?.content?.text).map((block) => {
             // TODO: Here we need to conditionally render the right frontend component. Probably need a big switch case or object map here
-            return <div dangerouslySetInnerHTML={{__html: block.content.text}}></div>;
+            return <div key={block.id} dangerouslySetInnerHTML={{__html: block.content.text}}></div>;
           })}
         </div>
       </Article>

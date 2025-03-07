@@ -1,0 +1,34 @@
+Title: Fab Region Bergisches Städtedreieck
+
+----
+
+Hidetoolbar: false
+
+----
+
+Toolbar:
+
+- 
+  title: Tool1
+  href: /tool1
+  icon: ApplicationVirtual
+- 
+  title: Another Tool
+  href: /tool2
+  icon: Calendar
+- 
+  title: Map
+  href: /map
+  icon: ChoroplethMap
+
+----
+
+Hidden: true
+
+----
+
+Pagetitle: Fab Region Bergisches Städte
+
+----
+
+Lock: t84kMGTf
