@@ -20,6 +20,8 @@ import { CarbonIcon } from "../components/CarbonIcon";
 export default (props) => {
   console.log("Article Template", props);
 
+  const blocks = props?.page?.content?.text ? JSON.parse(props?.page?.content?.text) : [];
+
   return (
     <div>
       <Header
@@ -47,7 +49,7 @@ export default (props) => {
         teaser={props?.page.content.teaser}
       >
         <div style={{ paddingTop: "4rem" }}>
-          {JSON.parse(props?.page?.content?.text).map((block) => {
+          {blocks?.map((block) => {
             // TODO: Here we need to conditionally render the right frontend component. Probably need a big switch case or object map here
             return <div key={block.id} dangerouslySetInnerHTML={{__html: block.content.text}}></div>;
           })}
