@@ -17,15 +17,38 @@ function traverseMenu($item)
 	}
 }
 
+function processBlocks($blocks)
+{
+    $blocksArray = json_decode($blocks->toJson(), true);
+
+    foreach ($blocksArray as &$block) {
+        if ($block['type'] === 'image') {
+            $imageData = $block['content']['image'];
+
+            $imageData = $imageData[0];
+
+            $file = kirby()->file($imageData);
+
+            if ($file) {
+                $block['content']['image'] = $file->url();
+//                $block['content']['alt'] = $file->alt()->value();
+//                $block['content']['credits'] = $file->credits()->value();
+//                $block['content']['caption'] = $file->caption()->value();
+            }
+        }
+    }
+
+    return $blocksArray;
+}
+
+
 return function (Page $page, Site $site) {
-	// var_dump("DEFAULT CONTROLLER");
-
-
-	return Inertia::createResponse(
-		$page->intendedTemplate(),
-		[
-			'page' => $page->toArray(),
-			'menu' => traverseMenu($site)
-		]
-	);
+    return Inertia::createResponse(
+        $page->intendedTemplate(),
+        [
+            'page' => $page->toArray(),
+            'menu' => traverseMenu($site),
+            'blocks' => processBlocks($page->blocks()),
+        ]
+    );
 };

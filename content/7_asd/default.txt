@@ -1,0 +1,13 @@
+Title: asd
+
+----
+
+Text: GUten Tag, text
+
+----
+
+Blocks: [{"content":{"image":["file://6gPRHFLhVB7topwl"],"caption":"","alt":"","credits":""},"id":"022c3f41-61cf-487c-b4c9-f139f036a979","isHidden":false,"type":"image"},{"content":{"image":["file://6gPRHFLhVB7topwl"],"caption":"","alt":"","credits":""},"id":"cc2eaa1c-277a-4a12-965e-66e81f4a1285","isHidden":false,"type":"image"},{"content":{"title":"test","description":"descrtion","buttons":[{"caption":"Klick mich","target":"https://bitbetter.de"}]},"id":"fdaac129-d864-4664-94b7-0ab0d05afec0","isHidden":false,"type":"actionbox"},{"content":{"image":["file://6gPRHFLhVB7topwl"],"caption":"","alt":"","credits":""},"id":"e7e70815-0fa3-4f7f-8ba0-3a2302c0060e","isHidden":false,"type":"image"},{"content":{"image":["file://6gPRHFLhVB7topwl"],"caption":"","alt":"","credits":""},"id":"c8f01e77-1919-4b5a-a73b-11fee82a4f2d","isHidden":false,"type":"image"},{"content":{"image":["file://6gPRHFLhVB7topwl"],"caption":"","alt":"","credits":""},"id":"24944682-f1b3-477e-aef9-0c9aa347fc51","isHidden":false,"type":"image"},{"content":{"image":["file://6gPRHFLhVB7topwl"],"caption":"Ungenutzt","alt":"","credits":""},"id":"ad06eca2-073d-4aed-b6cc-6ff389db720f","isHidden":false,"type":"image"}]
+
+----
+
+Uuid: b1u4mfhPa1CXN4wg

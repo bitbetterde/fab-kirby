@@ -1,0 +1,7 @@
+name: Youtube Video
+icon: youtube
+
+fields:
+  embedId:
+    label: EmbedId
+    type: text

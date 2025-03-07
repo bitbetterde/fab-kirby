@@ -1,0 +1,9 @@
+Title: blocktest
+
+----
+
+Text: [{"content":{"image":["file://6AuqiIWK4AKWiduR"],"caption":"hallo","alt":"","credits":""},"id":"aa838887-7d24-4e81-a8ed-dfb5056b86e9","isHidden":false,"type":"image"},{"content":{"image":["file://6AuqiIWK4AKWiduR"],"caption":"wir machen weiter","alt":"","credits":""},"id":"770ae8d7-5d64-45ae-b538-cd0d5748194d","isHidden":false,"type":"image"},{"content":{"image":["file://lCPHml5Pf7RW6HCm"],"caption":"","alt":"","credits":""},"id":"03f9947c-0e73-4088-be8b-8a3ee9e1dcde","isHidden":false,"type":"image"}]
+
+----
+
+Uuid: 837YbdzWVJliL44I

@@ -1,0 +1,17 @@
+Alt: a
+
+----
+
+Credits: cre
+
+----
+
+Caption: cap
+
+----
+
+Uuid: EKWimgstofwF782q
+
+----
+
+Template: image

@@ -10,6 +10,14 @@ columns:
           text:
             type: textarea
             size: huge
+          blocks:
+            label: Content Blocks
+            type: blocks
+            fieldsets:
+              - image
+              - actionbox
+              - youtube
+
   sidebar:
     width: 1/3
     sections:

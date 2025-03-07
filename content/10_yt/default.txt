@@ -1,0 +1,13 @@
+Title: yt
+
+----
+
+Text: Beispieltext im Textfeld
+
+----
+
+Blocks: [{"content":{"embedid":"dQw4w9WgXcQ"},"id":"876f2354-f3cc-41ce-937a-cfbac967a04f","isHidden":false,"type":"youtube"},{"content":{"image":["file://400so7XqXzijZGGe"],"caption":"","alt":"","credits":""},"id":"9e7a47cf-3375-4abc-bf89-71ef7ac32c7a","isHidden":false,"type":"image"},{"content":{"title":"Hier klicken","description":"Hier gleich klicken","buttons":[{"caption":"genau hier","target":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"},{"caption":"genau ","target":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"},{"caption":"genau a","target":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}]},"id":"82020490-0599-4754-b0f0-48defdbda125","isHidden":false,"type":"actionbox"}]
+
+----
+
+Uuid: YQbENpGxHpgoqDRG

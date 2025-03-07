@@ -1,0 +1,21 @@
+name: Bild Block
+icon: image
+extends: files/blocks/image
+fields:
+  image:
+    label: Bild
+    type: files
+    multiple: false
+    layout: cards
+    uploads:
+      template: image
+
+  caption:
+    label: Bildunterschrift
+    type: text
+  alt:
+    label: Alt-Text
+    type: text
+  credits:
+    label: Credits
+    type: text

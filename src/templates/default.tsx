@@ -16,6 +16,9 @@ import {
   Folders,
   Home,
 } from "@carbon/icons-react";
+import ImageBlock from "../components/blocks/ImageBlock";
+import ActionBoxBlock from "../components/blocks/ActionBoxBlock";
+import YoutubeEmbedBlock from "../components/blocks/YoutubeEmbedBlock";
 
 export default (props) => {
   console.log(props);
@@ -72,6 +75,20 @@ export default (props) => {
         teaser={"Hallo Teaser"}
       >
         <div style={{ paddingTop: "4rem" }}>{props?.page?.content?.text}</div>
+        <div style={{ paddingTop: "4rem" }}>
+          {props?.blocks?.map((block, index) => {
+            switch (block.type) {
+              case "image":
+                return <ImageBlock key={index} block={block} />;
+              case "actionbox":
+                return <ActionBoxBlock key={index} block={block} />;
+              case "youtube":
+                return <YoutubeEmbedBlock key={index} block={block} />;
+              default:
+                return null;
+            }
+          })}
+        </div>
       </Article>
       <Footer menu={props?.menu.children} />
     </div>

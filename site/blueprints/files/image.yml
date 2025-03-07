@@ -1,0 +1,13 @@
+title: Image
+accept:
+  type: image
+fields:
+  alt:
+    label: Alt-Text
+    type: text
+  credits:
+    label: Credits
+    type: text
+  caption:
+    label: Bildunterschrift
+    type: textarea
