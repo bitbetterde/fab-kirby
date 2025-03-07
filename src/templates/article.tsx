@@ -43,11 +43,14 @@ export default (props) => {
         )}
         hideFooterSeparator={true}
         title={props?.page?.content.title}
-        subtitle={"abc123"}
-        teaser={"Hallo Teaser"}
+        subtitle={props?.page?.content.subheading}
+        teaser={props?.page.content.teaser}
       >
         <div style={{ paddingTop: "4rem" }}>
-          {props?.page?.content?.text}
+          {JSON.parse(props?.page?.content?.text).map((block) => {
+            // TODO: Here we need to conditionally render the right frontend component. Probably need a big switch case or object map here
+            return <div dangerouslySetInnerHTML={{__html: block.content.text}}></div>;
+          })}
         </div>
       </Article>
       <Footer menu={props?.menu.children} />

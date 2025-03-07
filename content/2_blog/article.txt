@@ -2,7 +2,15 @@ Title: Blog
 
 ----
 
-Text: Bla das ist eine andere Seite
+Subheading: Das ist die Subzeile über der Überschrift
+
+----
+
+Teaser: Hier kommt der Teaser 123
+
+----
+
+Text: [{"content":{"text":"<p>Bla das ist eine andere Seite</p>"},"id":"8752e671-ae73-4bcd-b008-0e4fd7177e0e","isHidden":false,"type":"text"},{"content":{"text":"<p>Zweiter Block</p>"},"id":"af1043ae-a0d6-41b5-9cba-9d04901c8c51","isHidden":false,"type":"text"},{"content":{"text":"<p>Dritter Block</p>"},"id":"8dbe11a8-eee6-44b6-a71a-22b66e862824","isHidden":false,"type":"text"}]
 
 ----
 
