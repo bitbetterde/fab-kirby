@@ -54,6 +54,7 @@ build
 site/plugins
 
 vendor
+kirby
 
 .env
 hot
