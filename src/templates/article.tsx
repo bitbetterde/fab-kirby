@@ -8,56 +8,33 @@ import "@fontsource/ibm-plex-sans";
 import "../base.css";
 
 import { Article, Footer, Header } from "@fchh/fcos-suite-ui";
-import {
-  ApplicationVirtual,
-  Calendar,
-  Chat,
-  ChoroplethMap,
-  Folders,
-  Home,
-} from "@carbon/icons-react";
+import { Home } from "@carbon/icons-react";
+import { CarbonIcon } from "../components/CarbonIcon";
 
+// interface ArticleTemplateProps {
+//   toolbar: IToolbarItem[];
+//   menu: IMenuItem[];
+// }
+
+// The article template is for any kind of "article" like content. Could be a blog post, a news post or an event. It is not intended as home page.
 export default (props) => {
-  console.log(props);
+  console.log("Article Template", props);
 
-  const TOOLBAR_ITEMS = [
-    {
-      title: "Map",
-      icon: (
-        <ChoroplethMap className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />
-      ),
-      target: "/map",
-    },
-    {
-      title: "Knowledge Hub",
-      icon: <Folders className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />,
-      target: "/hub",
-      onlyDesktop: true,
-    },
-    {
-      title: "Connect",
-      icon: <Chat className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />,
-      target: "/connect",
-    },
-    {
-      title: "Events",
-      icon: <Calendar className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />,
-      target: "/events",
-    },
-    {
-      title: "FCOS Core",
-      icon: (
-        <ApplicationVirtual className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />
-      ),
-      target: "/map",
-    },
-  ];
+  const blocks = props?.page?.content?.text ? JSON.parse(props?.page?.content?.text) : [];
 
   return (
     <div>
       <Header
         topBarItems={props?.menu.children}
-        toolBarItems={TOOLBAR_ITEMS}
+        toolBarItems={props?.toolbar?.map((item) => ({
+          ...item,
+          icon: (
+            <CarbonIcon
+              name={item.icon}
+              className="size-6 sm:size-5 sm:mr-2 mb-1 sm:mb-0"
+            />
+          ),
+        }))}
         hideSearchIcon
       />
       <Article
@@ -68,10 +45,15 @@ export default (props) => {
         )}
         hideFooterSeparator={true}
         title={props?.page?.content.title}
-        subtitle={"abc123"}
-        teaser={"Hallo Teaser"}
+        subtitle={props?.page?.content.subheading}
+        teaser={props?.page.content.teaser}
       >
-        <div style={{ paddingTop: "4rem" }}>{props?.page?.content?.text}</div>
+        <div style={{ paddingTop: "4rem" }}>
+          {blocks?.map((block) => {
+            // TODO: Here we need to conditionally render the right frontend component. Probably need a big switch case or object map here
+            return <div key={block.id} dangerouslySetInnerHTML={{__html: block.content.text}}></div>;
+          })}
+        </div>
       </Article>
       <Footer menu={props?.menu.children} />
     </div>

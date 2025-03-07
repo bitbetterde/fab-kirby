@@ -18,7 +18,7 @@
     "tailwindcss": "^3.4.17"
   },
   "dependencies": {
-    "@carbon/icons-react": "^11.54.0",
+    "@carbon/icons-react": "^11.56.0",
     "@fontsource/ibm-plex-sans": "^5.1.1",
     "@fontsource/inter": "^5.1.1",
     "@fontsource/karla": "^5.1.1",

@@ -6,75 +6,34 @@ import "@fontsource/inter";
 import "@fontsource/ibm-plex-sans";
 // Local styles
 import "../base.css";
+import { CarbonIcon } from "../components/CarbonIcon";
 
-import { Article, Footer, Header } from "@fchh/fcos-suite-ui";
-import {
-  ApplicationVirtual,
-  Calendar,
-  Chat,
-  ChoroplethMap,
-  Folders,
-  Home,
-} from "@carbon/icons-react";
+import { Footer, Header, HeroSection } from "@fchh/fcos-suite-ui";
 import ImageBlock from "../components/blocks/ImageBlock";
 import ActionBoxBlock from "../components/blocks/ActionBoxBlock";
 import YoutubeEmbedBlock from "../components/blocks/YoutubeEmbedBlock";
 
 export default (props) => {
-  console.log(props);
-
-  const TOOLBAR_ITEMS = [
-    {
-      title: "Map",
-      icon: (
-        <ChoroplethMap className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />
-      ),
-      target: "/map",
-    },
-    {
-      title: "Knowledge Hub",
-      icon: <Folders className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />,
-      target: "/hub",
-      onlyDesktop: true,
-    },
-    {
-      title: "Connect",
-      icon: <Chat className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />,
-      target: "/connect",
-    },
-    {
-      title: "Events",
-      icon: <Calendar className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />,
-      target: "/events",
-    },
-    {
-      title: "FCOS Core",
-      icon: (
-        <ApplicationVirtual className="w-6 sm:w-5 h-6 sm:h-5 sm:mr-2 mb-1 sm:mb-0" />
-      ),
-      target: "/map",
-    },
-  ];
+  console.log("Default Template:", props);
 
   return (
     <div>
       <Header
         topBarItems={props?.menu.children}
-        toolBarItems={TOOLBAR_ITEMS}
+        toolBarItems={props?.toolbar?.map((item) => ({
+          ...item,
+          icon: (
+            <CarbonIcon
+              name={item.icon}
+              className="size-6 sm:size-5 sm:mr-2 mb-1 sm:mb-0"
+            />
+          ),
+        }))}
         hideSearchIcon
       />
-      <Article
-        titleImage={props?.page?.files[0]}
-        imageTag={"Copyright 2025"}
-        breadcrumbs={[
-          { target: "/home", title: "Home", icon: <Home className="size-6" /> },
-        ]}
-        hideFooterSeparator={true}
-        title={props?.page?.content.title}
-        subtitle={"abc123"}
-        teaser={"Hallo Teaser"}
-      >
-        <div style={{ paddingTop: "4rem" }}>{props?.page?.content?.text}</div>
+      <HeroSection src={props?.page?.files[0]} />
+      <main>
+
         <div style={{ paddingTop: "4rem" }}>
           {props?.blocks?.map((block, index) => {
             switch (block.type) {
@@ -89,7 +48,7 @@ export default (props) => {
             }
           })}
         </div>
-      </Article>
+      </main>
       <Footer menu={props?.menu.children} />
     </div>
   );

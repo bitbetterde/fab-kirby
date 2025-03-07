@@ -4,7 +4,7 @@
 	<head>
 		<?= vite()->reactRefresh() ?>
 		<?= vite(['src/index.tsx']) ?>
-		<title><?= $page->title() ?></title>
+		<title><?= $page->title() ?> | <?= $site->title() ?></title>
 		<?= inertiaHead() ?>
 	</head>
 

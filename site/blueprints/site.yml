@@ -1,5 +1,39 @@
 title: Site
 
-sections:
-  pages:
-    type: pages
+tabs:
+  content:
+    label: Content
+    icon: text
+    sections:
+      pages:
+        type: pages
+
+  global:
+    label: Einstellungen
+    icon: list-bullet
+    sections:
+      menu:
+        type: fields
+        fields:
+          hideToolbar:
+            label: Toolbar komplett verbergen?
+            type: toggle
+            text:
+              - "Nein"
+              - "Ja"
+
+          toolbar:
+            label: Toolbar Elemente
+            type: structure
+            help: Hier kannst du die Elemente in der Toolbar festlegen, die unterhalb des Hauptmenüs angezeigt wird. Die Namen der Icons beziehen sich auf das Carbon Iconset von IBM.
+            fields:
+              title:
+                label: Titel
+                type: text
+              href:
+                label: Ziel
+                type: text
+              icon:
+                label: Icon
+                type: text
+
