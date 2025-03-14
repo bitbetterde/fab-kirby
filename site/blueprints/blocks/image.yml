@@ -1,0 +1,46 @@
+name: field.blocks.image.name
+icon: image
+preview: image
+fields:
+  location:
+    label: field.blocks.image.location
+    type: radio
+    columns: 2
+    default: "kirby"
+    required: true
+    options:
+      kirby: "{{ t('field.blocks.image.location.internal') }}"
+      web: "{{ t('field.blocks.image.location.external') }}"
+  image:
+    label: field.blocks.image.name
+    type: files
+    query: model.images
+    multiple: false
+    image:
+      back: black
+    uploads:
+      template: blocks/image
+    when:
+      location: kirby
+  src:
+    label: field.blocks.image.url
+    type: url
+    when:
+      location: web
+  alt:
+    label: field.blocks.image.alt
+    type: text
+    icon: title
+  caption:
+    label: field.blocks.image.caption
+    type: writer
+    icon: text
+    inline: true
+  subCaption:
+    label: Sub Caption
+    type: text
+    icon: title
+  tag:
+    label: Tag
+    type: text
+    icon: title

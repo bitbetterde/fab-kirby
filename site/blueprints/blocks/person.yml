@@ -1,0 +1,23 @@
+name: Person
+icon: users
+preview: fields
+fields:
+  people:
+    type: structure
+    label: Personen
+    fields:
+      name:
+        label: Name
+        type: text
+      position:
+        label: Position
+        type: text
+      organisation:
+        label: Organisation
+        type: text
+      email:
+        label: E-Mail
+        type: text
+      image:
+        label: Bild
+        type: files

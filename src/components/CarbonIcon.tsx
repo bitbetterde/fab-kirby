@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import * as CarbonIcons from '@carbon/icons-react';
 
-interface CarbonIconProps {
+export interface CarbonIconProps {
   name: keyof typeof CarbonIcons;
   className?: string;
 }

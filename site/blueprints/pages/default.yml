@@ -7,6 +7,13 @@ columns:
       fields:
         type: fields
         fields:
+          heroimage:
+            type: files
+            label: Hero Image
+            multiple: false
+            query: page.images.template('heroimage')
+            uploads:
+              template: heroimage
           text:
             type: textarea
             size: huge

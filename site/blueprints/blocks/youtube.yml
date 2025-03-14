@@ -1,0 +1,7 @@
+name: YouTube Video
+icon: youtube
+preview: fields
+fields:
+  videoId:
+    label: YouTube ID
+    type: text

@@ -7,14 +7,30 @@ columns:
       fields:
         type: fields
         fields:
+          heroimage:
+            type: files
+            label: Hero Image
+            multiple: false
+            query: page.images.template('heroimage')
+            uploads:
+              template: heroimage
           subheading:
             type: text
             label: Subheading
           teaser:
             type: textarea
             label: Teaser
+            buttons: false
           text:
             type: blocks
+            fieldsets:
+              - heading
+              - text
+              - list
+              - image
+              - code
+              - person
+              - youtube
             label: Inhalt
             required: true
   sidebar:
