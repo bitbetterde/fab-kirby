@@ -14,25 +14,35 @@ return function (Page $page, Site $site) {
         $blocksContents = json_decode($content);
         foreach ($blocksContents as $blockKey => $block) {
             if ($block->type != 'text') {
-                $keysFromObject = array_keys(get_object_vars($block->content));
-                foreach ($keysFromObject as $key) {
-                    if (is_string($block->content->$key) && str_starts_with($block->content->$key, 'file://')) {
-                        $blocksContents[$blockKey]->content->$key = $page->files()->find($block->content->$key)->toArray();
-                    } else if (is_array($block->content->$key)) {
-                        foreach ($block->content->$key as $itemKey => $item) {
-                            if (is_string($item) && str_starts_with($item, 'file://')) {
-                                $blocksContents[$blockKey]->content->$key[$itemKey] = $page->files()->find($item)->toArray();
-                            }
-                        }
-                    }
-                }
+                $blocksContents[$blockKey]->content = resolveLinkInObject($page, $block->content);
             }
         }
         return $blocksContents;
     }
 
-    $defaultProps = getDefaultInertiaProps($page, $site);
+    function resolveLinkInObject(Page $page, object $object): object
+    {
+        $result = clone $object;
+        $keysFromObject = array_keys(get_object_vars($object));
+        foreach ($keysFromObject as $key) {
+            if (is_string($object->$key) && str_starts_with($object->$key, 'file://')) {
+                $result->$key = $page->files()->find($object->$key)->toArray();
+            } elseif (is_object($object->$key)) {
+                $result->$key = resolveLinkInObject($page, $object->$key);
+            } elseif (is_array($object->$key)) {
+                foreach ($object->$key as $itemKey => $item) {
+                    if (is_string($item) && str_starts_with($item, 'file://')) {
+                        $result->$key[$itemKey] = $page->files()->find($item)->toArray();
+                    } else if (is_object($item)) {
+                        $result->$key[$itemKey] = resolveLinkInObject($page, $item);
+                    }
+                }
+            }
+        }
+        return $result;
+    }
 
+    $defaultProps = getDefaultInertiaProps($page, $site);
     $pageArr = $defaultProps['page'];
     $pageArr['content']['text'] = resolveLinks($page->content()->text(), $page);
 
