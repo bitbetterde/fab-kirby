@@ -31,8 +31,8 @@ function processBlocks($blocks)
 
             if ($file) {
                 $block['content']['image'] = $file->url();
-//                $block['content']['alt'] = $file->alt()->value();
-//                $block['content']['credits'] = $file->credits()->value();
+                $block['content']['alt'] = $file->alt()->value();
+                $block['content']['credits'] = $file->credits()->value();
 //                $block['content']['caption'] = $file->caption()->value();
             }
         }

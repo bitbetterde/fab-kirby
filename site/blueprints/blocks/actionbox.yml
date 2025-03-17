@@ -1,5 +1,6 @@
 name: Action Box
 icon: bolt
+preview: fields
 
 fields:
   title:
@@ -14,6 +15,7 @@ fields:
   buttons:
     label: Buttons
     type: structure
+    max: 2
     fields:
       caption:
         label: Button Caption
