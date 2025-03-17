@@ -1,4 +1,4 @@
-Title: Fab Region Bergisches Städtedreieck12
+Title: Fab Region Bergisches Städtedreieck
 
 ----
 
@@ -24,5 +24,3 @@ Toolbar:
 ----
 
 Hidden: true
-
-----

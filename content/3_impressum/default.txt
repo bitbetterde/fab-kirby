@@ -2,7 +2,17 @@ Title: Impressum
 
 ----
 
-Text: Hello this is Subpage1
+Heroimage: - file://dgwabjmjlzbmbhxj
+
+----
+
+Text:
+
+Das ist das Impressum. Verantwortlich ist:
+
+Michaela Mustermann
+Musterstraß 1
+11111 Musterstadt
 
 ----
 

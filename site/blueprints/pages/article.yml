@@ -10,6 +10,7 @@ columns:
           heroimage:
             type: files
             label: Hero Image
+            required: true
             multiple: false
             query: page.images.template('heroimage')
             uploads:
@@ -31,6 +32,7 @@ columns:
               - code
               - person
               - youtube
+              - horizontalcard
             label: Inhalt
             required: true
   sidebar:

@@ -5,3 +5,7 @@ fields:
   videoId:
     label: YouTube ID
     type: text
+    required: true
+  title:
+    label: Titel
+    type: text
