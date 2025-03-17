@@ -14,7 +14,7 @@ Teaser: Im Streit über das geplante Milliarden-Schuldenpaket hat sich Friedrich
 
 ----
 
-Text: [{"content":{"text":"<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by <strong>their</strong> place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>"},"id":"8752e671-ae73-4bcd-b008-0e4fd7177e0e","isHidden":false,"type":"text"},{"content":{"level":"h1","text":"Headline 1"},"id":"af1043ae-a0d6-41b5-9cba-9d04901c8c51","isHidden":false,"type":"heading"},{"content":{"level":"h2","text":"Heading 2"},"id":"68fc471b-7bf5-41f1-a144-5a3dad1698e2","isHidden":false,"type":"heading"},{"content":{"text":"<p>Dritter Block</p>"},"id":"8dbe11a8-eee6-44b6-a71a-22b66e862824","isHidden":false,"type":"text"},{"content":{"text":"<ul><li>List Item1</li><li>List Item2</li><li>List Item3<ul><li>Subitem 1<ul><li>SubSubItem1</li></ul></li><li>Subitem2</li></ul></li></ul>"},"id":"80932d3e-95c2-473d-b6f0-e98d2138c184","isHidden":false,"type":"list"},{"content":{"location":"kirby","image":["file://8qnnx1qfwaq1mwve"],"src":"","alt":"Some Alt Text","caption":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend dui eget semper hendrerit. Nam hendrerit consequat sapien, et finibus nisi vestibulum id. Donec sit amet justo dui. Etiam eget mauris ante. Curabitur luctus neque justo, nec venenatis nulla ultrices ut. Morbi hendrerit molestie dui sit amet fringilla. Sed et maximus nisi. Phasellus pellentesque fringilla tellus, eget bibendum diam vulputate ut.","subcaption":"https://www.bla.de","tag":"Lecker"},"id":"2749173b-047e-4be1-b382-d40d8a7bc618","isHidden":false,"type":"image"},{"content":{"code":"Hello Code Area","language":"text"},"id":"790725a0-3fd7-4c0c-aa31-bc42dfd52f1b","isHidden":false,"type":"code"},{"content":{"people":[{"name":"Fabian Schmidt","position":"CEO","organisation":"bitbetter GmbH","email":"fabian@bitbetter.de","image":["file://gznor8jyevbzxgps"]},{"name":"Moritz Stückler","position":"Chief Evangelist","organisation":"bitbetter GmbH","email":"moritz@bitbetter.de","image":[]}]},"id":"a4063943-7eb5-44d5-b6f3-43636510fc19","isHidden":false,"type":"person"},{"content":{"videoid":"Fo4746XZgw8"},"id":"ab7b466d-374b-4a04-9494-4e29f1d06737","isHidden":false,"type":"youtube"}]
+Text: [{"content":{"text":"<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by <strong>their</strong> place and supplies it with the necessary regelialia. It is a <strong>paradisematic country</strong>, in which roasted parts of sentences fly into your mouth. <u>Even the all-powerful</u> Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>"},"id":"8752e671-ae73-4bcd-b008-0e4fd7177e0e","isHidden":false,"type":"text"},{"content":{"level":"h1","text":"Headline 1"},"id":"af1043ae-a0d6-41b5-9cba-9d04901c8c51","isHidden":false,"type":"heading"},{"content":{"level":"h2","text":"Heading 2"},"id":"68fc471b-7bf5-41f1-a144-5a3dad1698e2","isHidden":false,"type":"heading"},{"content":{"text":"<p>Dritter Block</p>"},"id":"8dbe11a8-eee6-44b6-a71a-22b66e862824","isHidden":false,"type":"text"},{"content":{"text":"<ul><li>List Item1</li><li>List Item2</li><li>List Item3<ul><li>Subitem 1<ul><li>SubSubItem1</li></ul></li><li>Subitem2</li></ul></li></ul>"},"id":"80932d3e-95c2-473d-b6f0-e98d2138c184","isHidden":false,"type":"list"},{"content":{"location":"kirby","image":["file://8qnnx1qfwaq1mwve"],"src":"","alt":"Some Alt Text","caption":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend dui eget semper hendrerit. Nam hendrerit consequat sapien, et finibus nisi vestibulum id. Donec sit amet justo dui. Etiam eget mauris ante. Curabitur luctus neque justo, nec venenatis nulla ultrices ut. Morbi hendrerit molestie dui sit amet fringilla. Sed et maximus nisi. Phasellus pellentesque fringilla tellus, eget bibendum diam vulputate ut.","subcaption":"https://www.bla.de","tag":"Lecker"},"id":"2749173b-047e-4be1-b382-d40d8a7bc618","isHidden":false,"type":"image"},{"content":{"code":"Hello Code Area","language":"text"},"id":"790725a0-3fd7-4c0c-aa31-bc42dfd52f1b","isHidden":false,"type":"code"},{"content":{"target":"page://bMSZp4i5L699q4Yi"},"id":"db271513-5137-4b81-9ea8-350ec6b59716","isHidden":false,"type":"horizontalcard"},{"content":{"people":[{"name":"Fabian Schmidt","position":"CEO","organisation":"","email":"fabian@bitbetter.de","image":["file://gznor8jyevbzxgps"],"facebook":"https://www.facebook.com","instagram":"https://www.instagram.com/johnmayer/","mastodon":"https://mastodon.social","linkedin":"https://linkedin.com","twitter":"https://x.com","xing":"https://xing.com"},{"name":"Moritz Stückler","position":"Chief Evangelist","organisation":"bitbetter GmbH","email":"moritz@bitbetter.de","image":["file://vab4wdbefupvccc7"],"facebook":"","instagram":"","mastodon":"","linkedin":"","twitter":"","xing":""}]},"id":"a4063943-7eb5-44d5-b6f3-43636510fc19","isHidden":false,"type":"person"},{"content":{"videoid":"Fo4746XZgw8","title":""},"id":"ab7b466d-374b-4a04-9494-4e29f1d06737","isHidden":false,"type":"youtube"}]
 
 ----
 
@@ -25,29 +25,29 @@ Uuid: zjCl30PpJhkTglKr
 Image:
 
 - 
-  id: screenshot-2025-03-14-at-14.34.28.png
+  id: screenshot-2025-03-07-at-10.46.47.png
   image:
     back: pattern
     color: orange-500
     cover: false
     icon: image
     url: >
-      http://fab-bergisch.test/media/pages/blog/b4ad51ca9a-1741969405/screenshot-2025-03-14-at-14.34.28.png
+      http://fab-bergisch.test/media/pages/blog/433d51362d-1742155054/screenshot-2025-03-07-at-10.46.47.png
     src: >
       data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw
     srcset: >
-      http://fab-bergisch.test/media/pages/blog/b4ad51ca9a-1741969405/screenshot-2025-03-14-at-14.34.28-38x.png
+      http://fab-bergisch.test/media/pages/blog/433d51362d-1742155054/screenshot-2025-03-07-at-10.46.47-38x.png
       38w,
-      http://fab-bergisch.test/media/pages/blog/b4ad51ca9a-1741969405/screenshot-2025-03-14-at-14.34.28-76x.png
+      http://fab-bergisch.test/media/pages/blog/433d51362d-1742155054/screenshot-2025-03-07-at-10.46.47-76x.png
       76w
   info: ""
   link: >
-    /pages/blog/files/screenshot-2025-03-14-at-14.34.28.png
+    /pages/blog/files/screenshot-2025-03-07-at-10.46.47.png
   sortable: true
-  text: screenshot-2025-03-14-at-14.34.28.png
-  uuid: file://gznor8jyevbzxgps
-  dragText: '(image: file://gznor8jyevbzxgps)'
-  filename: screenshot-2025-03-14-at-14.34.28.png
+  text: screenshot-2025-03-07-at-10.46.47.png
+  uuid: file://vab4wdbefupvccc7
+  dragText: '(image: file://vab4wdbefupvccc7)'
+  filename: screenshot-2025-03-07-at-10.46.47.png
   type: image
   url: >
-    http://fab-bergisch.test/media/pages/blog/b4ad51ca9a-1741969405/screenshot-2025-03-14-at-14.34.28.png
+    http://fab-bergisch.test/media/pages/blog/433d51362d-1742155054/screenshot-2025-03-07-at-10.46.47.png

@@ -10,13 +10,24 @@ columns:
           heroimage:
             type: files
             label: Hero Image
+            required: true
             multiple: false
             query: page.images.template('heroimage')
             uploads:
               template: heroimage
           text:
-            type: textarea
-            size: huge
+            type: blocks
+            fieldsets:
+              - heading
+              - text
+              - list
+              - image
+              - code
+              - person
+              - youtube
+              - horizontalcard
+            label: Inhalt
+            required: true
   sidebar:
     width: 1/3
     sections:

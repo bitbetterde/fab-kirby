@@ -4,20 +4,54 @@ preview: fields
 fields:
   people:
     type: structure
+    wysiwyg: true
+    columns:
+      name: true
+      position: true
+      position: true
+      organisation: true
     label: Personen
     fields:
       name:
         label: Name
         type: text
+        placeholder: Michaela Musterfrau
       position:
         label: Position
         type: text
+        placeholder: Marketing Officer
       organisation:
         label: Organisation
         type: text
+        placeholder: Musterfirma GmbH
       email:
         label: E-Mail
-        type: text
+        type: email
+        placeholder: michaela@firma.de
       image:
         label: Bild
         type: files
+        required: true
+      facebook:
+        label: Facebook
+        type: text
+        icon: facebook
+      instagram:
+        label: Instagram
+        type: text
+        icon: instagram
+      mastodon:
+        label: Mastodon
+        type: text
+        icon: mastodon
+      linkedin:
+        label: LinkedIn
+        type: text
+        icon: linkedin
+      twitter:
+        label: Twitter
+        type: text
+        icon: twitter
+      xing:
+        label: Xing
+        type: text

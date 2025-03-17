@@ -1,0 +1,5 @@
+Uuid: dgwabjmjlzbmbhxj
+
+----
+
+Template: heroimage
