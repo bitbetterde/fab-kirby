@@ -118,8 +118,8 @@ export default (props) => {
                                 description={block.content.target.content.teaser}
                                 href={block.content.target.url}
                                 image={{
-                                    alt: block.content.target.content.heroimage.name,
-                                    src: block.content.target.content.heroimage.url,
+                                    alt: block.content.target.content.heroimage?.name,
+                                    src: block.content.target.content.heroimage?.url,
                                 }}
                             />
                         );
