@@ -40,7 +40,6 @@ columns:
     sections:
       pages:
         type: pages
-        template: default
       files:
         type: files
 
