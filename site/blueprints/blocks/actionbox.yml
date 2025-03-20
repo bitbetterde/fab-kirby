@@ -1,0 +1,22 @@
+name: Action Box
+icon: bolt
+preview: fields
+fields:
+  title:
+    label: Titel
+    type: text
+    required: true
+  description:
+    label: Beschreibung
+    type: textarea
+  buttons:
+    label: Buttons
+    type: structure
+    max: 2
+    fields:
+      caption:
+        label: Button Caption
+        type: text
+      target:
+        label: Button (URL)
+        type: url

@@ -33,6 +33,7 @@ columns:
               - person
               - youtube
               - horizontalcard
+              - actionbox
             label: Inhalt
             required: true
   sidebar:
