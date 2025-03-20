@@ -1,5 +1,0 @@
-Uuid: q1wkgoigmpfcgbwc
-
-----
-
-Template: heroimage
