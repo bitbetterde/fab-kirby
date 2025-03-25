@@ -31,4 +31,3 @@ fields:
     label: Lightbox aktivieren
     type: toggle
     default: false
-
