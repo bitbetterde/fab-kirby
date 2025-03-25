@@ -17,6 +17,7 @@ import {
   YoutubeEmbed,
   ActionBox,
   Button,
+  ImageSlider,
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
@@ -108,6 +109,21 @@ export default (props) => {
           } else if (block.type === "youtube") {
             return (
               <YoutubeEmbed videoId={block.content.videoid} title="Hallo" />
+            );
+          } else if (block.type === "imageslider") {
+            return (
+              <ImageSlider
+                title={block.content.title}
+                images={block.content.images?.map((img) => ({
+                  src: img.location === "kirby" ? img.image?.[0]?.url : img.src,
+                  caption: img.caption,
+                  subCaption: img.subcaption,
+                  tag: img.tag,
+                }))}
+                withLightbox={block.content.withlightbox === "true"}
+                fullBleed={block.content.fullbleed === "true"}
+                showTags={block.content.showtags === "true"}
+              />
             );
           } else if (block.type === "actionbox") {
             return (

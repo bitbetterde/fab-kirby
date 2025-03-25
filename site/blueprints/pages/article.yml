@@ -34,6 +34,7 @@ columns:
               - youtube
               - horizontalcard
               - actionbox
+              - imageslider
             label: Inhalt
             required: true
   sidebar:
@@ -44,4 +45,3 @@ columns:
         template: default
       files:
         type: files
-
