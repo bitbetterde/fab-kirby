@@ -7,7 +7,7 @@ createInertiaApp({
   resolve: (name) =>
     resolvePageComponent(
       `./templates/${name}.tsx`,
-      import.meta.glob("./templates/**/*.tsx")
+      import.meta.glob("./templates/**/*.tsx"),
     ),
   setup({ el, App, props }) {
     const node = <App {...props} />;
