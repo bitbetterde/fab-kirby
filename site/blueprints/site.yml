@@ -35,4 +35,5 @@ tabs:
                 type: text
               icon:
                 label: Icon
-                type: text
+                type: select
+                options: site.iconOptions
