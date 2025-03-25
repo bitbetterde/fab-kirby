@@ -57,20 +57,20 @@ return function (Page $page, Site $site) {
     }
 
 
-//    foreach ($page->text()->toBlocks() as $block) {
-//        if ($block->type() == 'horizontalcard') {
-//            foreach ($block->content()->fields() as $key => $value) {
-//                $newPage = $site->pages()->find($value);
-//                var_dump($newPage->heroimage());
-//            }
-//            die();
-//        }
-//    }
+    //    foreach ($page->text()->toBlocks() as $block) {
+    //        if ($block->type() == 'horizontalcard') {
+    //            foreach ($block->content()->fields() as $key => $value) {
+    //                $newPage = $site->pages()->find($value);
+    //                var_dump($newPage->heroimage());
+    //            }
+    //            die();
+    //        }
+    //    }
 
 
     $defaultProps = getDefaultInertiaProps($page, $site);
     $pageArr = $defaultProps['page'];
-    $pageArr['content']['text'] = resolveLinks($page->content()->text(), $page, $site);
+    $pageArr['content']['text'] = resolveLinks($page->content()->     text(), $page, $site);
 
     return Inertia::createResponse(
         $page->intendedTemplate(),
@@ -78,8 +78,8 @@ return function (Page $page, Site $site) {
             ...$defaultProps,
             'page' => $pageArr,
             'breadcrumbs' => $site->breadcrumb()->map(function ($crumb) {
-                return [
-                    'href' => $crumb->url(),
+                return        [
+                    'href' =>       $crumb->url(),
                     'title' => $crumb->title()->value
                 ];
             })->values()
