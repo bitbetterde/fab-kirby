@@ -90,7 +90,11 @@ export default (props) => {
               <>
                 <pre>{JSON.stringify(block, null, 2)}</pre>
                 <Image
-                  src={block.content.location === "kirby" ? block.content.image?.[0]?.url : block.content.src}
+                  src={
+                    block.content.location === "kirby"
+                      ? block.content.image?.[0]?.url
+                      : block.content.src
+                  }
                   alt={block.content.alt}
                   caption={block.content.caption}
                   subCaption={block.content.subcaption}
