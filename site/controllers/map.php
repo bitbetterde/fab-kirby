@@ -38,12 +38,15 @@ return function (Page $page, Site $site) {
 
     foreach($mapPage->children() as $poiPage) {
         $poi = [
-            'title' => $poiPage->title(),
-            'lat' => $poiPage->lat(),
-            'lng' => $poiPage->lng(),
-            'description' => $poiPage->text(),
-            'id' => $poiPage->uuid(),
-            'image' => $poiPage->heroimage()
+            'name' => $poiPage->title()->toString(),
+            'lat' => $poiPage->lat()->toString(),
+            'lng' => $poiPage->lng()->toString(),
+            'description' => $poiPage->text()->toString(),
+            'id' => preg_replace('/[^a-z0-9]+/', '_', strtolower($poiPage->title()->toString())),
+            'image' => $poiPage->heroimage()->toFile()->url(),
+            'website' => $poiPage->website()->toString(),
+            'address' => $poiPage->address()->toString(),
+            'category' => $poiPage->category()->toString()
         ];
         array_push($pois, $poi);
     }
@@ -54,8 +57,8 @@ return function (Page $page, Site $site) {
         $page->intendedTemplate(),
         [
             ...$defaultProps,
-            'pois' => $mapPage->children()->toArray(),
-            'pois2' => $pois
+            'basePath' => $page->dirname(),
+            'pois' => $pois
         ]
     );
 };

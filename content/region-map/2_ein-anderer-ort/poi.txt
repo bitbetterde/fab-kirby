@@ -18,4 +18,20 @@ Lng: 10.1
 
 ----
 
+Website: https://fabcity.hamburg
+
+----
+
+Address: Neue Straße 36, 90411 Nürnberg
+
+----
+
+Category: Apfelbaum
+
+----
+
+Relationstatus: Test
+
+----
+
 Uuid: 8b7stps9ccpravse
