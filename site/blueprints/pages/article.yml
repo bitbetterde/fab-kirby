@@ -33,6 +33,8 @@ columns:
               - person
               - youtube
               - horizontalcard
+              - actionbox
+              - imageslider
             label: Inhalt
             required: true
   sidebar:
@@ -42,4 +44,3 @@ columns:
         type: pages
       files:
         type: files
-

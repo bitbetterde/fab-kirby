@@ -1,0 +1,33 @@
+name: Image Slider
+icon: images
+preview: fields
+fields:
+  content_headline:
+    type: headline
+    label: Inhalt
+  title:
+    label: Titel
+    type: text
+    required: true
+  images:
+    label: Bilder
+    type: structure
+    fields:
+      fields:
+        extends: fields/imagefields
+
+  settings_headline:
+    type: headline
+    label: Einstellungen
+  fullbleed:
+    label: Full Bleed
+    type: toggle
+    default: false
+  showtags:
+    label: Tags anzeigen
+    type: toggle
+    default: false
+  withlightbox:
+    label: Lightbox aktivieren
+    type: toggle
+    default: false
