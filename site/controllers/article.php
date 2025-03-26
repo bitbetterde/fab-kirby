@@ -17,14 +17,19 @@ return function (Page $page, Site $site) {
             if (
                 $block->type() === 'verticalnewscardslider'
             ) {
-                $result[] = serializeVerticalNewsCardSliderBlock($site, $block);
+                $result[] = serializeVerticalNewsCardSliderBlock($block);
             } elseif (
-                $block->type() !== 'text'
+                $block->type() === 'image'
             ) {
-                $result[] = resolveLinkInObject($page, $site, $block);
+                $result[] = serializeImageBlock($block);
+            } elseif (
+                $block->type() === 'text'
+            ) {
+                $result[] = $block->toArray();
             }
         }
 
+        return $result;
     }
 
 //    function resolveLinks(string $content, Page $page, Site $site)
@@ -47,6 +52,11 @@ return function (Page $page, Site $site) {
 
         foreach (array_keys($result) as $key) {
             if ($block->{$key}() instanceof Kirby\Content\Field) {
+                if (is_array($block->{$key}()->value())) {
+                    var_dump($block->{$key}());
+                    die();
+                }
+
                 if (is_string($block->{$key}()->value()) && (str_starts_with($block->{$key}()->value(), 'file://') || str_starts_with($block->{$key}()->value(), '- file://'))) {
                     var_dump($block->{$key}());
                     die();
@@ -63,6 +73,9 @@ return function (Page $page, Site $site) {
                     die();
                 }
                 resolveLinkInObject($page, $site, $block->{$key}());
+            } elseif (is_array($block->{$key}())) {
+                var_dump($block->{$key}());
+                die();
             }
 
         }
@@ -102,21 +115,34 @@ return function (Page $page, Site $site) {
     }
 
 
-    function serializeVerticalNewsCardSliderBlock(Site $site, $block): array
+    function serializeImageBlock($block): array
+    {
+        $result = $block->toArray();
+        if ($block->location() !== 'web') {
+            $result['content']['image'] = $block->image()->toFile()->toArray();
+        }
+        return $result;
+    }
+
+    function serializeVerticalNewsCardSliderBlock($block): array
     {
         $result = $block->toArray();
         if ($block->mode()->value() === 'children') {
             $resolvedChildren = [];
             foreach ($block->parentpage()->toPage()->children()->listed() as $child) {
-                $resolvedChildren[] = resolveLinkInObject(
-                    $child,
-                    $site,
-                    json_decode(json_encode($child->toArray()))
-                );
-                $result['content']['resolvedChildren'] = $resolvedChildren;
+                $resolvedChild = $child->toArray();
+                $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile();
+                $resolvedChildren[] = $resolvedChild;
             }
+            $result['content']['resolvedChildren'] = $resolvedChildren;
         } else {
-
+            $resolvedPages = [];
+            foreach ($block->selectedPages()->toPages()->listed() as $page) {
+                $resolvedPage = $page->toArray();
+                $resolvedPage['content']['heroimage'] = $page->heroimage()->toFile();
+                $resolvedPages[] = $resolvedPage;
+            }
+            $result['content']['selectedPages'] = $resolvedPages;
         }
         return $result;
     }
