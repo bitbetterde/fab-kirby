@@ -1,5 +1,5 @@
 // CSS from UI Library
-import "@fchh/fcos-suite-ui/dist/fcos-suite-ui.css";
+import "@fchh/fcos-suite-ui/style.css";
 // Local fonts
 import "@fontsource/karla";
 import "@fontsource/inter";
@@ -18,6 +18,7 @@ import {
   ActionBox,
   Button,
   ImageSlider,
+  VerticalNewsCardSlider,
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
@@ -156,6 +157,29 @@ export default (props) => {
                   alt: block.content.target.content.heroimage?.name,
                   src: block.content.target.content.heroimage?.url,
                 }}
+              />
+            );
+          } else if (block.type === "verticalnewscardslider") {
+            const pages =
+              block.content.mode === "manual"
+                ? block.content.pages
+                : block.content.resolvedChildren;
+            return (
+              <VerticalNewsCardSlider
+                className="fs-not-prose"
+                variant="dark"
+                title={block.content.title}
+                fullBleed={block.content.fullbleed === "true"}
+                items={pages?.map((page) => ({
+                  title: page.content.title,
+                  category: { id: 1, title: "Seite" },
+                  description: page.content.teaser,
+                  href: page.url,
+                  image: {
+                    alt: page.content.heroimage?.name,
+                    src: page.content.heroimage?.url,
+                  },
+                }))}
               />
             );
           }

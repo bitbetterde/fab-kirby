@@ -46,7 +46,7 @@ return function (Page $page, Site $site) {
                         }
                     } elseif (is_string($item) && str_starts_with($item, 'page://')) {
                         $newPage = $site->pages()->find($item);
-                        $result->$key[$itemKey] = resolveLinkInObject($newPage, $site, json_decode(json_encode($newPage->toArray())))->toArray();
+                        $result->$key[$itemKey] = resolveLinkInObject($newPage, $site, json_decode(json_encode($newPage->toArray())));
                     } elseif (is_object($item)) {
                         $result->$key[$itemKey] = resolveLinkInObject($page, $site, $item);
                     }
@@ -67,10 +67,52 @@ return function (Page $page, Site $site) {
     //        }
     //    }
 
+    function getChildPages(Page $page, Site $site)
+    {
+        $blocks = $page->text()->toBlocks()->toArray();
+        foreach ($blocks as &$block) {
+            if (
+                $block['type'] === 'verticalnewscardslider' &&
+                $block['content']['mode'] === 'children'
+            ) {
+                $parentField = new Kirby\Content\Field($page, 'parent', $block['content']['parent'] ?? []);
+                $parent = $parentField->toPages()->first();
+
+                if ($parent) {
+                    $resolvedChildren = [];
+                    foreach ($parent->children()->listed() as $child) {
+                        $resolvedChildren[] = resolveLinkInObject(
+                            $child,
+                            $site,
+                            json_decode(json_encode($child->toArray()))
+                        );
+                    }
+                    $block['content']['resolvedChildren'] = $resolvedChildren;
+                }
+            }
+        }
+
+        return $blocks;
+    }
 
     $defaultProps = getDefaultInertiaProps($page, $site);
     $pageArr = $defaultProps['page'];
-    $pageArr['content']['text'] = resolveLinks($page->content()->     text(), $page, $site);
+    $resolvedBlocks = resolveLinks($page->content()->text(), $page, $site);
+    $childResolvedBlocks = getChildPages($page, $site);
+
+
+    foreach ($resolvedBlocks as $index => &$block) {
+        if (
+            isset($childResolvedBlocks[$index]) &&
+            $block->type === 'verticalnewscardslider' &&
+            isset($childResolvedBlocks[$index]['content']['resolvedChildren'])
+        ) {
+            $block->content->resolvedChildren = $childResolvedBlocks[$index]['content']['resolvedChildren'];
+        }
+    }
+
+    $pageArr['content']['text'] = $resolvedBlocks;
+
 
     return Inertia::createResponse(
         $page->intendedTemplate(),
