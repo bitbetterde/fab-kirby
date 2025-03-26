@@ -11,7 +11,7 @@ fields:
   title:
     label: Titel
     type: text
-    required: true
+    required: false
   pages:
     label: Seiten wählen
     type: pages
