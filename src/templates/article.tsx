@@ -120,7 +120,7 @@ export default (props) => {
               <ImageSlider
                 title={block.content.title}
                 images={block.content.images?.map((img) => ({
-                  src: img.location === "kirby" ? img.image?.[0]?.url : img.src,
+                  src: img.location === "kirby" ? img.image?.url : img.src,
                   caption: img.caption,
                   subCaption: img.subcaption,
                   tag: img.tag,
