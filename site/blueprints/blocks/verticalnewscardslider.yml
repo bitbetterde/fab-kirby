@@ -19,7 +19,7 @@ fields:
     query: site.pages
     when:
       mode: manual
-  parent:
+  parentpage:
     label: Seite wählen
     type: pages
     multiple: false

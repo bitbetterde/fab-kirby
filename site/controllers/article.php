@@ -13,6 +13,9 @@ return function (Page $page, Site $site) {
     {
         $blocksContents = json_decode($content);
         foreach ($blocksContents as $blockKey => $block) {
+            if ($block->type === 'verticalnewscardslider') {
+
+            }
             if ($block->type != 'text') {
                 $blocksContents[$blockKey]->content = resolveLinkInObject($page, $site, $block->content);
             }
@@ -69,8 +72,29 @@ return function (Page $page, Site $site) {
 
     function getChildPages(Page $page, Site $site)
     {
+
         $blocks = $page->text()->toBlocks()->toArray();
+        $blocks = $page->text()->toBlocks();
+        foreach ($blocks as $block) {
+            if (
+                        $block->type() === 'verticalnewscardslider' &&
+                        $block->mode()->value() === 'children'
+                    ){
+                        $resolvedChildren = [];
+                        foreach ($block->parentpage()->toPage()->children()->listed() as $child) {
+                            $resolvedChildren[] = resolveLinkInObject(
+                                $child,
+                                $site,
+                                json_decode(json_encode($child->toArray()))
+                            );
+                        $block['content']['resolvedChildren'] = $resolvedChildren;
+                        var_dump($block->parentpage()->toPage()->children());
+                                die();
+                    }
+
+        }
         foreach ($blocks as &$block) {
+
             if (
                 $block['type'] === 'verticalnewscardslider' &&
                 $block['content']['mode'] === 'children'
