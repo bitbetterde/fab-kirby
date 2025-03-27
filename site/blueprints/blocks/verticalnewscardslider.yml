@@ -5,7 +5,7 @@ fields:
     label: Modus
     type: radio
     options:
-      manual: Mehrere Seiten Manuell wählen
+      manual: Mehrere Seiten manuell wählen
       children: Seite wählen und dessen Unterseiten verwenden
     default: manual
   title:

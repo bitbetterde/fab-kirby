@@ -27,12 +27,23 @@ return function (Page $page, Site $site) {
             } elseif ($block->type() === 'horizontalcard') {
                 $result[] = serializeHorizontalCardBlock($block);
             } elseif ($block->type() === 'person') {
-
+                $result[] = serializePersonBlock($block);
             } else {
                 $result[] = $block->toArray();
             }
         }
 
+        return $result;
+    }
+
+    function serializePersonBlock($block): array
+    {
+        $result = $block->toArray();
+        foreach ($block->content()->people()->toStructure() as $i => $person) {
+
+            $result['content']['people'][$i]['image'] = $person->image()->toFile()->toArray();
+
+        }
         return $result;
     }
 

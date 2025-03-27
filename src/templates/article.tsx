@@ -68,7 +68,7 @@ export default (props) => {
                 {block.content?.people?.map((person) => (
                   <Person
                     key={person.name}
-                    image={person.image?.[0]?.url}
+                    image={person.image?.url}
                     name={person.name}
                     position={person.position}
                     organization={person.organisation}
@@ -89,7 +89,7 @@ export default (props) => {
           } else if (block.type === "image") {
             return (
               <>
-                <pre>{JSON.stringify(block, null, 2)}</pre>
+                {/*<pre>{JSON.stringify(block, null, 2)}</pre>*/}
                 <Image
                   src={
                     block.content.location === "kirby"
