@@ -15,7 +15,7 @@ import { Header } from "@fchh/fcos-suite-ui";
 const MAPBOX_TOKEN = import.meta.env.VITE_PUBLIC_MAPBOX_TOKEN;
 
 export default (props) => {
-  console.log("Map Template:", props);
+  console.log("Poi Template:", props);
 
   return (
     <div className="h-full">

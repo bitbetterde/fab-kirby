@@ -56,7 +56,7 @@ return function (Page $page, Site $site) {
         $page->intendedTemplate(),
         [
             ...$defaultProps,
-            'basePath' => array_slice(explode("/", $page->url()),-1)[0],
+            'basePath' => array_slice(explode("/", $page->parent()->url()),-1)[0],
             'pois' => $pois
         ]
     );
