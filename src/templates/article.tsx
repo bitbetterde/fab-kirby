@@ -1,5 +1,5 @@
 // CSS from UI Library
-import "@fchh/fcos-suite-ui/dist/fcos-suite-ui.css";
+import "@fchh/fcos-suite-ui/style.css";
 // Local fonts
 import "@fontsource/karla";
 import "@fontsource/inter";
@@ -42,7 +42,7 @@ export default (props) => {
           icon: (
             <CarbonIcon
               name={item.icon}
-              className="size-6 sm:size-5 sm:mr-2 mb-1 sm:mb-0"
+              className="size-6 sm:size-5 sm:mr-2 mb-1 sm:mb-0 shrink-0"
             />
           ),
         }))}

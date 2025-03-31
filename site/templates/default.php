@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
 
 	<head>
 		<?= vite()->reactRefresh() ?>
@@ -8,7 +8,7 @@
 		<?= inertiaHead() ?>
 	</head>
 
-	<body>
+	<body class="h-full">
 		<?= inertia() ?>
 	</body>
 

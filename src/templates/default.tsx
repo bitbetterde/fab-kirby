@@ -1,5 +1,5 @@
 // CSS from UI Library
-import "@fchh/fcos-suite-ui/dist/fcos-suite-ui.css";
+import "@fchh/fcos-suite-ui/style.css";
 // Local fonts
 import "@fontsource/karla";
 import "@fontsource/inter";

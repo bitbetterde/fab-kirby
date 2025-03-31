@@ -1,0 +1,11 @@
+title: Map
+
+columns:
+  main:
+    sections:
+      pages:
+        layout: cards
+        label: Orte
+        type: pages
+        template: poi
+

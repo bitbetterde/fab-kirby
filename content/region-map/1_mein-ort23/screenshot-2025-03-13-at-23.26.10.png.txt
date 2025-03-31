@@ -1,0 +1,5 @@
+Uuid: rqcnbzwrraiawd39
+
+----
+
+Template: heroimage
