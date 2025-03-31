@@ -43,6 +43,5 @@ columns:
     sections:
       pages:
         type: pages
-        template: article
       files:
         type: files
