@@ -10,15 +10,18 @@ Toolbar:
 
 - 
   title: Tool1
-  href: /tool1
+  href:
+    - page://keJi7fpByXev874D
   icon: ApplicationVirtual
 - 
   title: Another Tool
-  href: /tool2
+  href:
+    - page://ppoBj1PIuSrXvwar
   icon: Calendar
 - 
   title: Map
-  href: /map
+  href:
+    - page://lqdc0buocga2upxz
   icon: ChoroplethMap
 
 ----
