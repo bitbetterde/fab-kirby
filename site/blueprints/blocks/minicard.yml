@@ -1,0 +1,10 @@
+name: Mini Card
+icon: grid-bottom
+preview: fields
+fields:
+  selectedpage:
+    label: Ort wählen
+    type: pages
+    multiple: false
+    required: true
+    query: site.index.filterBy('template', 'map').children

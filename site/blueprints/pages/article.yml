@@ -35,6 +35,7 @@ columns:
               - horizontalcard
               - actionbox
               - imageslider
+              - minicard
             label: Inhalt
             required: true
   sidebar:
