@@ -20,13 +20,30 @@ function traverseMenu($item)
 
 function getDefaultInertiaProps(Page $page, Site $site)
 {
+    $showToolbar = !$site->content()->hideToolbar()->toBool();
     $pageArr = $page->toArray();
     $heroImageArr = $page->heroimage()->toFile()->toArray();
+
+    $toolbarArr = [];
+
+    if ($showToolbar) {
+
+        $toolbarStructure = $site->toolbar()->toStructure();
+
+        foreach ($toolbarStructure as $item) {
+            $modifiedMenuItem = [
+                'icon' => $item->icon()->toString(),
+                'title' => $item->title()->toString(),
+                'href' => $item->href()->toPage()->url(),
+            ];
+            array_push($toolbarArr, $modifiedMenuItem);
+        }
+    }
 
     return [
         'page' => $pageArr,
         'menu' => traverseMenu($site),
-        'toolbar' => $site->content()->hideToolbar()->toBool() ? null : $site->content()->toolbar()->toStructure()->toArray(),
+        'toolbar' => $showToolbar ? $toolbarArr : null,
         'heroimage' => [
             'url' => $heroImageArr['url'],
             'alt' => $heroImageArr['content']['alt'] ?? null,

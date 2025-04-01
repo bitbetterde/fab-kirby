@@ -51,7 +51,8 @@ Icon
 
 node_modules
 build
-site/plugins
+site/plugins/*
+!site/plugins/icon-dropdown
 
 vendor
 kirby

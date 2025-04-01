@@ -1,12 +1,12 @@
-title: Image
+title: Artikelbild
 accept:
   type: image
 fields:
   alt:
-    label: Alt-Text
+    label: Alt Text (Beschreibung für Assistenztechnologien)
     type: text
   credits:
-    label: Credits
+    label: Credits (Tag auf dem Bild)
     type: text
   caption:
     label: Bildunterschrift

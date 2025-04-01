@@ -12,7 +12,7 @@ columns:
             label: Hero Image
             required: true
             multiple: false
-            query: page.images.template('heroimage')
+            query: page.images.template('article-heroimage')
             uploads:
               template: heroimage
           text:

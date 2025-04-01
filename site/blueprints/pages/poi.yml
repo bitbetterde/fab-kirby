@@ -1,0 +1,52 @@
+title: Point of Interest
+
+columns:
+  main:
+    width: 1/2
+    sections:
+      fields:
+        type: fields
+        fields:
+          heroimage:
+            type: files
+            label: Bild
+            required: true
+            multiple: false
+            query: page.images.template('map-image')
+            uploads:
+              template: map-image
+          text:
+            type: textarea
+            label: Beschreibung
+            required: true
+          lat:
+            type: number
+            label: Geografische Breite
+            required: true
+            min: 0
+          lng:
+            type: number
+            label: Geografische Länge
+            required: true
+            min: 0
+          website:
+            type: url
+            label: Webseite
+          address:
+            type: text
+            label: Addresse
+          category:
+            label: Kategorien
+            type: tags
+            max: 1
+            accept: all
+            options:
+              type: query
+              query: page.siblings.pluck("category", ",", true)
+          tags:
+            label: Tags
+            type: tags
+            accept: all
+            options:
+              type: query
+              query: page.siblings.pluck("tags", ",", true)

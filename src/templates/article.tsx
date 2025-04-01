@@ -1,5 +1,5 @@
 // CSS from UI Library
-import "@fchh/fcos-suite-ui/dist/fcos-suite-ui.css";
+import "@fchh/fcos-suite-ui/style.css";
 // Local fonts
 import "@fontsource/karla";
 import "@fontsource/inter";
@@ -18,6 +18,7 @@ import {
   ActionBox,
   Button,
   ImageSlider,
+  VerticalNewsCardSlider,
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
@@ -42,7 +43,7 @@ export default (props) => {
           icon: (
             <CarbonIcon
               name={item.icon}
-              className="size-6 sm:size-5 sm:mr-2 mb-1 sm:mb-0"
+              className="size-6 sm:size-5 sm:mr-2 mb-1 sm:mb-0 shrink-0"
             />
           ),
         }))}
@@ -67,7 +68,7 @@ export default (props) => {
                 {block.content?.people?.map((person) => (
                   <Person
                     key={person.name}
-                    image={person.image?.[0]?.url}
+                    image={person.image?.url}
                     name={person.name}
                     position={person.position}
                     organization={person.organisation}
@@ -88,11 +89,11 @@ export default (props) => {
           } else if (block.type === "image") {
             return (
               <>
-                <pre>{JSON.stringify(block, null, 2)}</pre>
+                {/*<pre>{JSON.stringify(block, null, 2)}</pre>*/}
                 <Image
                   src={
                     block.content.location === "kirby"
-                      ? block.content.image?.[0]?.url
+                      ? block.content.image?.url
                       : block.content.src
                   }
                   alt={block.content.alt}
@@ -119,7 +120,7 @@ export default (props) => {
               <ImageSlider
                 title={block.content.title}
                 images={block.content.images?.map((img) => ({
-                  src: img.location === "kirby" ? img.image?.[0]?.url : img.src,
+                  src: img.location === "kirby" ? img.image?.url : img.src,
                   caption: img.caption,
                   subCaption: img.subcaption,
                   tag: img.tag,
@@ -160,6 +161,29 @@ export default (props) => {
                   alt: block.content.target.content.heroimage?.name,
                   src: block.content.target.content.heroimage?.url,
                 }}
+              />
+            );
+          } else if (block.type === "verticalnewscardslider") {
+            const pages =
+              block.content.mode === "manual"
+                ? block.content.pages
+                : block.content.resolvedChildren;
+            return (
+              <VerticalNewsCardSlider
+                className="fs-not-prose"
+                variant="dark"
+                title={block.content.title}
+                fullBleed={block.content.fullbleed === "true"}
+                items={pages?.map((page) => ({
+                  title: page.content.title,
+                  category: { id: 1, title: "Seite" },
+                  description: page.content.teaser,
+                  href: page.url,
+                  image: {
+                    alt: page.content.heroimage?.name,
+                    src: page.content.heroimage?.url,
+                  },
+                }))}
               />
             );
           }

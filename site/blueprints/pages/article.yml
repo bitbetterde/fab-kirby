@@ -7,17 +7,9 @@ columns:
       fields:
         type: fields
         fields:
-          heroimage:
-            type: files
-            label: Hero Image
-            required: true
-            multiple: false
-            query: page.images.template('heroimage')
-            uploads:
-              template: heroimage
           subheading:
             type: text
-            label: Subheading
+            label: Subtitel
           teaser:
             type: textarea
             label: Teaser
@@ -35,6 +27,7 @@ columns:
               - horizontalcard
               - actionbox
               - imageslider
+              - verticalnewscardslider
             label: Inhalt
             required: true
           tag:
@@ -43,8 +36,19 @@ columns:
   sidebar:
     width: 1/3
     sections:
+      fieldsRight:
+        type: fields
+        fields:
+          heroimage:
+              type: files
+              layout: cards
+              label: Hero Image
+              required: true
+              multiple: false
+              query: page.images.template('article-heroimage')
+              uploads:
+                template: heroimage
       pages:
         type: pages
-        template: default
       files:
         type: files

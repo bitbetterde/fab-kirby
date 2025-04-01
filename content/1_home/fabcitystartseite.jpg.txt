@@ -2,4 +2,4 @@ Uuid: sisx9cgaoapfc9lf
 
 ----
 
-Template: heroimage
+Template: article-heroimage
