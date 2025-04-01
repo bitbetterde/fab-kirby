@@ -14,7 +14,7 @@ Lat: 53.5
 
 ----
 
-Lng: 10.5
+Lng: 10.6
 
 ----
 
@@ -26,11 +26,11 @@ Address: Teststraße 96, 22111 Hamburg
 
 ----
 
-Category: Sonstiges
+Category: Test123
 
 ----
 
-Relationstatus: Mitglied
+Tags: Tag1, Tag2
 
 ----
 

@@ -1,0 +1,7 @@
+title: Map Headerbild
+accept:
+  type: image
+fields:
+  alt:
+    label: Alt Text (Beschreibung für Assistenztechnologien)
+    type: text

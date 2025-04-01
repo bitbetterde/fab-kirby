@@ -30,8 +30,4 @@ Category: Apfelbaum
 
 ----
 
-Relationstatus: Test
-
-----
-
 Uuid: 8b7stps9ccpravse

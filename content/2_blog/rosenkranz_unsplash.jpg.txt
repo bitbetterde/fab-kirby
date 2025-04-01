@@ -1,0 +1,5 @@
+Uuid: hiqe1thkjidkeoku
+
+----
+
+Template: heroimage

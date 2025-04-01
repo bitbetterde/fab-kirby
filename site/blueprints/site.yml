@@ -7,6 +7,11 @@ tabs:
     sections:
       pages:
         type: pages
+        templates:
+          - blog
+          - article
+          - default
+          - map
 
   global:
     label: Einstellungen

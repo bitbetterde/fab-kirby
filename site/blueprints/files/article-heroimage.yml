@@ -1,0 +1,10 @@
+title: Artikel Hero Bild
+accept:
+  type: image
+fields:
+  alt:
+    label: Alt Text (Beschreibung für Assistenztechnologien)
+    type: text
+  credits:
+    label: Credits (Tag auf dem Bild)
+    type: text

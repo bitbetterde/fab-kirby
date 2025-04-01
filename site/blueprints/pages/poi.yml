@@ -2,48 +2,51 @@ title: Point of Interest
 
 columns:
   main:
-    width: 2/3
+    width: 1/2
     sections:
       fields:
         type: fields
         fields:
           heroimage:
             type: files
-            label: Hero Image
+            label: Bild
             required: true
             multiple: false
-            query: page.images.template('heroimage')
+            query: page.images.template('map-image')
             uploads:
-              template: heroimage
+              template: map-image
           text:
             type: textarea
             label: Beschreibung
             required: true
           lat:
             type: number
-            label: Latitude
+            label: Geografische Breite
             required: true
             min: 0
           lng:
             type: number
-            label: Longitude
+            label: Geografische Länge
             required: true
             min: 0
           website:
-            type: text
+            type: url
             label: Webseite
           address:
             type: text
             label: Addresse
           category:
-            type: text
-            label: Kategorie
-          relationStatus:
-            type: text
-            label: Beziehung
-  sidebar:
-    width: 1/3
-    sections:
-      files:
-        type: files
-
+            label: Kategorien
+            type: tags
+            max: 1
+            accept: all
+            options:
+              type: query
+              query: page.siblings.pluck("category", ",", true)
+          tags:
+            label: Tags
+            type: tags
+            accept: all
+            options:
+              type: query
+              query: page.siblings.pluck("tags", ",", true)

@@ -21,7 +21,7 @@ Toolbar:
 - 
   title: Map
   href:
-    - page://lqdc0buocga2upxz
+    - page://zfiqhlqnimyv9fnx
   icon: ChoroplethMap
 
 ----

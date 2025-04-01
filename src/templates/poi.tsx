@@ -39,27 +39,7 @@ export default (props) => {
       <main className="h-full basis-full relative">
         <FabCityMap
           baseUrl={props.basePath}
-          data={props.pois.map((poi) => ({
-            ...poi,
-            tags: [
-              {
-                id: "12",
-                displayName: "Unternehmen",
-                color: "hsl(257,60%,80%)",
-              },
-              {
-                id: "13",
-                displayName: "Metallwerkstatt",
-                color: "hsl(273,60%,80%)",
-              },
-              {
-                id: "9",
-                displayName: "Holzwerkstatt",
-                color: "hsl(22,60%,80%)",
-              },
-              { id: "8", displayName: "Workshops", color: "hsl(229,60%,80%)" },
-            ],
-          }))}
+          data={props.pois}
           mapboxToken={MAPBOX_TOKEN}
           poiRoutePrefix={""}
         />
