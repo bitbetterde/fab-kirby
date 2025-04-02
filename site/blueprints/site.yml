@@ -8,10 +8,10 @@ tabs:
       pages:
         type: pages
         templates:
-          - blog
           - article
           - default
           - map
+          - horizontalcardlist
 
   global:
     label: Einstellungen
