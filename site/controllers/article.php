@@ -9,7 +9,6 @@ include 'default.php';
 
 return function (Page $page, Site $site) {
 
-
     function serializeBlocks($blocks)
     {
         $result = [];
@@ -28,6 +27,8 @@ return function (Page $page, Site $site) {
                 $result[] = serializeHorizontalCardBlock($block);
             } elseif ($block->type() === 'person') {
                 $result[] = serializePersonBlock($block);
+            } elseif ($block->type() === 'minicard') {
+                $result[] = serializeMiniCardBlock($block);
             } elseif ($block->type() === 'accordion') {
                 $result[] = convertMarkdownAccordion($block);
             } else {
@@ -37,6 +38,15 @@ return function (Page $page, Site $site) {
 
         return $result;
     }
+
+    function serializeMiniCardBlock($block): array
+    {
+        $result = $block->toArray();
+        $result['content']['target'] = $block->selectedPage()->toPage()->toArray();
+        $result['content']['target']['content']['heroimage'] = $block->selectedPage()->toPage()->heroimage()->toFile()->toArray();
+        return $result;
+    }
+
 
     function convertMarkdownAccordion($block): array
     {

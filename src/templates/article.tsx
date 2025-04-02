@@ -18,6 +18,7 @@ import {
   ActionBox,
   Button,
   ImageSlider,
+  MiniCard,
   VerticalNewsCardSlider,
   AccordionItem,
 } from "@fchh/fcos-suite-ui";
@@ -163,6 +164,21 @@ export default (props) => {
                   alt: block.content.target.content.heroimage?.name,
                   src: block.content.target.content.heroimage?.url,
                 }}
+              />
+            );
+          } else if (block.type === "minicard") {
+            console.log("test123", block.content);
+            return (
+              <MiniCard
+                className="fs-not-prose"
+                type="dark"
+                name={block.content.target.content.title}
+                subtitle={block.content.target.content.text}
+                image={{
+                  alt: block.content.target.content.heroimage?.name,
+                  src: block.content.target.content.heroimage?.url,
+                }}
+                tags={[{ id: 1, title: block.content.target.content.category }]}
               />
             );
           } else if (block.type === "verticalnewscardslider") {

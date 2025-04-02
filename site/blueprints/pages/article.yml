@@ -27,6 +27,7 @@ columns:
               - horizontalcard
               - actionbox
               - imageslider
+              - minicard
               - verticalnewscardslider
               - accordion
             label: Inhalt
