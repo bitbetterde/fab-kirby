@@ -28,11 +28,24 @@ return function (Page $page, Site $site) {
                 $result[] = serializeHorizontalCardBlock($block);
             } elseif ($block->type() === 'person') {
                 $result[] = serializePersonBlock($block);
+            } elseif ($block->type() === 'accordion') {
+                $result[] = convertMarkdownAccordion($block);
             } else {
                 $result[] = $block->toArray();
             }
         }
 
+        return $result;
+    }
+
+    function convertMarkdownAccordion($block): array
+    {
+        $result = $block->toArray();
+        foreach ($block->content()->accordionitems()->toStructure() as $i => $item) {
+
+            $result['content']['accordionitems'][$i]['text'] = $item->text()->kirbytext()->toArray();
+
+        }
         return $result;
     }
 
