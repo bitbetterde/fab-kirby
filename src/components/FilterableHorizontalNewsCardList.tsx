@@ -65,7 +65,7 @@ export const FilterableHorizontalNewsCardList = ({
       onTagEnable={handleEnable}
       onTagDisable={handleDisable}
       breadcrumbs={breadcrumbs}
-      imageTag={imageTag}
+      titleImageTag={imageTag}
     />
   );
 };

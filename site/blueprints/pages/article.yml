@@ -1,4 +1,4 @@
-title: Article Page
+title: Artikel
 
 columns:
   main:
@@ -30,9 +30,7 @@ columns:
               - verticalnewscardslider
             label: Inhalt
             required: true
-          tag:
-            type: text
-            label: Tag
+
   sidebar:
     width: 1/3
     sections:
@@ -48,7 +46,9 @@ columns:
               query: page.images.template('article-heroimage')
               uploads:
                 template: heroimage
-      pages:
-        type: pages
+          tag:
+            type: tags
+            max: 1
+            label: Tag
       files:
         type: files

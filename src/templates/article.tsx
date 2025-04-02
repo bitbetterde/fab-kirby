@@ -97,7 +97,7 @@ export default (props) => {
                       : block.content.src
                   }
                   alt={block.content.alt}
-                  caption={block.content.caption}
+                  captionHtml={block.content.caption}
                   subCaption={block.content.subcaption}
                   tag={block.content.tag}
                 />

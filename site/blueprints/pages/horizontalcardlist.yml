@@ -1,0 +1,32 @@
+title: Kategorie / Liste
+columns:
+  main:
+    width: 2/3
+    sections:
+      fieldsLeft:
+        type: fields
+        fields:
+          subheading:
+            type: text
+            label: Subheading
+      pages:
+        type: pages
+        layout: cards
+        template: article
+    
+  sidebar:
+    width: 1/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          heroimage:
+            type: files
+            label: Hero Image
+            required: true
+            multiple: false
+            query: page.images.template('article-heroimage')
+            uploads:
+              template: heroimage
+
+

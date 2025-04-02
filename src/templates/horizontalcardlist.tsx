@@ -16,7 +16,7 @@ export default (props) => {
   console.log("HorizontalView Template", props);
 
   return (
-    <div>
+    <>
       <Header
         topBarItems={props?.menu.children}
         toolBarItems={props?.toolbar?.map((item) => ({
@@ -39,6 +39,7 @@ export default (props) => {
         titleImage={props.heroimage.url}
         cards={props.page.content.text.content.resolvedChildren.map(
           (child) => ({
+            id: child.url,
             className: "fs-not-prose",
             type: "dark",
             title: child.content.title,
@@ -53,6 +54,6 @@ export default (props) => {
         )}
       />
       <Footer menu={props?.menu.children} />
-    </div>
+    </>
   );
 };
