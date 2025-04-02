@@ -1,0 +1,5 @@
+Uuid: cmdmflgf966dghty
+
+----
+
+Template: heroimage

@@ -1,0 +1,25 @@
+Title: Second Blogpost
+
+----
+
+Subheading: Second Post is the best
+
+----
+
+Teaser: Second Post
+
+----
+
+Text: [{"content":{"text":"<p>Second Post</p>"},"id":"91b16521-d7c2-49d8-aff0-79fa02e00d82","isHidden":false,"type":"text"}]
+
+----
+
+Heroimage: - file://fvwqzgr5wm8cixoy
+
+----
+
+Tag: hamburg
+
+----
+
+Uuid: uynuagcxlatji8vd

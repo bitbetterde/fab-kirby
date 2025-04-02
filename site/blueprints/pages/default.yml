@@ -1,4 +1,4 @@
-title: Default Page
+title: Startseite
 
 columns:
   main:
@@ -9,10 +9,10 @@ columns:
         fields:
           heroimage:
             type: files
-            label: Hero Image
+            label: Headerbild
             required: true
             multiple: false
-            query: page.images.template('heroimage')
+            query: page.images.template('article-heroimage')
             uploads:
               template: heroimage
           text:
@@ -33,6 +33,7 @@ columns:
     sections:
       pages:
         type: pages
+        label: Seiten
         template: default
       files:
         type: files

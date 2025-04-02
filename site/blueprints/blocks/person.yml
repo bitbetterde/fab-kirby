@@ -8,7 +8,6 @@ fields:
     columns:
       name: true
       position: true
-      position: true
       organisation: true
     label: Personen
     fields:

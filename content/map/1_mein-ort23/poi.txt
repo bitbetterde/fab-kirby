@@ -1,0 +1,37 @@
+Title: Mein Ort23
+
+----
+
+Heroimage: - file://rqcnbzwrraiawd39
+
+----
+
+Text: Das ist ein Ort
+
+----
+
+Lat: 53.5
+
+----
+
+Lng: 10.6
+
+----
+
+Website: https://www.google.de
+
+----
+
+Address: Teststraße 96, 22111 Hamburg
+
+----
+
+Category: Test123
+
+----
+
+Tags: Tag1, Tag2
+
+----
+
+Uuid: hilekhwjglj1bpmc

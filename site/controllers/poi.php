@@ -36,7 +36,7 @@ return function (Page $page, Site $site) {
 
     $pois = [];
 
-    foreach($mapPage->children() as $poiPage) {
+    foreach($mapPage->children()->listed() as $poiPage) {
         $poi = [
             'name' => $poiPage->title()->toString(),
             'lat' => $poiPage->lat()->toString(),
@@ -46,7 +46,8 @@ return function (Page $page, Site $site) {
             'image' => $poiPage->heroimage()->toFile()->url(),
             'website' => $poiPage->website()->toString(),
             'address' => $poiPage->address()->toString(),
-            'category' => $poiPage->category()->toString()
+            'category' => $poiPage->category()->toString(),
+            'tags' => $poiPage->tags()->split(),
         ];
         array_push($pois, $poi);
     }

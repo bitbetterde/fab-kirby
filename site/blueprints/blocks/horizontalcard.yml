@@ -1,8 +1,9 @@
-name: Horizontal Card
+name: Horizontale Karte
 icon: grid-bottom
 preview: fields
 fields:
   target:
+    label: Ziel
     type: link
     required: true
     options:

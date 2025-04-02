@@ -1,0 +1,33 @@
+title: Slider (Vertikale Karten)
+icon: grid-left
+preview: fields
+fields:
+  mode:
+    label: Modus
+    type: radio
+    options:
+      manual: Einzelne Seiten manuell wählen
+      children: Alle Unterseiten
+    default: manual
+  title:
+    label: Titel
+    type: text
+    required: false
+  pages:
+    label: Seiten wählen
+    type: pages
+    multiple: true
+    query: site.pages
+    when:
+      mode: manual
+  parentpage:
+    label: Seite wählen
+    type: pages
+    multiple: false
+    query: site.pages
+    when:
+      mode: children
+  fullbleed:
+    label: Full Bleed
+    type: toggle
+    default: false

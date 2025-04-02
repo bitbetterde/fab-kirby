@@ -1,5 +1,0 @@
-Uuid: n65dznshvlbpcj9k
-
-----
-
-Template: heroimage

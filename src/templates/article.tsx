@@ -19,6 +19,8 @@ import {
   Button,
   ImageSlider,
   MiniCard,
+  VerticalNewsCardSlider,
+  AccordionItem,
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
@@ -48,6 +50,7 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
+        organization="frbs"
       />
       <Article
         titleImage={props?.heroimage?.url}
@@ -68,7 +71,7 @@ export default (props) => {
                 {block.content?.people?.map((person) => (
                   <Person
                     key={person.name}
-                    image={person.image?.[0]?.url}
+                    image={person.image?.url}
                     name={person.name}
                     position={person.position}
                     organization={person.organisation}
@@ -89,15 +92,15 @@ export default (props) => {
           } else if (block.type === "image") {
             return (
               <>
-                <pre>{JSON.stringify(block, null, 2)}</pre>
+                {/*<pre>{JSON.stringify(block, null, 2)}</pre>*/}
                 <Image
                   src={
                     block.content.location === "kirby"
-                      ? block.content.image?.[0]?.url
+                      ? block.content.image?.url
                       : block.content.src
                   }
                   alt={block.content.alt}
-                  caption={block.content.caption}
+                  captionHtml={block.content.caption}
                   subCaption={block.content.subcaption}
                   tag={block.content.tag}
                 />
@@ -120,7 +123,7 @@ export default (props) => {
               <ImageSlider
                 title={block.content.title}
                 images={block.content.images?.map((img) => ({
-                  src: img.location === "kirby" ? img.image?.[0]?.url : img.src,
+                  src: img.location === "kirby" ? img.image?.url : img.src,
                   caption: img.caption,
                   subCaption: img.subcaption,
                   tag: img.tag,
@@ -177,6 +180,42 @@ export default (props) => {
                 }}
                 tags={[{ id: 1, title: block.content.target.content.category }]}
               />
+            );
+          } else if (block.type === "verticalnewscardslider") {
+            const pages =
+              block.content.mode === "manual"
+                ? block.content.pages
+                : block.content.resolvedChildren;
+            return (
+              <VerticalNewsCardSlider
+                className="fs-not-prose"
+                variant="dark"
+                title={block.content.title}
+                fullBleed={block.content.fullbleed === "true"}
+                items={pages?.map((page) => ({
+                  title: page.content.title,
+                  category: { id: 1, title: "Seite" },
+                  description: page.content.teaser,
+                  href: page.url,
+                  image: {
+                    alt: page.content.heroimage?.name,
+                    src: page.content.heroimage?.url,
+                  },
+                }))}
+              />
+            );
+          } else if (block.type === "accordion") {
+            return (
+              <div className="fs-prose">
+                {block.content.accordionitems?.map((item) => (
+                  <AccordionItem
+                    title={item.title}
+                    open={item.defaultopen === "true"}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: item.text.text }} />
+                  </AccordionItem>
+                ))}
+              </div>
             );
           }
 

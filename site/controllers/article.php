@@ -29,6 +29,8 @@ return function (Page $page, Site $site) {
                 $result[] = serializePersonBlock($block);
             } elseif ($block->type() === 'minicard') {
                 $result[] = serializeMiniCardBlock($block);
+            } elseif ($block->type() === 'accordion') {
+                $result[] = convertMarkdownAccordion($block);
             } else {
                 $result[] = $block->toArray();
             }
@@ -45,6 +47,17 @@ return function (Page $page, Site $site) {
         return $result;
     }
 
+
+    function convertMarkdownAccordion($block): array
+    {
+        $result = $block->toArray();
+        foreach ($block->content()->accordionitems()->toStructure() as $i => $item) {
+
+            $result['content']['accordionitems'][$i]['text'] = $item->text()->kirbytext()->toArray();
+
+        }
+        return $result;
+    }
 
     function serializePersonBlock($block): array
     {

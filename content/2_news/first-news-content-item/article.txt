@@ -1,0 +1,25 @@
+Title: First News Content Item
+
+----
+
+Subheading: First News
+
+----
+
+Teaser: First news
+
+----
+
+Text: [{"content":{"text":"<p>Hello News</p>"},"id":"2c7db862-9e31-454c-8dc9-f7af227d3a36","isHidden":false,"type":"text"}]
+
+----
+
+Heroimage: - file://cmdmflgf966dghty
+
+----
+
+Tag: 
+
+----
+
+Uuid: s1ve8tkraaaudnkn
