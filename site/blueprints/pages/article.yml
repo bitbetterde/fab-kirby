@@ -40,7 +40,7 @@ columns:
           heroimage:
               type: files
               layout: cards
-              label: Hero Image
+              label: Headerbild
               required: true
               multiple: false
               query: page.images.template('article-heroimage')

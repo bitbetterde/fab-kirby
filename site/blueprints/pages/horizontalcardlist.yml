@@ -8,9 +8,10 @@ columns:
         fields:
           subheading:
             type: text
-            label: Subheading
+            label: Subtitel
       pages:
         type: pages
+        label: Seiten
         layout: cards
         template: article
     
@@ -22,7 +23,7 @@ columns:
         fields:
           heroimage:
             type: files
-            label: Hero Image
+            label: Headerbild
             required: true
             multiple: false
             query: page.images.template('article-heroimage')

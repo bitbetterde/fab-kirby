@@ -9,7 +9,7 @@ columns:
         fields:
           heroimage:
             type: files
-            label: Hero Image
+            label: Headerbild
             required: true
             multiple: false
             query: page.images.template('article-heroimage')
@@ -33,6 +33,7 @@ columns:
     sections:
       pages:
         type: pages
+        label: Seiten
         template: default
       files:
         type: files
