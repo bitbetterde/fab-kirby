@@ -28,11 +28,25 @@ return function (Page $page, Site $site) {
                 $result[] = serializeHorizontalCardBlock($block);
             } elseif ($block->type() === 'person') {
                 $result[] = serializePersonBlock($block);
+            } elseif ($block->type() === 'tabs') {
+                $result[] = convertMarkdownTabs($block);
             } else {
                 $result[] = $block->toArray();
             }
         }
 
+        return $result;
+    }
+
+    function convertMarkdownTabs($block): array
+    {
+
+        $result = $block->toArray();
+        foreach ($block->content()->tabs()->toStructure() as $i => $tab) {
+
+            $result['content']['tabs'][$i]['text'] = $tab->text()->kirbytext()->toArray();
+
+        }
         return $result;
     }
 
