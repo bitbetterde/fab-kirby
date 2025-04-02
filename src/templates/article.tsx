@@ -19,6 +19,7 @@ import {
   Button,
   ImageSlider,
   VerticalNewsCardSlider,
+  AccordionItem,
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
@@ -186,6 +187,16 @@ export default (props) => {
                 }))}
               />
             );
+          } else if (block.type === "accordion") {
+            return block.content.accordionitems?.map((item) => (
+              <AccordionItem
+                className="fs-prose"
+                title={item.title}
+                open={item.defaultopen === "true"}
+              >
+                <div dangerouslySetInnerHTML={{ __html: item.text.text }} />
+              </AccordionItem>
+            ));
           }
 
           return (

@@ -1,0 +1,20 @@
+name: Accordion
+icon: angle-down
+preview: fields
+fields:
+  accordionitems:
+    label: Elemente
+    type: structure
+    fields:
+      title:
+        label: Titel
+        type: text
+        required: true
+      text:
+        label: Text
+        type: textarea
+      defaultopen:
+        label: Element standardmäßig ausklappen
+        type: toggle
+        default: false
+
