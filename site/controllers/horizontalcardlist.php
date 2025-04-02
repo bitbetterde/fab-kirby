@@ -13,10 +13,12 @@ return function (Page $page, Site $site) {
     {
         $result = [];
         $resolvedChildren = [];
-        foreach ($page->children()->listed() as $child) {
-            $resolvedChild = $child->toArray();
-            $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()->toArray();
-            $resolvedChildren[] = $resolvedChild;
+        foreach ($page->children() as $child) {
+            if (!$child->isDraft()) {
+                $resolvedChild = $child->toArray();
+                $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()->toArray();
+                $resolvedChildren[] = $resolvedChild;
+            }
         }
         $result['content']['resolvedChildren'] = $resolvedChildren;
         return $result;

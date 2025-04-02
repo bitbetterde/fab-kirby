@@ -11,7 +11,7 @@ Toolbar:
 - 
   title: Tool1
   href:
-    - page://keJi7fpByXev874D
+    - page://6ftpf4qzcjhgbl7s
   icon: ApplicationVirtual
 - 
   title: Another Tool
