@@ -27,6 +27,7 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
+        organization="frbs"
       />
       <HeroSection src={props?.page?.files[0]} />
       <main>

@@ -29,6 +29,7 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
+        organization="frbs"
       />
       <FilterableHorizontalNewsCardList
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>

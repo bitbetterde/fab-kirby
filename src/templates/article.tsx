@@ -48,6 +48,7 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
+        organization="frbs"
       />
       <Article
         titleImage={props?.heroimage?.url}
