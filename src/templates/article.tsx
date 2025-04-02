@@ -188,15 +188,18 @@ export default (props) => {
               />
             );
           } else if (block.type === "accordion") {
-            return block.content.accordionitems?.map((item) => (
-              <AccordionItem
-                className="fs-prose"
-                title={item.title}
-                open={item.defaultopen === "true"}
-              >
-                <div dangerouslySetInnerHTML={{ __html: item.text.text }} />
-              </AccordionItem>
-            ));
+            return (
+              <div className="fs-prose">
+                {block.content.accordionitems?.map((item) => (
+                  <AccordionItem
+                    title={item.title}
+                    open={item.defaultopen === "true"}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: item.text.text }} />
+                  </AccordionItem>
+                ))}
+              </div>
+            );
           }
 
           return (
