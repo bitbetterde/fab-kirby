@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "NODE_ENV=production vite build"
   },
   "author": "Moritz Stueckler <moritz@bitbetter.de> (http://bitbetter.de/)",
   "license": "MIT",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@carbon/icons-react": "^11.56.0",
-    "@fchh/fcos-suite-map": "^1.0.0",
+    "@fchh/fcos-suite-map": "^1.0.1",
     "@fchh/fcos-suite-ui": "^1.2.1",
     "@fontsource/ibm-plex-sans": "^5.1.1",
     "@fontsource/inter": "^5.1.1",
