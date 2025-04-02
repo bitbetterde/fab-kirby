@@ -32,11 +32,16 @@ function getDefaultInertiaProps(Page $page, Site $site)
 
 return function (Page $page, Site $site) {
     $defaultProps = getDefaultInertiaProps($page, $site);
-    $mapPage = $site->index()->filterBy('intendedTemplate', 'map')->first();
 
     $pois = [];
 
-    foreach($mapPage->children()->listed() as $poiPage) {
+    $sorted = $page->children()->listed();
+
+    if ($page->alphabeticsorting()->toBool()) {
+        $sorted = $page->children()->listed()->sortBy('title', 'asc');
+    }
+
+    foreach($sorted as $poiPage) {
         $poi = [
             'name' => $poiPage->title()->toString(),
             'lat' => $poiPage->lat()->toString(),

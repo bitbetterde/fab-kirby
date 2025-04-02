@@ -24,6 +24,7 @@ columns:
           heroimage:
             type: files
             label: Headerbild
+            help: Das Bild wird auf die volle Bildschirmbreite des Besuchers skaliert. Damit es auch auf großen Monitoren gut aussieht bietet sich eine Breite von mindestens 2000 Pixeln an. Es sollte außerdem ein Seitenverhältnis von ca. 21:9 aufweisen. Eine gute Größe wäre zum Beispiel 2100x900 Pixel.
             required: true
             multiple: false
             query: page.images.template('article-heroimage')

@@ -10,7 +10,7 @@ Teaser: First news
 
 ----
 
-Text: [{"content":{"text":"<p>Hello News</p>"},"id":"2c7db862-9e31-454c-8dc9-f7af227d3a36","isHidden":false,"type":"text"}]
+Text: [{"content":{"text":"<p>Hello News</p>"},"id":"2c7db862-9e31-454c-8dc9-f7af227d3a36","isHidden":false,"type":"text"},{"content":{"selectedpage":["page://hilekhwjglj1bpmc"]},"id":"eddeb634-6bc3-4e4b-beed-36ed91560f7d","isHidden":false,"type":"minicard"}]
 
 ----
 
