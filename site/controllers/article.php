@@ -27,6 +27,8 @@ return function (Page $page, Site $site) {
                 $result[] = serializeHorizontalCardBlock($block);
             } elseif ($block->type() === 'person') {
                 $result[] = serializePersonBlock($block);
+            } elseif ($block->type() === 'tabs') {
+                $result[] = convertMarkdownTabs($block);
             } elseif ($block->type() === 'minicard') {
                 $result[] = serializeMiniCardBlock($block);
             } elseif ($block->type() === 'accordion') {
@@ -36,6 +38,17 @@ return function (Page $page, Site $site) {
             }
         }
 
+        return $result;
+    }
+
+    function convertMarkdownTabs($block): array
+    {
+
+        $result = $block->toArray();
+        foreach ($block->content()->tabs()->toStructure() as $i => $tab) {
+
+            $result['content']['tabs'][$i]['text'] = $tab->text()->kirbytext()->toArray();
+        }
         return $result;
     }
 
@@ -54,7 +67,6 @@ return function (Page $page, Site $site) {
         foreach ($block->content()->accordionitems()->toStructure() as $i => $item) {
 
             $result['content']['accordionitems'][$i]['text'] = $item->text()->kirbytext()->toArray();
-
         }
         return $result;
     }
@@ -65,7 +77,6 @@ return function (Page $page, Site $site) {
         foreach ($block->content()->people()->toStructure() as $i => $person) {
 
             $result['content']['people'][$i]['image'] = $person->image()->toFile()->toArray();
-
         }
         return $result;
     }

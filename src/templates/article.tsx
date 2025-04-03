@@ -20,6 +20,7 @@ import {
   ImageSlider,
   MiniCard,
   VerticalNewsCardSlider,
+  Tabs,
   AccordionItem,
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
@@ -212,6 +213,15 @@ export default (props) => {
                     alt: page.content.heroimage?.name,
                     src: page.content.heroimage?.url,
                   },
+                }))}
+              />
+            );
+          } else if (block.type === "tabs") {
+            return (
+              <Tabs
+                entries={block.content.tabs?.map((tab) => ({
+                  label: tab.title,
+                  content: tab.text.text,
                 }))}
               />
             );

@@ -29,6 +29,7 @@ columns:
               - imageslider
               - minicard
               - verticalnewscardslider
+              - tabs
               - accordion
             label: Inhalt
             required: true

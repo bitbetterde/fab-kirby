@@ -1,0 +1,16 @@
+name: Tabs
+icon: layers
+preview: fields
+fields:
+  tabs:
+    label: Tabs
+    type: structure
+    fields:
+      title:
+        label: Titel
+        type: text
+        required: true
+      text:
+        label: Inhalt
+        type: textarea
+        required: true
