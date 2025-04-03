@@ -1,4 +1,4 @@
-title: Article Page
+title: Artikel
 
 columns:
   main:
@@ -27,10 +27,13 @@ columns:
               - horizontalcard
               - actionbox
               - imageslider
+              - minicard
               - verticalnewscardslider
               - tabs
+              - accordion
             label: Inhalt
             required: true
+
   sidebar:
     width: 1/3
     sections:
@@ -40,13 +43,16 @@ columns:
           heroimage:
               type: files
               layout: cards
-              label: Hero Image
+              label: Headerbild
+              help: Das Bild wird auf die volle Bildschirmbreite des Besuchers skaliert. Damit es auch auf großen Monitoren gut aussieht bietet sich eine Breite von mindestens 2000 Pixeln an. Es sollte außerdem ein Seitenverhältnis von ca. 21:9 aufweisen. Eine gute Größe wäre zum Beispiel 2100x900 Pixel.
               required: true
               multiple: false
               query: page.images.template('article-heroimage')
               uploads:
-                template: heroimage
-      pages:
-        type: pages
+                template: article-heroimage
+          tag:
+            type: tags
+            max: 1
+            label: Tag
       files:
         type: files

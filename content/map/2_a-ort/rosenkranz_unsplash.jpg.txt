@@ -1,0 +1,5 @@
+Uuid: bnmjensah8k5u7lp
+
+----
+
+Template: map-image

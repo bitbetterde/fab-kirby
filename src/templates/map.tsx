@@ -32,9 +32,10 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
-        backgroundImageClasses="bg-[url('/map-pattern.svg')] bg-cover bg-no-repeat"
+        backgroundImageClasses="bg-[url('/assets/map-pattern.svg')] bg-cover bg-no-repeat"
         className="!static"
         itemsAlwaysLight
+        organization="frbs"
       />
       <main className="h-full basis-full relative">
         <FabCityMap

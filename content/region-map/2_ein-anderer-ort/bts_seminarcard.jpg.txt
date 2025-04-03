@@ -1,5 +1,0 @@
-Uuid: idrdlianqbax5dmo
-
-----
-
-Template: heroimage

@@ -7,11 +7,12 @@ tabs:
     sections:
       pages:
         type: pages
+        label: Seiten
         templates:
-          - blog
           - article
           - default
           - map
+          - horizontalcardlist
 
   global:
     label: Einstellungen
@@ -30,7 +31,7 @@ tabs:
           toolbar:
             label: Toolbar Elemente
             type: structure
-            help: Hier kannst du die Elemente in der Toolbar festlegen, die unterhalb des Hauptmenüs angezeigt wird. Die Namen der Icons beziehen sich auf das [Carbon Iconset](https://carbondesignsystem.com/elements/icons/library/) von IBM.
+            help: Hier kannst du die Elemente in der Toolbar festlegen, die unterhalb des Hauptmenüs angezeigt wird. 
             fields:
               title:
                 label: Titel
@@ -46,3 +47,4 @@ tabs:
                 label: Icon
                 type: select
                 options: site.iconOptions
+                help: Die Namen der Icons beziehen sich auf das [Carbon Iconset](https://carbondesignsystem.com/elements/icons/library/) von IBM.

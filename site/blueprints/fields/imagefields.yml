@@ -35,10 +35,9 @@ fields:
     icon: text
     inline: true
   subCaption:
-    label: Sub Caption
-    type: text
-    icon: title
+    label: Quelle
+    type: url
   tag:
-    label: Tag
+    label: Overlay
     type: text
-    icon: title
+    icon: tag

@@ -18,8 +18,10 @@ import {
   ActionBox,
   Button,
   ImageSlider,
+  MiniCard,
   VerticalNewsCardSlider,
   Tabs,
+  AccordionItem,
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
@@ -49,13 +51,14 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
+        organization="frbs"
       />
       <Article
         titleImage={props?.heroimage?.url}
         titleImageAlt={props?.heroimage?.alt}
         imageTag={props?.heroimage?.credits}
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
-          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb,
+          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb
         )}
         hideFooterSeparator={true}
         title={props?.page?.content.title}
@@ -98,9 +101,14 @@ export default (props) => {
                       : block.content.src
                   }
                   alt={block.content.alt}
-                  caption={block.content.caption}
-                  subCaption={block.content.subcaption}
+                  captionHtml={block.content.caption}
+                  subCaption={
+                    block.content.subcaption
+                      ? `Quelle: ${block.content.subcaption}`
+                      : undefined
+                  }
                   tag={block.content.tag}
+                  className="my-8"
                 />
               </>
             );
@@ -114,7 +122,10 @@ export default (props) => {
             );
           } else if (block.type === "youtube") {
             return (
-              <YoutubeEmbed videoId={block.content.videoid} title="Hallo" />
+              <YoutubeEmbed
+                videoId={block.content.videoid}
+                title={block.content.title}
+              />
             );
           } else if (block.type === "imageslider") {
             return (
@@ -123,7 +134,9 @@ export default (props) => {
                 images={block.content.images?.map((img) => ({
                   src: img.location === "kirby" ? img.image?.url : img.src,
                   caption: img.caption,
-                  subCaption: img.subcaption,
+                  subCaption: img.subcaption
+                    ? `Quelle: ${img.subcaption}`
+                    : undefined,
                   tag: img.tag,
                 }))}
                 withLightbox={block.content.withlightbox === "true"}
@@ -164,6 +177,22 @@ export default (props) => {
                 }}
               />
             );
+          } else if (block.type === "minicard") {
+            console.log("test123", block.content);
+            return (
+              <MiniCard
+                className="fs-not-prose my-8"
+                type="dark"
+                name={block.content.target.content.title}
+                subtitle={block.content.target.content.text}
+                image={{
+                  alt: block.content.target.content.heroimage?.name,
+                  src: block.content.target.content.heroimage?.url,
+                }}
+                href={block.content.target.url}
+                tags={[{ id: 1, title: block.content.target.content.category }]}
+              />
+            );
           } else if (block.type === "verticalnewscardslider") {
             const pages =
               block.content.mode === "manual"
@@ -195,6 +224,20 @@ export default (props) => {
                   content: tab.text.text,
                 }))}
               />
+            );
+          } else if (block.type === "accordion") {
+            return (
+              <div className="py-8">
+                {block.content.accordionitems?.map((item) => (
+                  <AccordionItem
+                    key={item.title}
+                    title={item.title}
+                    open={item.defaultopen === "true"}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: item.text.text }} />
+                  </AccordionItem>
+                ))}
+              </div>
             );
           }
 

@@ -1,11 +1,26 @@
 title: Map
+icon: globe
 
 columns:
   main:
+    width: 2/3
     sections:
       pages:
         layout: cards
         label: Orte
         type: pages
         template: poi
+  sidebar:
+    width: 1/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          alphabeticSorting:
+            text:
+              - "Nein"
+              - "Ja"
+            type: toggle
+            label: Alphabetische Sortierung?
+            help: Wenn die alphabetische Sortierung aktiviert ist, hat die Kirby-interne Reihenfolge der Seiten keine Funktion mehr.
 

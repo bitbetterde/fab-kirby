@@ -1,0 +1,37 @@
+Title: A Ort
+
+----
+
+Heroimage: - file://bnmjensah8k5u7lp
+
+----
+
+Text: Ein Ort der mit A beginnt
+
+----
+
+Lat: 53.2
+
+----
+
+Lng: 10.2
+
+----
+
+Website: https://google.de
+
+----
+
+Address: Straße 23
+
+----
+
+Category: 
+
+----
+
+Tags: abc123
+
+----
+
+Uuid: xmh2krxjhqjpl4jn
