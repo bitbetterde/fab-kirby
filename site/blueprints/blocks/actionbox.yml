@@ -20,3 +20,9 @@ fields:
       target:
         label: Button (URL)
         type: url
+      icon:
+        label: Icon
+        type: select
+        options: site.iconOptions
+        required: false
+        help: Icon ist optional. Die Namen der Icons beziehen sich auf das [Carbon Iconset](https://carbondesignsystem.com/elements/icons/library/) von IBM.

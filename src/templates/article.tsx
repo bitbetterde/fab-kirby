@@ -58,7 +58,7 @@ export default (props) => {
         titleImageAlt={props?.heroimage?.alt}
         imageTag={props?.heroimage?.credits}
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
-          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb
+          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb,
         )}
         hideFooterSeparator={true}
         title={props?.page?.content.title}
@@ -158,6 +158,10 @@ export default (props) => {
                     text={button.caption}
                     size="md"
                     newTab={true}
+                    type="tertiary"
+                    icon={
+                      button.icon ? <CarbonIcon name={button.icon} /> : null
+                    }
                   />
                 ))}
               </ActionBox>
