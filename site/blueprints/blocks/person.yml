@@ -33,24 +33,27 @@ fields:
         required: true
       facebook:
         label: Facebook
-        type: text
+        type: url
         icon: facebook
       instagram:
         label: Instagram
-        type: text
+        type: url
         icon: instagram
       mastodon:
         label: Mastodon
-        type: text
+        type: url
         icon: mastodon
       linkedin:
         label: LinkedIn
-        type: text
+        type: url
         icon: linkedin
       twitter:
-        label: Twitter
-        type: text
+        label: Twitter/X
+        type: url
         icon: twitter
       xing:
         label: Xing
-        type: text
+        type: url
+      bluesky:
+        label: bluesky
+        type: url

@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "bc3b6a988e9fa16de7ce17d0c8be9472",
+  "content-hash": "66b35f49c78f71b3dfb35e34b9d966e3",
   "packages": [
     {
       "name": "christian-riesen/base32",
@@ -272,16 +272,16 @@
     },
     {
       "name": "getkirby/cms",
-      "version": "5.0.0-beta.4",
+      "version": "5.0.0-beta.5",
       "source": {
         "type": "git",
         "url": "https://github.com/getkirby/kirby.git",
-        "reference": "a0e64e87743af69a3798bfc78e4e578b674a1173"
+        "reference": "37c5707b92926ceaf34721dad648b8eebd13812a"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/getkirby/kirby/zipball/a0e64e87743af69a3798bfc78e4e578b674a1173",
-        "reference": "a0e64e87743af69a3798bfc78e4e578b674a1173",
+        "url": "https://api.github.com/repos/getkirby/kirby/zipball/37c5707b92926ceaf34721dad648b8eebd13812a",
+        "reference": "37c5707b92926ceaf34721dad648b8eebd13812a",
         "shasum": ""
       },
       "require": {
@@ -307,7 +307,7 @@
         "phpmailer/phpmailer": "6.9.3",
         "symfony/polyfill-intl-idn": "1.31.0",
         "symfony/polyfill-mbstring": "1.31.0",
-        "symfony/yaml": "7.2.3"
+        "symfony/yaml": "7.2.5"
       },
       "replace": {
         "symfony/polyfill-php72": "*"
@@ -372,7 +372,7 @@
           "type": "custom"
         }
       ],
-      "time": "2025-03-18T10:41:12+00:00"
+      "time": "2025-04-02T14:57:55+00:00"
     },
     {
       "name": "getkirby/composer-installer",
@@ -1159,16 +1159,16 @@
     },
     {
       "name": "symfony/yaml",
-      "version": "v7.2.3",
+      "version": "v7.2.5",
       "source": {
         "type": "git",
         "url": "https://github.com/symfony/yaml.git",
-        "reference": "ac238f173df0c9c1120f862d0f599e17535a87ec"
+        "reference": "4c4b6f4cfcd7e52053f0c8bfad0f7f30fb924912"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/symfony/yaml/zipball/ac238f173df0c9c1120f862d0f599e17535a87ec",
-        "reference": "ac238f173df0c9c1120f862d0f599e17535a87ec",
+        "url": "https://api.github.com/repos/symfony/yaml/zipball/4c4b6f4cfcd7e52053f0c8bfad0f7f30fb924912",
+        "reference": "4c4b6f4cfcd7e52053f0c8bfad0f7f30fb924912",
         "shasum": ""
       },
       "require": {
@@ -1211,7 +1211,7 @@
       "description": "Loads and dumps YAML files",
       "homepage": "https://symfony.com",
       "support": {
-        "source": "https://github.com/symfony/yaml/tree/v7.2.3"
+        "source": "https://github.com/symfony/yaml/tree/v7.2.5"
       },
       "funding": [
         {
@@ -1227,7 +1227,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2025-01-07T12:55:42+00:00"
+      "time": "2025-03-03T07:12:39+00:00"
     },
     {
       "name": "tobimori/kirby-inertia",
@@ -1598,16 +1598,16 @@
     },
     {
       "name": "friendsofphp/php-cs-fixer",
-      "version": "v3.74.0",
+      "version": "v3.75.0",
       "source": {
         "type": "git",
         "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-        "reference": "6b7cb12a6cf592fd9a2b46a2d5d4c3b44003973d"
+        "reference": "399a128ff2fdaf4281e4e79b755693286cdf325c"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/6b7cb12a6cf592fd9a2b46a2d5d4c3b44003973d",
-        "reference": "6b7cb12a6cf592fd9a2b46a2d5d4c3b44003973d",
+        "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/399a128ff2fdaf4281e4e79b755693286cdf325c",
+        "reference": "399a128ff2fdaf4281e4e79b755693286cdf325c",
         "shasum": ""
       },
       "require": {
@@ -1690,7 +1690,7 @@
       ],
       "support": {
         "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-        "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.74.0"
+        "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.75.0"
       },
       "funding": [
         {
@@ -1698,7 +1698,7 @@
           "type": "github"
         }
       ],
-      "time": "2025-03-27T22:31:30+00:00"
+      "time": "2025-03-31T18:40:42+00:00"
     },
     {
       "name": "psr/container",

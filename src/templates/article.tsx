@@ -83,6 +83,7 @@ export default (props) => {
                     xing={person.xing}
                     linkedin={person.linkedin}
                     email={person.email}
+                    bluesky={person.bluesky}
                   />
                 ))}
               </div>
