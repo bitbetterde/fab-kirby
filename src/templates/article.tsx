@@ -103,6 +103,7 @@ export default (props) => {
                   captionHtml={block.content.caption}
                   subCaption={block.content.subcaption}
                   tag={block.content.tag}
+                  className="my-8"
                 />
               </>
             );
@@ -116,7 +117,7 @@ export default (props) => {
             );
           } else if (block.type === "youtube") {
             return (
-              <YoutubeEmbed videoId={block.content.videoid} title="Hallo" />
+              <YoutubeEmbed videoId={block.content.videoid} title={block.content.title} />
             );
           } else if (block.type === "imageslider") {
             return (
@@ -170,7 +171,7 @@ export default (props) => {
             console.log("test123", block.content);
             return (
               <MiniCard
-                className="fs-not-prose"
+                className="fs-not-prose my-8"
                 type="dark"
                 name={block.content.target.content.title}
                 subtitle={block.content.target.content.text}
@@ -178,6 +179,7 @@ export default (props) => {
                   alt: block.content.target.content.heroimage?.name,
                   src: block.content.target.content.heroimage?.url,
                 }}
+                href={block.content.target.url}
                 tags={[{ id: 1, title: block.content.target.content.category }]}
               />
             );
@@ -206,9 +208,10 @@ export default (props) => {
             );
           } else if (block.type === "accordion") {
             return (
-              <div className="fs-prose">
+              <div className="py-8">
                 {block.content.accordionitems?.map((item) => (
                   <AccordionItem
+                    key={item.title}
                     title={item.title}
                     open={item.defaultopen === "true"}
                   >

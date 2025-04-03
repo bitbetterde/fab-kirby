@@ -21,7 +21,7 @@
   "dependencies": {
     "@carbon/icons-react": "^11.56.0",
     "@fchh/fcos-suite-map": "^1.0.2",
-    "@fchh/fcos-suite-ui": "^1.2.1",
+    "@fchh/fcos-suite-ui": "^1.2.3",
     "@fontsource/ibm-plex-sans": "^5.1.1",
     "@fontsource/inter": "^5.1.1",
     "@fontsource/karla": "^5.1.1",
