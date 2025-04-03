@@ -18,6 +18,20 @@ function traverseMenu($item)
     }
 }
 
+function serializeSocialMedia($site): array
+{
+    $socialMediaArray = [];
+
+    foreach ($site->content()->social()->toStructure() as $medium) {
+        $socialMedia = [
+            'platform' => $medium->platform()->toString(),
+            'href' => $medium->target()->toString(),
+        ];
+        $socialMediaArray[] = $socialMedia;
+    }
+    return $socialMediaArray;
+}
+
 function getDefaultInertiaProps(Page $page, Site $site)
 {
     $showToolbar = !$site->content()->hideToolbar()->toBool();
@@ -51,6 +65,7 @@ function getDefaultInertiaProps(Page $page, Site $site)
             'height' => $heroImageArr['dimensions']['height'],
             'width' => $heroImageArr['dimensions']['width']
         ],
+        'socialmedia' => serializeSocialMedia($site),
     ];
 }
 

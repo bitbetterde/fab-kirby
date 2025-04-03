@@ -33,7 +33,13 @@ export default (props) => {
       <main>
         <div style={{ paddingTop: "4rem" }}>{props?.page?.content?.text}</div>
       </main>
-      <Footer menu={props?.menu.children} />
+      <Footer
+        menu={props?.menu.children}
+        socialMedia={props?.socialmedia?.map((media) => ({
+          href: media.href,
+          type: media.platform,
+        }))}
+      />
     </div>
   );
 };

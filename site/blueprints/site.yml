@@ -31,7 +31,7 @@ tabs:
           toolbar:
             label: Toolbar Elemente
             type: structure
-            help: Hier kannst du die Elemente in der Toolbar festlegen, die unterhalb des Hauptmenüs angezeigt wird. 
+            help: Hier kannst du die Elemente in der Toolbar festlegen, die unterhalb des Hauptmenüs angezeigt wird.
             fields:
               title:
                 label: Titel
@@ -48,3 +48,32 @@ tabs:
                 type: select
                 options: site.iconOptions
                 help: Die Namen der Icons beziehen sich auf das [Carbon Iconset](https://carbondesignsystem.com/elements/icons/library/) von IBM.
+
+          social:
+            label: Social Media
+            type: structure
+            required: false
+            fields:
+              platform:
+                label: Plattform
+                type: select
+                options:
+                  instagram: Instagram
+                  twitter: Twitter
+                  x: X
+                  youtube: YouTube
+                  gitlab: GitLab
+                  linkedin: LinkedIn
+                  mastodon: Mastodon
+                  facebook: Facebook
+                  xing: Xing
+                  github: GitHub
+                  website: Website
+                  email: E-Mail
+                required: true
+
+              target:
+                label: URL
+                type: url
+                required: true
+

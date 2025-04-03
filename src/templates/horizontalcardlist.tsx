@@ -54,7 +54,13 @@ export default (props) => {
           }),
         )}
       />
-      <Footer menu={props?.menu.children} />
+      <Footer
+        menu={props?.menu.children}
+        socialMedia={props?.socialmedia?.map((media) => ({
+          href: media.href,
+          type: media.platform,
+        }))}
+      />
     </>
   );
 };
