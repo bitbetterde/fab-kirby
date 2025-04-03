@@ -7,10 +7,10 @@ fields:
     type: structure
     fields:
       title:
-        label: Tab-Titel
+        label: Titel
         type: text
         required: true
       text:
-        label: Tab-Inhalt
+        label: Inhalt
         type: textarea
-    required: true
+        required: true
