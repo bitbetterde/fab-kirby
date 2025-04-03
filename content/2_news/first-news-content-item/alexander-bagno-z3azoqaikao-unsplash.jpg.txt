@@ -2,4 +2,4 @@ Uuid: cmdmflgf966dghty
 
 ----
 
-Template: heroimage
+Template: article-heroimage

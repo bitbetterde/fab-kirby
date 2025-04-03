@@ -6,7 +6,7 @@ fields:
     label: Alt Text (Beschreibung für Assistenztechnologien)
     type: text
   credits:
-    label: Credits (Tag auf dem Bild)
+    label: Overlay (auf dem Bild)
     type: text
   caption:
     label: Bildunterschrift

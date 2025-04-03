@@ -48,7 +48,7 @@ columns:
               multiple: false
               query: page.images.template('article-heroimage')
               uploads:
-                template: heroimage
+                template: article-heroimage
           tag:
             type: tags
             max: 1

@@ -15,7 +15,7 @@ columns:
             multiple: false
             query: page.images.template('article-heroimage')
             uploads:
-              template: heroimage
+              template: article-heroimage
           text:
             type: blocks
             fieldsets:

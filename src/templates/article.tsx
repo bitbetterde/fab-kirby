@@ -57,7 +57,7 @@ export default (props) => {
         titleImageAlt={props?.heroimage?.alt}
         imageTag={props?.heroimage?.credits}
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
-          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb,
+          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb
         )}
         hideFooterSeparator={true}
         title={props?.page?.content.title}
@@ -101,7 +101,11 @@ export default (props) => {
                   }
                   alt={block.content.alt}
                   captionHtml={block.content.caption}
-                  subCaption={block.content.subcaption}
+                  subCaption={
+                    block.content.subcaption
+                      ? `Quelle: ${block.content.subcaption}`
+                      : undefined
+                  }
                   tag={block.content.tag}
                   className="my-8"
                 />
@@ -117,7 +121,10 @@ export default (props) => {
             );
           } else if (block.type === "youtube") {
             return (
-              <YoutubeEmbed videoId={block.content.videoid} title={block.content.title} />
+              <YoutubeEmbed
+                videoId={block.content.videoid}
+                title={block.content.title}
+              />
             );
           } else if (block.type === "imageslider") {
             return (
@@ -126,7 +133,9 @@ export default (props) => {
                 images={block.content.images?.map((img) => ({
                   src: img.location === "kirby" ? img.image?.url : img.src,
                   caption: img.caption,
-                  subCaption: img.subcaption,
+                  subCaption: img.subcaption
+                    ? `Quelle: ${img.subcaption}`
+                    : undefined,
                   tag: img.tag,
                 }))}
                 withLightbox={block.content.withlightbox === "true"}

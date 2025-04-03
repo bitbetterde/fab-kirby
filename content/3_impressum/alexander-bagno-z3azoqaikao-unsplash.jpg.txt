@@ -2,4 +2,4 @@ Uuid: dgwabjmjlzbmbhxj
 
 ----
 
-Template: heroimage
+Template: article-heroimage

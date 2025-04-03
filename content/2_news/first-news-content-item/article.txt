@@ -10,7 +10,7 @@ Teaser: First news
 
 ----
 
-Text: [{"content":{"text":"<p>Hello News</p>"},"id":"2c7db862-9e31-454c-8dc9-f7af227d3a36","isHidden":false,"type":"text"},{"content":{"selectedpage":["page://hilekhwjglj1bpmc"]},"id":"eddeb634-6bc3-4e4b-beed-36ed91560f7d","isHidden":false,"type":"minicard"}]
+Text: [{"content":{"text":"<p>Hello News</p>"},"id":"2c7db862-9e31-454c-8dc9-f7af227d3a36","isHidden":false,"type":"text"},{"content":{"selectedpage":["page://hilekhwjglj1bpmc"]},"id":"eddeb634-6bc3-4e4b-beed-36ed91560f7d","isHidden":false,"type":"minicard"},{"content":{"accordionitems":[{"title":"Erste Accordion Überschrift","text":"Hallo 123","defaultopen":"false"}]},"id":"860fc7a9-714f-4c7c-ae26-a7de0b6143c6","isHidden":false,"type":"accordion"}]
 
 ----
 
