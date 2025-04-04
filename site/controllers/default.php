@@ -48,7 +48,7 @@ function getDefaultInertiaProps(Page $page, Site $site)
             $modifiedMenuItem = [
                 'icon' => $item->icon()->toString(),
                 'title' => $item->title()->toString(),
-                'href' => $item->href()->toPage()->url(),
+                'href' => $item->href()->toPage() ? $item->href()->toPage()->url() : null,
             ];
             array_push($toolbarArr, $modifiedMenuItem);
         }

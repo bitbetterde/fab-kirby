@@ -55,8 +55,9 @@ return function (Page $page, Site $site) {
     function serializeMiniCardBlock($block): array
     {
         $result = $block->toArray();
-        $result['content']['target'] = $block->selectedPage()->toPage()->toArray();
-        $result['content']['target']['content']['heroimage'] = $block->selectedPage()->toPage()->heroimage()->toFile()->toArray();
+        $miniCardPage = $block->selectedPage()->toPage();
+        $result['content']['target'] = $miniCardPage ? $miniCardPage->toArray() : null;
+        $result['content']['target']['content']['heroimage'] = $miniCardPage ? $miniCardPage->heroimage()->toFile()->toArray() : null;
         return $result;
     }
 
@@ -104,8 +105,9 @@ return function (Page $page, Site $site) {
     function serializeHorizontalCardBlock($block): array
     {
         $result = $block->toArray();
-        $result['content']['target'] = $block->target()->toPage()->toArray();
-        $result['content']['target']['content']['heroimage'] = $block->target()->toPage()->heroimage()->toFile()->toArray();
+        $cardPage = $block->target()->toPage();
+        $result['content']['target'] = $cardPage ? $cardPage->toArray() : null;
+        $result['content']['target']['content']['heroimage'] = $cardPage ? $cardPage->heroimage()->toFile()->toArray() : null;
         return $result;
     }
 
@@ -114,20 +116,26 @@ return function (Page $page, Site $site) {
         $result = $block->toArray();
         if ($block->mode()->value() === 'children') {
             $resolvedChildren = [];
-            foreach ($block->parentpage()->toPage()->children()->listed() as $child) {
-                $resolvedChild = $child->toArray();
-                $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile();
-                $resolvedChildren[] = $resolvedChild;
+            $cardPage = $block->parentpage()->toPage();
+            if ($cardPage) {
+                foreach ($cardPage->children()->listed() as $child) {
+                    $resolvedChild = $child->toArray();
+                    $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()->toArray();
+                    $resolvedChildren[] = $resolvedChild;
+                }
             }
             $result['content']['resolvedChildren'] = $resolvedChildren;
         } else {
             $resolvedPages = [];
-            foreach ($block->selectedPages()->toPages()->listed() as $page) {
-                $resolvedPage = $page->toArray();
-                $resolvedPage['content']['heroimage'] = $page->heroimage()->toFile();
-                $resolvedPages[] = $resolvedPage;
+            $cardPages = $block->pages()->toPages();
+            if($cardPages) {
+                foreach ($cardPages->listed() as $page) {
+                    $resolvedPage = $page->toArray();
+                    $resolvedPage['content']['heroimage'] = $page->heroimage()->toFile()->toArray();
+                    $resolvedPages[] = $resolvedPage;
+                }
             }
-            $result['content']['selectedPages'] = $resolvedPages;
+            $result['content']['pages'] = $resolvedPages;
         }
         return $result;
     }
