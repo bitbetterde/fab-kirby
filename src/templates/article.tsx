@@ -58,7 +58,7 @@ export default (props) => {
         titleImageAlt={props?.heroimage?.alt}
         imageTag={props?.heroimage?.credits}
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
-          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb,
+          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb
         )}
         hideFooterSeparator={true}
         title={props?.page?.content.title}
@@ -151,14 +151,14 @@ export default (props) => {
                 title={block.content.title}
                 description={block.content.description}
               >
-                {block.content.buttons?.map((button, index) => (
+                {block.content.buttons?.map((button, i) => (
                   <Button
-                    key={index}
+                    key={"actionBoxButton" + i}
                     href={button.target}
                     text={button.caption}
                     size="md"
                     newTab={true}
-                    type="tertiary"
+                    {...(i === 0 ? { type: "primary" } : { type: "tertiary" })}
                     icon={
                       button.icon ? <CarbonIcon name={button.icon} /> : null
                     }
