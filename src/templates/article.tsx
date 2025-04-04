@@ -151,13 +151,17 @@ export default (props) => {
                 title={block.content.title}
                 description={block.content.description}
               >
-                {block.content.buttons?.map((button, index) => (
+                {block.content.buttons?.map((button, i) => (
                   <Button
-                    key={index}
+                    key={"actionBoxButton" + i}
                     href={button.target}
                     text={button.caption}
                     size="md"
                     newTab={true}
+                    {...(i === 0 ? { type: "primary" } : { type: "tertiary" })}
+                    icon={
+                      button.icon ? <CarbonIcon name={button.icon} /> : undefined
+                    }
                   />
                 ))}
               </ActionBox>
