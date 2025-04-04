@@ -167,7 +167,6 @@ export default (props) => {
               </ActionBox>
             );
           } else if (block.type === "horizontalcard") {
-            console.log("test123", block.content.target.content);
             return (
               <HorizontalNewsCard
                 className="fs-not-prose"
@@ -183,7 +182,6 @@ export default (props) => {
               />
             );
           } else if (block.type === "minicard") {
-            console.log("test123", block.content);
             return (
               <MiniCard
                 className="fs-not-prose my-8"
@@ -254,7 +252,14 @@ export default (props) => {
           );
         })}
       </Article>
-      <Footer menu={props?.menu.children} />
+      <Footer
+        socialMediaGrow={false}
+        menu={props?.menu.children}
+        socialMedia={props?.socialmedia?.map((media) => ({
+          href: media.href,
+          type: media.platform,
+        }))}
+      />
     </div>
   );
 };
