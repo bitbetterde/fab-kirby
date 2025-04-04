@@ -160,14 +160,13 @@ export default (props) => {
                     newTab={true}
                     {...(i === 0 ? { type: "primary" } : { type: "tertiary" })}
                     icon={
-                      button.icon ? <CarbonIcon name={button.icon} /> : null
+                      button.icon ? <CarbonIcon name={button.icon} /> : undefined
                     }
                   />
                 ))}
               </ActionBox>
             );
           } else if (block.type === "horizontalcard") {
-            console.log("test123", block.content.target.content);
             return (
               <HorizontalNewsCard
                 className="fs-not-prose"
@@ -183,7 +182,6 @@ export default (props) => {
               />
             );
           } else if (block.type === "minicard") {
-            console.log("test123", block.content);
             return (
               <MiniCard
                 className="fs-not-prose my-8"
