@@ -7,7 +7,7 @@ fields:
     type: text
     required: true
   description:
-    label: Beschreibung
+    label: Inhalt
     type: textarea
   buttons:
     label: Buttons
@@ -15,11 +15,12 @@ fields:
     max: 2
     fields:
       caption:
-        label: Button Caption
+        label: Aufschrift
         type: text
       target:
-        label: Button (URL)
+        label: Ziel
         type: url
+        required: true
       icon:
         label: Icon
         type: select
