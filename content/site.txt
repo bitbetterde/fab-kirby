@@ -26,4 +26,21 @@ Toolbar:
 
 ----
 
+Social:
+
+- 
+  platform: linkedin
+  target: https://linkedin.com
+- 
+  platform: youtube
+  target: https://youtube.com
+- 
+  platform: gitlab
+  target: https://gitlab.com
+- 
+  platform: instagram
+  target: https://instagram.com
+
+----
+
 Hidden: true

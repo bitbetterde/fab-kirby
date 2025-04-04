@@ -34,6 +34,7 @@ export default (props) => {
         <div style={{ paddingTop: "4rem" }}>{props?.page?.content?.text}</div>
       </main>
       <Footer
+        socialMediaGrow={false}
         menu={props?.menu.children}
         socialMedia={props?.socialmedia?.map((media) => ({
           href: media.href,

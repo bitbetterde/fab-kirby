@@ -55,6 +55,7 @@ export default (props) => {
         )}
       />
       <Footer
+        socialMediaGrow={false}
         menu={props?.menu.children}
         socialMedia={props?.socialmedia?.map((media) => ({
           href: media.href,
