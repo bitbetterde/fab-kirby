@@ -1,42 +1,28 @@
 type: group
 fields:
-  location:
-    label: field.blocks.image.location
-    type: radio
-    columns: 2
-    default: "kirby"
+  source:
+    label: Bildquelle
+    type: link
     required: true
     options:
-      kirby: "{{ t('field.blocks.image.location.internal') }}"
-      web: "{{ t('field.blocks.image.location.external') }}"
-  image:
-    label: field.blocks.image.name
-    type: files
-    query: model.images
-    multiple: false
-    image:
-      back: black
-    uploads:
-      template: blocks/image
-    when:
-      location: kirby
-  src:
-    label: field.blocks.image.url
-    type: url
-    when:
-      location: web
+      - file
+      - url
+
   alt:
     label: field.blocks.image.alt
     type: text
     icon: title
+
   caption:
     label: field.blocks.image.caption
     type: writer
     icon: text
     inline: true
+
   subCaption:
     label: Quelle
     type: url
+
   tag:
     label: Overlay
     type: text

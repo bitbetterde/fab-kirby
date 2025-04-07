@@ -85,9 +85,16 @@ return function (Page $page, Site $site) {
     function serializeImageBlock($block): array
     {
         $result = $block->toArray();
-        if ($block->location()->value() !== 'web') {
-            $result['content']['image'] = $block->image()->toFile()->toArray();
+
+        $link = $block->source();
+
+        if ($file = $link->toFile()) {
+            $result['content']['image'] = $file->toArray();
         }
+        else {
+            $result['content']['image']['url'] = $link->value();
+        }
+
         return $result;
     }
 

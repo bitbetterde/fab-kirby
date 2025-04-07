@@ -96,11 +96,7 @@ export default (props) => {
               <>
                 {/*<pre>{JSON.stringify(block, null, 2)}</pre>*/}
                 <Image
-                  src={
-                    block.content.location === "kirby"
-                      ? block.content.image?.url
-                      : block.content.src
-                  }
+                  src={block.content.image?.url}
                   alt={block.content.alt}
                   captionHtml={block.content.caption}
                   subCaption={
@@ -160,7 +156,9 @@ export default (props) => {
                     newTab={true}
                     {...(i === 0 ? { type: "primary" } : { type: "tertiary" })}
                     icon={
-                      button.icon ? <CarbonIcon name={button.icon} /> : undefined
+                      button.icon ? (
+                        <CarbonIcon name={button.icon} />
+                      ) : undefined
                     }
                   />
                 ))}
