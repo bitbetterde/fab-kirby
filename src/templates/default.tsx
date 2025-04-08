@@ -8,7 +8,13 @@ import "@fontsource/ibm-plex-sans";
 import "../base.css";
 import { CarbonIcon } from "../components/CarbonIcon";
 
-import { Footer, Header, HeroSection, VerticalNewsCardSlider } from "@fchh/fcos-suite-ui";
+import {
+  Footer,
+  Header,
+  HeroSection,
+  VerticalNewsCardSlider,
+  LogoGrid,
+} from "@fchh/fcos-suite-ui";
 
 export default (props) => {
   console.log("Default Template:", props);
@@ -40,10 +46,14 @@ export default (props) => {
         {blocks?.map((block, i) => {
           if (block.type === "fullbleed-text") {
             return (
-              <div key={"block"+i} className="py-16 grid grid-cols-1 md:grid-cols-subgrid md:[&>*]:col-start-2 md:[&>*]:col-end-2" style={{backgroundColor: block?.content?.bgcolor}}>
+              <div
+                key={"block" + i}
+                className="py-16 grid grid-cols-1 md:grid-cols-subgrid md:[&>*]:col-start-2 md:[&>*]:col-end-2"
+                style={{ backgroundColor: block?.content?.bgcolor }}
+              >
                 <div className="grid grid-cols-inner">
                   <div
-                    className="col-start-2 col-end-13 lg:col-start-4 lg:col-end-11 prose prose-p:text-xl prose-h2:text-5xl prose-h2:font-plex prose-h2:font-normal prose-p:font-plex max-w-none "
+                    className="col-start-2 col-end-13 lg:col-start-4 lg:col-end-11 prose prose-p:text-xl prose-h2:text-5xl prose-h2:font-plex prose-h2:font-normal prose-p:font-plex max-w-none"
                     dangerouslySetInnerHTML={{ __html: block?.content?.text }}
                   />
                 </div>
@@ -71,6 +81,27 @@ export default (props) => {
                   },
                 }))}
               />
+            );
+          } else if (block.type === "logogrid") {
+            return (
+              <div
+                key={"block" + i}
+                className="py-16 grid grid-cols-1 md:grid-cols-subgrid md:[&>*]:col-start-2 md:[&>*]:col-end-2"
+                style={{ backgroundColor: block?.content?.bgcolor }}
+              >
+                <div className="grid grid-cols-inner">
+                  <LogoGrid
+                    title={block.content.title}
+                    columns={block.content.columns}
+                    entries={block.content.logos?.map((img) => ({
+                      src: img.url,
+                      alt: img.name,
+                      href: img.href,
+                    }))}
+                    className="col-start-2 col-end-13 lg:col-start-4 lg:col-end-11"
+                  />
+                </div>
+              </div>
             );
           }
           return null;

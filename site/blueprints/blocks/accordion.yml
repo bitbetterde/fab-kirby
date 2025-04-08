@@ -17,4 +17,7 @@ fields:
         label: Element standardmäßig ausklappen
         type: toggle
         default: false
+        text:
+          - "Nein"
+          - "Ja"
 

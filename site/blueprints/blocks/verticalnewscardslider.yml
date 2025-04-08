@@ -28,6 +28,9 @@ fields:
     when:
       mode: children
   fullbleed:
-    label: Full Bleed
+    label: Volle Breite
     type: toggle
     default: false
+    text:
+      - "Nein"
+      - "Ja"

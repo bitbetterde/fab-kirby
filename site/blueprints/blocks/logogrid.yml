@@ -27,18 +27,9 @@ fields:
   columns:
     label: Anzahl von Spalten
     type: select
-    default: 3
+    default: "3 Spalten"
     options:
       2: 2 Spalten
       3: 3 Spalten
       4: 4 Spalten
     required: true
-
-
-  gap:
-    label: Abstand der Logos
-    type: radio
-    options:
-      narrow: Eng
-      wide: Weit
-    default: narrow

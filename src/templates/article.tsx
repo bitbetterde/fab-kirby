@@ -255,11 +255,6 @@ export default (props) => {
                   alt: img.name,
                   href: img.href,
                 }))}
-                customGap={
-                  block.content.gap === "wide"
-                    ? "fs-gap-x-10 fs-gap-y-10 sm:fs-gap-x-12 sm:fs-gap-y-12 xl:fs-gap-x-10 xl:fs-gap-y-10"
-                    : "fs-gap-x-16 fs-gap-y-16 sm:fs-gap-x-16 sm:fs-gap-y-12 xl:fs-gap-x-1 xl:fs-gap-y-10"
-                }
               />
             );
           }
