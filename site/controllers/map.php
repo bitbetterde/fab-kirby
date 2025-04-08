@@ -4,28 +4,36 @@ use Kirby\Cms\Page;
 use Kirby\Cms\Site;
 use tobimori\Inertia\Inertia;
 
-// Build data structure for Breadcrumbs navigation
-function traverseMenu($item)
-{
-    if ($item->hasChildren()) {
-        $childrenItems = [];
-        foreach ($item->children()->listed() as $childItem) {
-            array_push($childrenItems, traverseMenu($childItem));
-        }
-        return ['title' => $item->title()->value(), 'target' => $item->url(), 'children' => $childrenItems];
-    } else {
-        return ['title' => $item->title()->value(), 'target' => $item->url()];
-    }
-}
+include 'site/helpers/serializers.php';
+include 'site/helpers/menu.php';
 
 function getDefaultInertiaProps(Page $page, Site $site)
 {
+    $showToolbar = !$site->content()->hideToolbar()->toBool();
     $pageArr = $page->toArray();
+
+    $toolbarArr = [];
+
+    if ($showToolbar) {
+
+        $toolbarStructure = $site->toolbar()->toStructure();
+
+        foreach ($toolbarStructure as $item) {
+            $modifiedMenuItem = [
+                'icon' => $item->icon()->toString(),
+                'title' => $item->title()->toString(),
+                'href' => $item->href()->toPage() ? $item->href()->toPage()->url() : null,
+            ];
+            array_push($toolbarArr, $modifiedMenuItem);
+        }
+    }
 
     return [
         'page' => $pageArr,
         'menu' => traverseMenu($site),
-        'toolbar' => $site->content()->hideToolbar()->toBool() ? null : $site->content()->toolbar()->toStructure()->toArray(),
+        'toolbar' => $showToolbar ? $toolbarArr : null,
+        'bottomline' => $site->content()->bottomLine()->toString(),
+        'socialmedia' => serializeSocialMedia($site),
     ];
 }
 

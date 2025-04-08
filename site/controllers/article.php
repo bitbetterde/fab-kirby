@@ -4,142 +4,49 @@ use Kirby\Cms\Page;
 use Kirby\Cms\Site;
 use tobimori\Inertia\Inertia;
 
-include 'default.php';
+include 'site/helpers/serializers.php';
+include 'site/helpers/menu.php';
+
+function getDefaultInertiaProps(Page $page, Site $site)
+{
+    $showToolbar = !$site->content()->hideToolbar()->toBool();
+    $pageArr = $page->toArray();
+    $heroImageArr = $page->heroimage()->toFile()->toArray();
+
+    $toolbarArr = [];
+
+    if ($showToolbar) {
+
+        $toolbarStructure = $site->toolbar()->toStructure();
+
+        foreach ($toolbarStructure as $item) {
+            $modifiedMenuItem = [
+                'icon' => $item->icon()->toString(),
+                'title' => $item->title()->toString(),
+                'href' => $item->href()->toPage() ? $item->href()->toPage()->url() : null,
+            ];
+            array_push($toolbarArr, $modifiedMenuItem);
+        }
+    }
+
+    return [
+        'page' => $pageArr,
+        'menu' => traverseMenu($site),
+        'toolbar' => $showToolbar ? $toolbarArr : null,
+        'bottomline' => $site->content()->bottomLine()->toString(),
+        'heroimage' => [
+            'url' => $heroImageArr['url'],
+            'alt' => $heroImageArr['content']['alt'] ?? null,
+            'credits' => $heroImageArr['content']['credits'] ?? null,
+            'height' => $heroImageArr['dimensions']['height'],
+            'width' => $heroImageArr['dimensions']['width']
+        ],
+        'socialmedia' => serializeSocialMedia($site),
+    ];
+}
 
 
 return function (Page $page, Site $site) {
-
-    function serializeBlocks($blocks)
-    {
-        $result = [];
-        foreach ($blocks as $block) {
-            if (
-                $block->type() === 'verticalnewscardslider'
-            ) {
-                $result[] = serializeVerticalNewsCardSliderBlock($block);
-            } elseif (
-                $block->type() === 'image'
-            ) {
-                $result[] = serializeImageBlock($block);
-            } elseif ($block->type() === 'imageslider') {
-                $result[] = serializeImageSliderBlock($block);
-            } elseif ($block->type() === 'horizontalcard') {
-                $result[] = serializeHorizontalCardBlock($block);
-            } elseif ($block->type() === 'person') {
-                $result[] = serializePersonBlock($block);
-            } elseif ($block->type() === 'tabs') {
-                $result[] = convertMarkdownTabs($block);
-            } elseif ($block->type() === 'minicard') {
-                $result[] = serializeMiniCardBlock($block);
-            } elseif ($block->type() === 'accordion') {
-                $result[] = convertMarkdownAccordion($block);
-            } else {
-                $result[] = $block->toArray();
-            }
-        }
-
-        return $result;
-    }
-
-    function convertMarkdownTabs($block): array
-    {
-
-        $result = $block->toArray();
-        foreach ($block->content()->tabs()->toStructure() as $i => $tab) {
-
-            $result['content']['tabs'][$i]['text'] = $tab->text()->kirbytext()->toArray();
-        }
-        return $result;
-    }
-
-    function serializeMiniCardBlock($block): array
-    {
-        $result = $block->toArray();
-        $miniCardPage = $block->selectedPage()->toPage();
-        $result['content']['target'] = $miniCardPage ? $miniCardPage->toArray() : null;
-        $result['content']['target']['content']['heroimage'] = $miniCardPage ? $miniCardPage->heroimage()->toFile()->toArray() : null;
-        return $result;
-    }
-
-
-    function convertMarkdownAccordion($block): array
-    {
-        $result = $block->toArray();
-        foreach ($block->content()->accordionitems()->toStructure() as $i => $item) {
-
-            $result['content']['accordionitems'][$i]['text'] = $item->text()->kirbytext()->toArray();
-        }
-        return $result;
-    }
-
-    function serializePersonBlock($block): array
-    {
-        $result = $block->toArray();
-        foreach ($block->content()->people()->toStructure() as $i => $person) {
-
-            $result['content']['people'][$i]['image'] = $person->image()->toFile()->toArray();
-        }
-        return $result;
-    }
-
-    function serializeImageBlock($block): array
-    {
-        $result = $block->toArray();
-        if ($block->location()->value() !== 'web') {
-            $result['content']['image'] = $block->image()->toFile()->toArray();
-        }
-        return $result;
-    }
-
-    function serializeImageSliderBlock($block): array
-    {
-        $result = $block->toArray();
-        foreach ($block->content()->images()->toStructure() as $i => $image) {
-            if ($image->location()->value() !== 'web') {
-                $result['content']['images'][$i]['image'] = $image->image()->toFile()->toArray();
-            }
-        }
-        return $result;
-    }
-
-    function serializeHorizontalCardBlock($block): array
-    {
-        $result = $block->toArray();
-        $cardPage = $block->target()->toPage();
-        $result['content']['target'] = $cardPage ? $cardPage->toArray() : null;
-        $result['content']['target']['content']['heroimage'] = $cardPage ? $cardPage->heroimage()->toFile()->toArray() : null;
-        return $result;
-    }
-
-    function serializeVerticalNewsCardSliderBlock($block): array
-    {
-        $result = $block->toArray();
-        if ($block->mode()->value() === 'children') {
-            $resolvedChildren = [];
-            $cardPage = $block->parentpage()->toPage();
-            if ($cardPage) {
-                foreach ($cardPage->children()->listed() as $child) {
-                    $resolvedChild = $child->toArray();
-                    $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()->toArray();
-                    $resolvedChildren[] = $resolvedChild;
-                }
-            }
-            $result['content']['resolvedChildren'] = $resolvedChildren;
-        } else {
-            $resolvedPages = [];
-            $cardPages = $block->pages()->toPages();
-            if($cardPages) {
-                foreach ($cardPages->listed() as $page) {
-                    $resolvedPage = $page->toArray();
-                    $resolvedPage['content']['heroimage'] = $page->heroimage()->toFile()->toArray();
-                    $resolvedPages[] = $resolvedPage;
-                }
-            }
-            $result['content']['pages'] = $resolvedPages;
-        }
-        return $result;
-    }
-
 
     $defaultProps = getDefaultInertiaProps($page, $site);
     $pageArr = $defaultProps['page'];

@@ -10,6 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "@prettier/plugin-php": "^0.22.4",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "autoprefixer": "^10.4.20",
@@ -21,7 +22,7 @@
   "dependencies": {
     "@carbon/icons-react": "^11.56.0",
     "@fchh/fcos-suite-map": "^1.0.2",
-    "@fchh/fcos-suite-ui": "^1.2.6",
+    "@fchh/fcos-suite-ui": "^1.2.8",
     "@fontsource/ibm-plex-sans": "^5.1.1",
     "@fontsource/inter": "^5.1.1",
     "@fontsource/karla": "^5.1.1",

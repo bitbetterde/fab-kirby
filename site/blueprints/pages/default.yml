@@ -19,14 +19,8 @@ columns:
           text:
             type: blocks
             fieldsets:
-              - heading
-              - text
-              - list
-              - image
-              - code
-              - person
-              - youtube
-              - horizontalcard
+              - fullbleed-text
+              - verticalnewscardslider
             label: Inhalt
             required: true
   sidebar:

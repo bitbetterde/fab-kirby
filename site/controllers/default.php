@@ -4,33 +4,8 @@ use Kirby\Cms\Page;
 use Kirby\Cms\Site;
 use tobimori\Inertia\Inertia;
 
-// Build data structure for Breadcrumbs navigation
-function traverseMenu($item)
-{
-    if ($item->hasChildren()) {
-        $childrenItems = [];
-        foreach ($item->children()->listed() as $childItem) {
-            array_push($childrenItems, traverseMenu($childItem));
-        }
-        return ['title' => $item->title()->value(), 'target' => $item->url(), 'children' => $childrenItems];
-    } else {
-        return ['title' => $item->title()->value(), 'target' => $item->url()];
-    }
-}
-
-function serializeSocialMedia($site): array
-{
-    $socialMediaArray = [];
-
-    foreach ($site->content()->social()->toStructure() as $medium) {
-        $socialMedia = [
-            'platform' => $medium->platform()->toString(),
-            'href' => $medium->target()->toString(),
-        ];
-        $socialMediaArray[] = $socialMedia;
-    }
-    return $socialMediaArray;
-}
+include 'site/helpers/serializers.php';
+include 'site/helpers/menu.php';
 
 function getDefaultInertiaProps(Page $page, Site $site)
 {
@@ -58,6 +33,7 @@ function getDefaultInertiaProps(Page $page, Site $site)
         'page' => $pageArr,
         'menu' => traverseMenu($site),
         'toolbar' => $showToolbar ? $toolbarArr : null,
+        'bottomline' => $site->content()->bottomLine()->toString(),
         'heroimage' => [
             'url' => $heroImageArr['url'],
             'alt' => $heroImageArr['content']['alt'] ?? null,
@@ -70,9 +46,21 @@ function getDefaultInertiaProps(Page $page, Site $site)
 }
 
 
+
 return function (Page $page, Site $site) {
+
+    $defaultProps = getDefaultInertiaProps($page, $site);
+    $pageArr = $defaultProps['page'];
+    $resolvedBlocks = serializeBlocks($page->text()->toBlocks());
+
+
+    $pageArr['content']['text'] = $resolvedBlocks;
+
     return Inertia::createResponse(
         $page->intendedTemplate(),
-        getDefaultInertiaProps($page, $site),
+        [
+            ...$defaultProps,
+            'page' => $pageArr,
+        ]
     );
 };

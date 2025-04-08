@@ -1,0 +1,13 @@
+name: Full Bleed Text
+icon: markdown
+preview: fields
+fields:
+  text:
+    type: writer
+    label: Inhalt
+  bgColor:
+    type: color
+    label: Hintergrundfarbe
+    options:
+      - "#EFEAE4"
+      - "#0B1324"
