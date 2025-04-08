@@ -55,7 +55,7 @@ return function (Page $page, Site $site) {
         foreach ($page->children() as $child) {
             if (!$child->isDraft()) {
                 $resolvedChild = $child->toArray();
-                $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()->toArray();
+                $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile() ? $child->heroimage()->toFile()->toArray() : null;
                 $resolvedChildren[] = $resolvedChild;
             }
         }

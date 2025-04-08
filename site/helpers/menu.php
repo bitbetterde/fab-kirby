@@ -1,12 +1,13 @@
 <?php
 
-// Build data structure for Breadcrumbs navigation
+// Build data structure for menu navigation
 function traverseMenu($item)
 {
-    if ($item->hasChildren()) {
+    // The "list view" pages should not have sub menu items in the top bar
+    if ($item->hasChildren() && ($item->intendedTemplate() != 'horizontalcardlist')) {
         $childrenItems = [];
         foreach ($item->children()->listed() as $childItem) {
-            array_push($childrenItems, traverseMenu($childItem));
+            $childrenItems[] = traverseMenu($childItem);
         }
         return ['title' => $item->title()->value(), 'target' => $item->url(), 'children' => $childrenItems];
     } else {
