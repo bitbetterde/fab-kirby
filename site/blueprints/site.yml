@@ -7,6 +7,7 @@ tabs:
     sections:
       pages:
         type: pages
+        info: "{{ page.slug }}"
         label: Seiten
         templates:
           - article
@@ -50,7 +51,7 @@ tabs:
                 help: Die Namen der Icons beziehen sich auf das [Carbon Iconset](https://carbondesignsystem.com/elements/icons/library/) von IBM.
 
           social:
-            label: Social Media
+            label: Footer Social Media Icons
             type: structure
             required: false
             fields:
@@ -71,9 +72,13 @@ tabs:
                   website: Website
                   email: E-Mail
                 required: true
-
               target:
                 label: URL
                 type: url
                 required: true
+
+          bottomLine:
+            label: Abschlusszeile
+            type: text
+            help: Der Inhalt dieses Felds wird ganz am Ende jeder Seite angezeigt und kann z.B. für Copyright-Hinweise genutzt werden.
 

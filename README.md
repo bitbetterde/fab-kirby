@@ -1,36 +1,17 @@
-<img src="http://getkirby.com/assets/images/github/plainkit.jpg" width="300">
+# Fab Region Bergisches Städtedreieck
 
-**Kirby: the CMS that adapts to any project, loved by developers and editors alike.**
-The Plainkit is a minimal Kirby setup with the basics you need to start a project from scratch. It is the ideal choice if you are already familiar with Kirby and want to start step-by-step.
 
-You can learn more about Kirby at [getkirby.com](https://getkirby.com).
+This repository contains the source code (not the actual content) for the [website of "Fab Region Bergisches Städtedreieck"](https://www.fab-bergisch.org/). It was paid for by [CSCP gGmbH](https://www.cscp.org) and built by [bitbetter GmbH](https://www.bitbetter.de). This project builds on top of multiple existing projects:
 
-### Try Kirby for free
+- [Kirby CMS](https://getkirby.com) (This is the CMS behind the website – it is NOT an open-source project but requires proprietary license)
+- [FCOS Suite UI](https://gitlab.fabcity.hamburg/fcos-suite/fcos-suite-ui) (This is a UI component library for React. It was built as an Open Source project during the [2023 EU Interfacer project](https://www.interfacerproject.eu/) for [Fab City Hamburg](https://www.fabcity.hamburg))
+- [FCOS Suite Map](https://gitlab.fabcity.hamburg/fcos-suite/fcos-suite-map) (This is a interactive React Map component based on Mapbox. Just like the UI components it was built during the [2023 EU Interfacer project](https://www.interfacerproject.eu/) for [Fab City Hamburg](https://www.fabcity.hamburg))
+- [Inertia Adapter](https://plugins.getkirby.com/tobimori/inertia) (This plugin allows us to combine the existing React comoponents with Kirby CMS)
 
-You can try Kirby and the Plainkit on your local machine or on a test server as long as you need to make sure it is the right tool for your next project. … and when you’re convinced, [buy your license](https://getkirby.com/buy).
-
-### Get going
-
-Read our guide on [how to get started with Kirby](https://getkirby.com/docs/guide/quickstart).
-
-You can [download the latest version](https://github.com/getkirby/plainkit/archive/main.zip) of the Plainkit.
-If you are familiar with Git, you can clone Kirby's Plainkit repository from Github.
-
-    git clone https://github.com/getkirby/plainkit.git
-
-## What's Kirby?
-
-- **[getkirby.com](https://getkirby.com)** – Get to know the CMS.
-- **[Try it](https://getkirby.com/try)** – Take a test ride with our online demo. Or download one of our kits to get started.
-- **[Documentation](https://getkirby.com/docs/guide)** – Read the official guide, reference and cookbook recipes.
-- **[Issues](https://github.com/getkirby/kirby/issues)** – Report bugs and other problems.
-- **[Feedback](https://feedback.getkirby.com)** – You have an idea for Kirby? Share it.
-- **[Forum](https://forum.getkirby.com)** – Whenever you get stuck, don't hesitate to reach out for questions and support.
-- **[Discord](https://chat.getkirby.com)** – Hang out and meet the community.
-- **[Mastodon](https://mastodon.social/@getkirby)** – Spread the word.
-- **[Bluesky](https://bsky.app/profile/getkirby.com)** – Spread the word.
-
----
-
-© 2009 Bastian Allgeier
-[getkirby.com](https://getkirby.com) · [License agreement](https://getkirby.com/license)
+## Development Setup
+> [!IMPORTANT]
+> This project requires PHP (>8.2) and Node.js – both of these need to be installed for the following instructions to work correctly. For the PHP part, we recommend to use [Laravel Herd](https://herd.laravel.com/).
+- Clone the repository and switch into the new folder
+- Run `composer install` to install all PHP dependencies (i.e. Kirby and the Inertia Adapter)
+- Run `npm run build` to build the frontend components once
+- Run `npm run dev` to start the development server. It should print a link to your console, where you can open the frontend in your browser (e.g. `localhost:5173`).

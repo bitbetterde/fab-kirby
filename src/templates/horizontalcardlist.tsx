@@ -55,6 +55,7 @@ export default (props) => {
         )}
       />
       <Footer
+        copyright={props.bottomline}
         socialMediaGrow={false}
         menu={props?.menu.children}
         socialMedia={props?.socialmedia?.map((media) => ({
