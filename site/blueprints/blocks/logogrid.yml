@@ -1,0 +1,35 @@
+title: Logo Grid
+icon: grid
+preview: fields
+fields:
+  title:
+    label: Titel
+    type: text
+    required: false
+
+  logos:
+    label: Logos
+    type: structure
+    fields:
+      logo:
+        label: Logo
+        type: files
+        multiple: false
+        uploads:
+          template: blocks/image
+        required: true
+      href:
+        label: URL
+        type: url
+        required: false
+    required: true
+
+  columns:
+    label: Anzahl von Spalten
+    type: select
+    default: "3 Spalten"
+    options:
+      2: 2 Spalten
+      3: 3 Spalten
+      4: 4 Spalten
+    required: true

@@ -20,14 +20,23 @@ fields:
     type: headline
     label: Einstellungen
   fullbleed:
-    label: Full Bleed
+    label: Volle Breite
     type: toggle
     default: false
+    text:
+      - "Nein"
+      - "Ja"
   showtags:
     label: Tags anzeigen
     type: toggle
     default: false
+    text:
+      - "Nein"
+      - "Ja"
   withlightbox:
     label: Lightbox aktivieren
     type: toggle
     default: false
+    text:
+      - "Nein"
+      - "Ja"

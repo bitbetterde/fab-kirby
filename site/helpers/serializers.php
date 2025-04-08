@@ -29,12 +29,38 @@ function serializeBlocks($blocks)
       $result[] = convertMarkdownAccordion($block);
     } elseif ($block->type() === 'fullbleed-text') {
       $result[] = $block->toArray();
+    } elseif ($block->type() === 'logogrid') {
+      $result[] = serializeLogoGridBlock($block);
     } else {
       $result[] = $block->toArray();
     }
   }
 
   return $result;
+}
+
+function serializeLogoGridBlock($block): array
+{
+
+    $logos = [];
+    foreach ($block->logos()->toStructure() as $i => $logo) {
+        $logos[] = [
+        'url' => $logo->logo()->toFile()->url(),
+        'name' => $logo->logo()->toFile()->name(),
+        'href' => $logo->href()->value()
+        ];
+    }
+
+    $result['content'] = [
+        'logos' => $logos,
+        'columns' => (int) $block->columns()->value(),
+        'gap' => $block->gap()->value(),
+        'title' =>  $block->title()->value()
+    ];
+
+    $result['type'] = 'logogrid';
+
+    return $result;
 }
 
 function convertMarkdownTabs($block): array
