@@ -38,7 +38,7 @@ export default (props) => {
   const blocks = props?.page?.content?.text ?? [];
 
   return (
-    <div>
+    <>
       <Header
         topBarItems={props?.menu.children}
         toolBarItems={props?.toolbar?.map((item) => ({
@@ -261,6 +261,6 @@ export default (props) => {
           type: media.platform,
         }))}
       />
-    </div>
+    </>
   );
 };

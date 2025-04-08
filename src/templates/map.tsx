@@ -37,7 +37,7 @@ export default (props) => {
         itemsAlwaysLight
         organization="frbs"
       />
-      <main className="h-full basis-full relative">
+      <main className="h-[calc(100%-56px)] lg:h-[calc(100%-155px)] basis-full relative">
         <FabCityMap
           baseUrl={props.basePath}
           data={props.pois}

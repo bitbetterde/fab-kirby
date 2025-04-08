@@ -16,7 +16,7 @@ export default (props) => {
   const blocks = props?.page?.content?.text ?? [];
 
   return (
-    <div>
+    <>
       <Header
         topBarItems={props?.menu.children}
         toolBarItems={props?.toolbar?.map((item) => ({
@@ -34,16 +34,16 @@ export default (props) => {
       <HeroSection src={props?.page?.files[0]} />
       <main
         className={
-          "grid grid-cols-outer [&>*]:col-start-2 [&>*]:col-end-2 [&>*]:w-full overflow-x-hidden"
+          "grid grid-cols-outer [&>*]:col-start-1 [&>*]:col-end-4 [&>*]:w-full overflow-x-hidden"
         }
       >
         {blocks?.map((block, i) => {
           if (block.type === "fullbleed-text") {
             return (
-              <div key={"block"+i} className="!col-start-1 py-16 !col-end-4 grid grid-cols-subgrid [&>*]:col-start-2 [&>*]:col-end-2" style={{backgroundColor: block?.content?.bgcolor}}>
+              <div key={"block"+i} className="py-16 grid grid-cols-1 md:grid-cols-subgrid md:[&>*]:col-start-2 md:[&>*]:col-end-2" style={{backgroundColor: block?.content?.bgcolor}}>
                 <div className="grid grid-cols-inner">
                   <div
-                    className="col-start-1 col-end-14 md:col-start-4 md:col-end-11 prose prose-p:text-xl prose-h2:text-5xl prose-h2:font-plex prose-h2:font-normal prose-p:font-plex max-w-none "
+                    className="col-start-2 col-end-13 lg:col-start-4 lg:col-end-11 prose prose-p:text-xl prose-h2:text-5xl prose-h2:font-plex prose-h2:font-normal prose-p:font-plex max-w-none "
                     dangerouslySetInnerHTML={{ __html: block?.content?.text }}
                   />
                 </div>
@@ -85,6 +85,6 @@ export default (props) => {
           type: media.platform,
         }))}
       />
-    </div>
+    </>
   );
 };
