@@ -37,7 +37,7 @@ export default (props) => {
         hideSearchIcon
         organization="frbs"
       />
-      <HeroSection src={props?.page?.files[0]} />
+      <HeroSection src={props?.heroimage?.url} />
       <main
         className={
           "grid grid-cols-outer [&>*]:col-start-1 [&>*]:col-end-4 [&>*]:w-full overflow-x-hidden"
