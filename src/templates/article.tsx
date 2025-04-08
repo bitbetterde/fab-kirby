@@ -22,6 +22,7 @@ import {
   VerticalNewsCardSlider,
   Tabs,
   AccordionItem,
+  LogoGrid,
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
@@ -160,7 +161,9 @@ export default (props) => {
                     newTab={true}
                     {...(i === 0 ? { type: "primary" } : { type: "tertiary" })}
                     icon={
-                      button.icon ? <CarbonIcon name={button.icon} /> : undefined
+                      button.icon ? (
+                        <CarbonIcon name={button.icon} />
+                      ) : undefined
                     }
                   />
                 ))}
@@ -241,6 +244,23 @@ export default (props) => {
                   </AccordionItem>
                 ))}
               </div>
+            );
+          } else if (block.type === "logogrid") {
+            return (
+              <LogoGrid
+                title={block.content.title}
+                columns={block.content.columns}
+                entries={block.content.logos?.map((img) => ({
+                  src: img.url,
+                  alt: img.name,
+                  href: img.href,
+                }))}
+                customGap={
+                  block.content.gap === "wide"
+                    ? "fs-gap-x-10 fs-gap-y-10 sm:fs-gap-x-12 sm:fs-gap-y-12 xl:fs-gap-x-10 xl:fs-gap-y-10"
+                    : "fs-gap-x-16 fs-gap-y-16 sm:fs-gap-x-16 sm:fs-gap-y-12 xl:fs-gap-x-1 xl:fs-gap-y-10"
+                }
+              />
             );
           }
 
