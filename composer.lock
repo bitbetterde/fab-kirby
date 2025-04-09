@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "66b35f49c78f71b3dfb35e34b9d966e3",
+  "content-hash": "d4c1686154cfdf248a5367b4252d57a5",
   "packages": [
     {
       "name": "christian-riesen/base32",
@@ -272,16 +272,16 @@
     },
     {
       "name": "getkirby/cms",
-      "version": "5.0.0-beta.5",
+      "version": "5.0.0-beta.6",
       "source": {
         "type": "git",
         "url": "https://github.com/getkirby/kirby.git",
-        "reference": "37c5707b92926ceaf34721dad648b8eebd13812a"
+        "reference": "a4ace5458fe41fa3bd7c0820dd9a589e625ed245"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/getkirby/kirby/zipball/37c5707b92926ceaf34721dad648b8eebd13812a",
-        "reference": "37c5707b92926ceaf34721dad648b8eebd13812a",
+        "url": "https://api.github.com/repos/getkirby/kirby/zipball/a4ace5458fe41fa3bd7c0820dd9a589e625ed245",
+        "reference": "a4ace5458fe41fa3bd7c0820dd9a589e625ed245",
         "shasum": ""
       },
       "require": {
@@ -372,7 +372,7 @@
           "type": "custom"
         }
       ],
-      "time": "2025-04-02T14:57:55+00:00"
+      "time": "2025-04-09T09:51:27+00:00"
     },
     {
       "name": "getkirby/composer-installer",
