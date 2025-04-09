@@ -43,6 +43,7 @@ export default (props) => {
           data={props.pois}
           mapboxToken={MAPBOX_TOKEN}
           poiRoutePrefix={""}
+          categoryColorMapping={props.categoryColorMapping}
         />
       </main>
     </div>

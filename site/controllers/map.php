@@ -62,7 +62,13 @@ return function (Page $page, Site $site) {
             'category' => $poiPage->category()->toString(),
             'tags' => $poiPage->tags()->split(),
         ];
-        array_push($pois, $poi);
+        $pois[] = $poi;
+    }
+
+    $colorMapping = [];
+
+    foreach ($page->categoryColorMapping()->toStructure() as $entry) {
+        $colorMapping[$entry->category()->toString()] = $entry->color()->toString();
     }
 
 
@@ -71,7 +77,8 @@ return function (Page $page, Site $site) {
         [
             ...$defaultProps,
             'basePath' => array_slice(explode("/", $page->url()),-1)[0],
-            'pois' => $pois
+            'pois' => $pois,
+            'categoryColorMapping' => $colorMapping
         ]
     );
 };
