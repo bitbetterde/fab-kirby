@@ -5,6 +5,7 @@ columns:
     sections:
       pages:
         label: Unterseiten
+        layout: cards
         status: all
         templates:
           - default
