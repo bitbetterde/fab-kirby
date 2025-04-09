@@ -36,7 +36,10 @@ columns:
             label: Tag
       pages:
         type: pages
-        label: Seiten
-        template: default
+        label: Unterseiten
+        templates:
+          - default
+          - article
+          - horizontalcardlist
       files:
         type: files

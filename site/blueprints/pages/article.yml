@@ -55,5 +55,12 @@ columns:
             type: tags
             max: 1
             label: Tag
+      pages:
+        type: pages
+        label: Unterseiten
+        templates:
+          - default
+          - article
+          - horizontalcardlist
       files:
         type: files
