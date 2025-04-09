@@ -1,0 +1,12 @@
+title: Kategorie (ohne Content)
+columns:
+  main:
+    width: 2/3
+    sections:
+      pages:
+        label: Unterseiten
+        status: all
+        templates:
+          - default
+          - article
+          - horizontalcardlist
