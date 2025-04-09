@@ -1,0 +1,16 @@
+{
+  "name": "bitbetter/icon-dropdown",
+  "description": "Dropdown Icon input for Phosphor icon set",
+  "license": "MIT",
+  "type": "kirby-plugin",
+  "version": "1.0.0",
+  "authors": [
+      {
+          "name": "bitbetter GmbH",
+          "email": "info@bitbetter.de"
+      }
+  ],
+  "require": {
+      "getkirby/composer-installer": "^1.1"
+  }
+}
