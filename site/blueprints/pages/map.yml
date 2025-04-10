@@ -26,7 +26,7 @@ columns:
             help: Wenn die alphabetische Sortierung aktiviert ist, hat die Kirby-interne Reihenfolge der Seiten keine Funktion mehr.
           categoryColorMapping:
             type: structure
-            label: Kategoriefarben
+            label: Kategorie- & Markerfarben
             fields:
               category:
                 label: Kategorie
@@ -38,6 +38,31 @@ columns:
                   max: 1
                   type: query
                   query: page.children.pluck("category", ",", true)
+              color:
+                label: Farbe
+                type: color
+                required: true
+                options:
+                  - "#efece5"
+                  - "#101626"
+                  - "#f2bc4d"
+                  - "#1ab474"
+                  - "#eb434d"
+                  - "#465eab"
+          tagColorMapping:
+            type: structure
+            label: Tagfarben
+            fields:
+              category:
+                label: Tag
+                type: tags
+                required: true
+                accept: options
+                options:
+                  min: 1
+                  max: 1
+                  type: query
+                  query: page.children.pluck("tags", ",", true)
               color:
                 label: Farbe
                 type: color

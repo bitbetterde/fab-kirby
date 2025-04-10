@@ -57,7 +57,20 @@ return function (Page $page, Site $site) {
             'category' => $poiPage->category()->toString(),
             'tags' => $poiPage->tags()->split(),
         ];
-        array_push($pois, $poi);
+
+        $pois[] = $poi;
+    }
+
+    $categoryColorMapping = [];
+
+    foreach ($mapPage->categoryColorMapping()->toStructure() as $entry) {
+        $categoryColorMapping[$entry->category()->toString()] = $entry->color()->toString();
+    }
+
+    $tagColorMapping = [];
+
+    foreach ($mapPage->tagColorMapping()->toStructure() as $entry) {
+        $tagColorMapping[$entry->category()->toString()] = $entry->color()->toString();
     }
 
 
@@ -66,7 +79,9 @@ return function (Page $page, Site $site) {
         [
             ...$defaultProps,
             'basePath' => array_slice(explode("/", $page->parent()->url()),-1)[0],
-            'pois' => $pois
+            'pois' => $pois,
+            'categoryColorMapping' => $categoryColorMapping,
+            'tagColorMapping' => $tagColorMapping
         ]
     );
 };

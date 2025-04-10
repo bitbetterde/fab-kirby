@@ -65,10 +65,16 @@ return function (Page $page, Site $site) {
         $pois[] = $poi;
     }
 
-    $colorMapping = [];
+    $categoryColorMapping = [];
 
     foreach ($page->categoryColorMapping()->toStructure() as $entry) {
-        $colorMapping[$entry->category()->toString()] = $entry->color()->toString();
+        $categoryColorMapping[$entry->category()->toString()] = $entry->color()->toString();
+    }
+
+    $tagColorMapping = [];
+
+    foreach ($page->tagColorMapping()->toStructure() as $entry) {
+        $tagColorMapping[$entry->category()->toString()] = $entry->color()->toString();
     }
 
 
@@ -78,7 +84,8 @@ return function (Page $page, Site $site) {
             ...$defaultProps,
             'basePath' => array_slice(explode("/", $page->url()),-1)[0],
             'pois' => $pois,
-            'categoryColorMapping' => $colorMapping
+            'categoryColorMapping' => $categoryColorMapping,
+            'tagColorMapping' => $tagColorMapping
         ]
     );
 };
