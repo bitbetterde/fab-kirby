@@ -9,31 +9,15 @@ include 'site/helpers/menu.php';
 
 function getDefaultInertiaProps(Page $page, Site $site)
 {
-    $showToolbar = !$site->content()->hideToolbar()->toBool();
     $pageArr = $page->toArray();
     $heroImageArr = $page->heroimage()->toFile()->toArray();
-
-    $toolbarArr = [];
-
-    if ($showToolbar) {
-
-        $toolbarStructure = $site->toolbar()->toStructure();
-
-        foreach ($toolbarStructure as $item) {
-            $modifiedMenuItem = [
-                'icon' => $item->icon()->toString(),
-                'title' => $item->title()->toString(),
-                'href' => $item->href()->toPage() ? $item->href()->toPage()->url() : null,
-            ];
-            array_push($toolbarArr, $modifiedMenuItem);
-        }
-    }
 
     return [
         'page' => $pageArr,
         'menu' => traverseMenu($site),
-        'toolbar' => $showToolbar ? $toolbarArr : null,
+        'toolbar' => serializeToolbar($site),
         'bottomline' => $site->content()->bottomLine()->toString(),
+        'supportedby' => serializeSupportedBy($site),
         'heroimage' => [
             'url' => $heroImageArr['url'],
             'alt' => $heroImageArr['content']['alt'] ?? null,

@@ -26,7 +26,7 @@
     "@fontsource/ibm-plex-sans": "^5.1.1",
     "@fontsource/inter": "^5.1.1",
     "@fontsource/karla": "^5.1.1",
-    "@inertiajs/react": "^2.0.3",
+    "@inertiajs/react": "^2.0.8",
     "@vitejs/plugin-react": "^4.3.4",
     "dotenv": "^16.4.7",
     "react": "^18.3.1",

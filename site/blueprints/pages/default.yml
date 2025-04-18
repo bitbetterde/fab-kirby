@@ -13,6 +13,8 @@ columns:
               - fullbleed-text
               - verticalnewscardslider
               - logogrid
+              - youtube
+              - image
             label: Inhalt
             required: true
   sidebar:

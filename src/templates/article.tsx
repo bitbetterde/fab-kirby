@@ -59,7 +59,7 @@ export default (props) => {
         titleImageAlt={props?.heroimage?.alt}
         imageTag={props?.heroimage?.credits}
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
-          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb,
+          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb
         )}
         hideFooterSeparator={true}
         title={props?.page?.content.title}
@@ -94,25 +94,22 @@ export default (props) => {
             return <HeadlineTag>{block.content.text}</HeadlineTag>;
           } else if (block.type === "image") {
             return (
-              <>
-                {/*<pre>{JSON.stringify(block, null, 2)}</pre>*/}
-                <Image
-                  src={
-                    block.content.location === "kirby"
-                      ? block.content.image?.url
-                      : block.content.src
-                  }
-                  alt={block.content.alt}
-                  captionHtml={block.content.caption}
-                  subCaption={
-                    block.content.subcaption
-                      ? `Quelle: ${block.content.subcaption}`
-                      : undefined
-                  }
-                  tag={block.content.tag}
-                  className="my-8"
-                />
-              </>
+              <Image
+                src={
+                  block.content.location === "kirby"
+                    ? block.content.image?.url
+                    : block.content.src
+                }
+                alt={block.content.alt}
+                captionHtml={block.content.caption}
+                subCaption={
+                  block.content.subcaption
+                    ? `Quelle: ${block.content.subcaption}`
+                    : undefined
+                }
+                tag={block.content.tag}
+                className="my-8"
+              />
             );
           } else if (block.type === "code") {
             return (

@@ -16,11 +16,11 @@ tabs:
           - horizontalcardlist
           - category
 
-  global:
-    label: Einstellungen
-    icon: list-bullet
+  toolbar:
+    label: Toolbar
+    icon: wand
     sections:
-      menu:
+      toolbarSection:
         type: fields
         fields:
           hideToolbar:
@@ -30,7 +30,7 @@ tabs:
               - "Nein"
               - "Ja"
 
-          toolbar:
+          toolbarElements:
             label: Toolbar Elemente
             type: structure
             help: Hier kannst du die Elemente in der Toolbar festlegen, die unterhalb des Hauptmenüs angezeigt wird.
@@ -40,7 +40,7 @@ tabs:
                 type: text
                 required: true
               href:
-                label: Ziel
+                label: Linkziel
                 type: pages
                 required: true
                 multiple: false
@@ -51,6 +51,13 @@ tabs:
                 options: site.iconOptions
                 help: Die Namen der Icons beziehen sich auf das [Carbon Iconset](https://carbondesignsystem.com/elements/icons/library/) von IBM.
 
+  footer:
+    label: Footer
+    icon: grid-bottom
+    sections:
+      footerSection:
+        type: fields
+        fields:
           social:
             label: Footer Social Media Icons
             type: structure
@@ -78,8 +85,26 @@ tabs:
                 type: url
                 required: true
 
+          supportedBy:
+            label: Footer Logos
+            type: structure
+            fields:
+              img:
+                label: Bild
+                type: files
+                required: true
+                multiple: false
+              alt:
+                label: Alt Text
+                type: text
+                required: false
+              href:
+                label: Linkziel
+                type: url
+                required: false
+
           bottomLine:
-            label: Abschlusszeile
+            label: Footer Abschlusszeile
             type: text
             help: Der Inhalt dieses Felds wird ganz am Ende jeder Seite angezeigt und kann z.B. für Copyright-Hinweise genutzt werden.
 

@@ -42,25 +42,25 @@ function serializeBlocks($blocks)
 function serializeLogoGridBlock($block): array
 {
 
-    $logos = [];
-    foreach ($block->logos()->toStructure() as $i => $logo) {
-        $logos[] = [
-        'url' => $logo->logo()->toFile()->url(),
-        'name' => $logo->logo()->toFile()->name(),
-        'href' => $logo->href()->value()
-        ];
-    }
-
-    $result['content'] = [
-        'logos' => $logos,
-        'columns' => (int) $block->columns()->value(),
-        'gap' => $block->gap()->value(),
-        'title' =>  $block->title()->value()
+  $logos = [];
+  foreach ($block->logos()->toStructure() as $i => $logo) {
+    $logos[] = [
+      'url' => $logo->logo()->toFile()->url(),
+      'name' => $logo->logo()->toFile()->name(),
+      'href' => $logo->href()->value()
     ];
+  }
 
-    $result['type'] = 'logogrid';
+  $result['content'] = [
+    'logos' => $logos,
+    'columns' => (int) $block->columns()->value(),
+    'gap' => $block->gap()->value(),
+    'title' =>  $block->title()->value()
+  ];
 
-    return $result;
+  $result['type'] = 'logogrid';
+
+  return $result;
 }
 
 function convertMarkdownTabs($block): array
@@ -176,3 +176,46 @@ function serializeSocialMedia($site): array
   return $socialMediaArray;
 }
 
+function serializeToolbar($site): array|null
+{
+  $showToolbar = !$site->content()->hideToolbar()->toBool();
+
+  if ($showToolbar) {
+    $toolbarArr = [];
+
+    $toolbarStructure = $site->toolbarElements()->toStructure();
+
+    foreach ($toolbarStructure as $item) {
+      $modifiedMenuItem = [
+        'icon' => $item->icon()->toString(),
+        'title' => $item->title()->toString(),
+        'href' => $item->href()->toPage() ? $item->href()->toPage()->url() : null,
+      ];
+      $toolbarArr[] = $modifiedMenuItem;
+    }
+    return $toolbarArr;
+  }
+
+  return null;
+}
+
+function serializeSupportedBy($site): array
+{
+  $supportedByStructure = $site->supportedBy()->toStructure();
+
+  $supportedByArr = [];
+
+  if ($supportedByStructure->isNotEmpty()) {
+
+    foreach ($supportedByStructure as $item) {
+      $supportedByItem = [
+        'img' => $item->img()->toFile()->url(),
+        'alt' => $item->alt()->toString(),
+        'href' => $item->href()->toString(),
+      ];
+      $supportedByArr[] = $supportedByItem;
+    }
+  }
+
+  return $supportedByArr;
+}

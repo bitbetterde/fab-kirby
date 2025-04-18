@@ -18,7 +18,7 @@ fields:
         label: Aufschrift
         type: text
       target:
-        label: Ziel
+        label: Linkziel
         type: url
         required: true
       icon:

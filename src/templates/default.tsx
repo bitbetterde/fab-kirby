@@ -13,7 +13,9 @@ import {
   Header,
   HeroSection,
   VerticalNewsCardSlider,
+  YoutubeEmbed,
   LogoGrid,
+  Image,
 } from "@fchh/fcos-suite-ui";
 
 export default (props) => {
@@ -103,6 +105,37 @@ export default (props) => {
                 </div>
               </div>
             );
+          } else if (block.type === "youtube") {
+            return (
+              <div className="grid grid-cols-inner">
+                <YoutubeEmbed
+                  videoId={block.content.videoid}
+                  title={block.content.title}
+                  className="col-start-2 col-end-13 lg:col-start-4 lg:col-end-11 my-8"
+                />
+              </div>
+            );
+          } else if (block.type === "image") {
+            return (
+              <div className="grid grid-cols-inner">
+                <Image
+                  src={
+                    block.content.location === "kirby"
+                      ? block.content.image?.url
+                      : block.content.src
+                  }
+                  alt={block.content.alt}
+                  captionHtml={block.content.caption}
+                  subCaption={
+                    block.content.subcaption
+                      ? `Quelle: ${block.content.subcaption}`
+                      : undefined
+                  }
+                  tag={block.content.tag}
+                  className="col-start-2 col-end-13 lg:col-start-4 lg:col-end-11 my-8"
+                />
+              </div>
+            );
           }
           return null;
         })}
@@ -111,6 +144,7 @@ export default (props) => {
         copyright={props.bottomline}
         socialMediaGrow={false}
         menu={props?.menu.children}
+        supportedBy={props.supportedby}
         socialMedia={props?.socialmedia?.map((media) => ({
           href: media.href,
           type: media.platform,

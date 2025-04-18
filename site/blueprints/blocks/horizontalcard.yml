@@ -3,7 +3,7 @@ icon: grid-bottom
 preview: fields
 fields:
   target:
-    label: Ziel
+    label: Linkziel
     type: link
     required: true
     options:

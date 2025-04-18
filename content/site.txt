@@ -6,7 +6,7 @@ Hidetoolbar: false
 
 ----
 
-Toolbar:
+Toolbarelements:
 
 - 
   title: Tool1

@@ -15,3 +15,9 @@ fields:
       - "#1ab474"
       - "#eb434d"
       - "#465eab"
+  lightText:
+    type: toggle
+    label: Helle Schrift?
+    text:
+      - "Nein"
+      - "Ja"
