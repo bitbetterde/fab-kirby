@@ -44,6 +44,7 @@ jobs:
             site/
             vendor/
             kirby/
+            content/
             index.php
             .htaccess
           include-hidden-files: true
@@ -75,3 +76,4 @@ jobs:
             site/accounts/**
             site/cache/**
             site/config/**
+            content/**
