@@ -15,6 +15,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: cscp-hosteurope
+    env: 
+      VITE_PUBLIC_MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
     steps:
       - name: Checkout repository using git
         uses: actions/checkout@v4
@@ -31,7 +33,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           php_version: 8.3
-          args: "--ignore-platform-reqs --optimize-autoloader"
+          args: "--ignore-platform-reqs --optimize-autoloader --no-dev"
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -66,3 +68,10 @@ jobs:
           server: ${{ secrets.FTPS_HOST }}
           username: ${{ secrets.FTPS_USER }}
           password: ${{ secrets.FTPS_PASSWORD }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            site/accounts/**
+            site/cache/**
+            site/config/**
