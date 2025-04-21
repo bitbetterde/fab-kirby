@@ -58,7 +58,7 @@ jobs:
           name: deployment
           path: dist
       - name: Incremental sync via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           protocol: ftps
           local-dir: dist
