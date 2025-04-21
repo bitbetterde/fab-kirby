@@ -15,7 +15,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: cscp-hosteurope
-    env: 
     steps:
       - name: Checkout repository using git
         uses: actions/checkout@v4
