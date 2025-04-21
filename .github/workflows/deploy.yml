@@ -38,7 +38,7 @@ jobs:
           name: deployment
           retention-days: 5
           path: |
-            dist/
+            build/
             site/
             vendor/
             kirby/
