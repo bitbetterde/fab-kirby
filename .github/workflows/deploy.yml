@@ -73,7 +73,7 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            site/accounts/**
-            site/cache/**
-            site/config/**
-            content/**
+            **/site/accounts/**
+            **/site/cache/**
+            **/site/config/**
+            **/content/**
