@@ -1,0 +1,80 @@
+name: Live Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+  
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  id-token: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: cscp-hosteurope
+    env: 
+    steps:
+      - name: Checkout repository using git
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'npm'
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Build site Frontend
+        run: npm run build
+      - name: Setup Composer
+        uses: php-actions/composer@v6
+        with:
+          php_version: 8.4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment
+          retention-days: 5
+          path: |
+            dist/
+            site/
+            !site/accounts
+            !site/cache
+            !site/config
+            !site/sessions
+            !path/**/*.tmp
+            vendor/
+            kirby/
+          include-hidden-files: true
+
+  # deploy:
+  #   needs: build
+  #   environment: cscp-hosteurope
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     FTPS_HOST: ${{ secrets.FTPS_HOST }}
+  #     FTPS_FOLDER: ${{ secrets.FTPS_FOLDER }}
+  #     FTPS_USER: ${{ secrets.FTPS_USER }}
+  #     FTPS_PASSWORD: ${{ secrets.FTPS_PASSWORD }}
+
+  #   steps:
+  #     - name: Download artifact
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: deployment
+  #         path: dist
+  #     - name: Install LFTP
+  #       run: sudo apt-get install -y lftp
+  #     - name: Add SSH Known Hosts
+  #       run: |
+  #         mkdir -p ~/.ssh/
+  #         echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+  #     - name: List dir
+  #       run: |
+  #         pwd
+  #         ls -la
+  #     - name: Deploy via LFTP to SFTP target
+  #       run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --verbose --delete ./dist ./$SFTP_PATH --exclude pdfjs/ ; bye"
+
