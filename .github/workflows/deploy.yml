@@ -30,7 +30,7 @@ jobs:
       - name: Setup Composer
         uses: php-actions/composer@v6
         with:
-          php_version: 8.4
+          php_version: 8.3
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -39,13 +39,10 @@ jobs:
           path: |
             dist/
             site/
-            !site/accounts
-            !site/cache
-            !site/config
-            !site/sessions
-            !path/**/*.tmp
             vendor/
             kirby/
+            index.php
+            .htaccess
           include-hidden-files: true
 
   # deploy:
