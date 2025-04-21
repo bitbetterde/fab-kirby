@@ -46,32 +46,23 @@ jobs:
             .htaccess
           include-hidden-files: true
 
-  # deploy:
-  #   needs: build
-  #   environment: cscp-hosteurope
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     FTPS_HOST: ${{ secrets.FTPS_HOST }}
-  #     FTPS_FOLDER: ${{ secrets.FTPS_FOLDER }}
-  #     FTPS_USER: ${{ secrets.FTPS_USER }}
-  #     FTPS_PASSWORD: ${{ secrets.FTPS_PASSWORD }}
+  deploy:
+    needs: build
+    environment: cscp-hosteurope
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Download artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: deployment
-  #         path: dist
-  #     - name: Install LFTP
-  #       run: sudo apt-get install -y lftp
-  #     - name: Add SSH Known Hosts
-  #       run: |
-  #         mkdir -p ~/.ssh/
-  #         echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
-  #     - name: List dir
-  #       run: |
-  #         pwd
-  #         ls -la
-  #     - name: Deploy via LFTP to SFTP target
-  #       run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --verbose --delete ./dist ./$SFTP_PATH --exclude pdfjs/ ; bye"
-
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: deployment
+          path: dist
+      - name: Incremental sync via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          protocol: ftps
+          local-dir: dist
+          server-dir: ${{ secrets.FTPS_FOLDER }}
+          server: ${{ secrets.FTPS_HOST }}
+          username: ${{ secrets.FTPS_USER }}
+          password: ${{ secrets.FTPS_PASSWORD }}
