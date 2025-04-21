@@ -1,5 +1,5 @@
 // CSS from UI Library
-import "../../../fcos-suite-ui/dist/fcos-suite-ui.css";
+import "@fchh/fcos-suite-ui/style.css";
 // Local fonts
 import "@fontsource/karla";
 import "@fontsource/inter";
@@ -7,8 +7,8 @@ import "@fontsource/ibm-plex-sans";
 // Local styles
 import "../base.css";
 
-import { HorizontalNewsCardListView } from "../../../fcos-suite-ui";
-import { INews } from "../../../fcos-suite-ui/src/interfaces/INews";
+import { HorizontalNewsCardListView } from "@fchh/fcos-suite-ui";
+import type { INews } from "@fchh/fcos-suite-ui";
 import { useState } from "react";
 
 interface Props {
