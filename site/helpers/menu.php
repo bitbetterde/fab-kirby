@@ -8,7 +8,7 @@ function traverseMenu($item, $includeHiddenItems = true)
         $childrenItems = [];
 
         foreach ($item->children() as $childItem) {
-            if ($childItem->listed()) {
+            if ($childItem->isListed()) {
                 if (!$includeHiddenItems && $childItem->hideInFooter()->toBool()) {
                     continue;
                 } else {
@@ -29,9 +29,10 @@ function traverseMenu($item, $includeHiddenItems = true)
 
         return $itemArr;
     } else {
-        if ($item->intendedTemplate() == 'error') {
-            return null;
+        if ($item->isListed() && ($item->intendedTemplate() != 'error')) {
+            return ['title' => $item->title()->value(), 'target' => $item->url()];
         }
-        return ['title' => $item->title()->value(), 'target' => $item->url()];
+
+        return null;
     }
 }
