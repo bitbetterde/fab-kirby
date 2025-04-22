@@ -44,7 +44,7 @@ export default (props) => {
             className: "fs-not-prose",
             type: "dark",
             title: child.content.title,
-            category: { id: 1, title: child.content.tag },
+            category: child.content.tag ? { id: 1, title: child.content.tag } : undefined,
             description: child.content.teaser,
             href: child.url,
             image: {

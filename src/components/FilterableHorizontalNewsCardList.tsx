@@ -33,8 +33,8 @@ export const FilterableHorizontalNewsCardList = ({
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
 
   const categoryTitles: string[] = Array.from(
-    new Set(cards.map((card) => card.category.title)),
-  );
+    new Set(cards.map((card) => card.category?.title)),
+  ).filter(Boolean);
 
   const allCategories = categoryTitles
     .filter((title) => title.length !== 0)

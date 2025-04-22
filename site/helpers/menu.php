@@ -3,8 +3,8 @@
 // Build data structure for top bar menu navigation
 function traverseMenu($item, $includeHiddenItems = true)
 {
-    // The "list view" template pages should not have sub menu items
-    if ($item->hasChildren() && ($item->intendedTemplate() != 'horizontalcardlist')) {
+    // The "list view" template pages should only have sub menu items, when the toggle is active
+    if (($item->hasChildren() && ($item->intendedTemplate() != 'horizontalcardlist')) || ($item->hasChildren() && ($item->intendedTemplate() == 'horizontalcardlist' && !$item->hideChildrenInMenus()->toBool()))) {
         $childrenItems = [];
 
         foreach ($item->children() as $childItem) {
@@ -13,6 +13,7 @@ function traverseMenu($item, $includeHiddenItems = true)
                     continue;
                 } else {
                     $subChildrenItems = traverseMenu($childItem, $includeHiddenItems);
+
                     if (!is_null($subChildrenItems)) {
                         $childrenItems[] = $subChildrenItems;
                     }

@@ -9,6 +9,10 @@ columns:
           subheading:
             type: text
             label: Subtitel
+          teaser:
+            type: textarea
+            label: Teaser
+            buttons: false
       pages:
         type: pages
         label: Seiten
@@ -30,5 +34,12 @@ columns:
             query: page.images.template('article-heroimage')
             uploads:
               template: article-heroimage
+          hideChildrenInMenus:
+            type: toggle
+            label: Unterseiten in Menüs ausblenden
+            default: false
+            text:
+              - "Nein"
+              - "Ja"
 
 
