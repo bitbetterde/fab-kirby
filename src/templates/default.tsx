@@ -42,7 +42,7 @@ export default (props) => {
       <HeroSection src={props?.heroimage?.url} />
       <main
         className={
-          "grid grid-cols-outer [&>*]:col-start-1 [&>*]:col-end-4 [&>*]:w-full overflow-x-hidden"
+          "grid grid-cols-outer [&>*]:col-start-1 [&>*]:col-end-4 [&>*]:w-full overflow-hidden"
         }
       >
         {blocks?.map((block, i) => {

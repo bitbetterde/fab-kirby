@@ -91,7 +91,11 @@ export default (props) => {
             );
           } else if (block.type === "heading") {
             const HeadlineTag = block.content.level;
-            return <HeadlineTag>{block.content.text}</HeadlineTag>;
+            return (
+              <HeadlineTag
+                dangerouslySetInnerHTML={{ __html: block.content.text }}
+              ></HeadlineTag>
+            );
           } else if (block.type === "image") {
             return (
               <Image
