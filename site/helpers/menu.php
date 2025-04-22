@@ -1,14 +1,23 @@
 <?php
 
-// Build data structure for menu navigation
-function traverseMenu($item)
+// Build data structure for top bar menu navigation
+function traverseMenu($item, $includeHiddenItems = true)
 {
-    // The "list view" template pages should not have sub menu items in the top bar
+    // The "list view" template pages should not have sub menu items
     if ($item->hasChildren() && ($item->intendedTemplate() != 'horizontalcardlist')) {
         $childrenItems = [];
 
-        foreach ($item->children()->listed() as $childItem) {
-            $childrenItems[] = traverseMenu($childItem);
+        foreach ($item->children() as $childItem) {
+            if ($childItem->listed()) {
+                if (!$includeHiddenItems && $childItem->hideInFooter()->toBool()) {
+                    continue;
+                } else {
+                    $subChildrenItems = traverseMenu($childItem, $includeHiddenItems);
+                    if (!is_null($subChildrenItems)) {
+                        $childrenItems[] = $subChildrenItems;
+                    }
+                }
+            }
         }
 
         $itemArr = ['title' => $item->title()->value(), 'children' => $childrenItems];
@@ -20,6 +29,9 @@ function traverseMenu($item)
 
         return $itemArr;
     } else {
+        if ($item->intendedTemplate() == 'error') {
+            return null;
+        }
         return ['title' => $item->title()->value(), 'target' => $item->url()];
     }
 }

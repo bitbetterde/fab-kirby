@@ -103,6 +103,21 @@ tabs:
                 type: url
                 required: false
 
+          policyLinks:
+            label: Footer Policy Links
+            type: structure
+            fields:
+              title:
+                label: Titel
+                type: text
+                required: true
+              href:
+                label: Linkziel
+                type: pages
+                required: true
+                multiple: false
+                max: 3
+
           bottomLine:
             label: Footer Abschlusszeile
             type: text

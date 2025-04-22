@@ -57,11 +57,13 @@ export default (props) => {
       <Footer
         copyright={props.bottomline}
         socialMediaGrow={false}
-        menu={props?.menu.children}
+        menu={props?.footermenu.children}
+        supportedBy={props.supportedby}
         socialMedia={props?.socialmedia?.map((media) => ({
           href: media.href,
           type: media.platform,
         }))}
+        policyLinks={props?.policylinks}
       />
     </>
   );

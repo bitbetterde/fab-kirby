@@ -15,6 +15,8 @@ function getDefaultInertiaProps(Page $page, Site $site)
     return [
         'page' => $pageArr,
         'menu' => traverseMenu($site),
+        'footermenu' => traverseMenu($site, false),
+        'policylinks' => serializePolicyLinks($site),
         'toolbar' => serializeToolbar($site),
         'supportedby' => serializeSupportedBy($site),
         'bottomline' => $site->content()->bottomLine()->toString(),

@@ -55,6 +55,13 @@ columns:
             type: tags
             max: 1
             label: Tag
+          hideInFooter:
+            type: toggle
+            label: Seite (inkl. Unterseiten) im Footer-Menü ausblenden
+            default: false
+            text:
+              - "Nein"
+              - "Ja"
       pages:
         type: pages
         label: Unterseiten

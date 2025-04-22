@@ -219,3 +219,23 @@ function serializeSupportedBy($site): array
 
   return $supportedByArr;
 }
+
+function serializePolicyLinks($site): array
+{
+  $policyLinksStructure = $site->policyLinks()->toStructure();
+
+  $policyLinksArr = [];
+
+  if ($policyLinksStructure->isNotEmpty()) {
+
+    foreach ($policyLinksStructure as $item) {
+      $policyLinksItem = [
+        'title' => $item->title()->toString(),
+        'href' => $item->href()->toPage()->url(),
+      ];
+      $policyLinksArr[] = $policyLinksItem;
+    }
+  }
+
+  return $policyLinksArr;
+}

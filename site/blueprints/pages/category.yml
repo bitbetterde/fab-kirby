@@ -3,6 +3,13 @@ columns:
   main:
     width: 2/3
     sections:
+      fieldsSection:
+        type: fields
+        fields:
+          teaser:
+            type: textarea
+            label: Teaser
+            buttons: false
       pages:
         label: Unterseiten
         layout: cards
@@ -11,3 +18,4 @@ columns:
           - default
           - article
           - horizontalcardlist
+          - category

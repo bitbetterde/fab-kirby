@@ -68,6 +68,7 @@ export default (props) => {
                 : block.content.resolvedChildren;
             return (
               <VerticalNewsCardSlider
+                key={"block" + i}
                 className="fs-not-prose py-16"
                 variant="dark"
                 title={block.content.title}
@@ -107,7 +108,7 @@ export default (props) => {
             );
           } else if (block.type === "youtube") {
             return (
-              <div className="grid grid-cols-inner">
+              <div className="grid grid-cols-inner" key={"block" + i}>
                 <YoutubeEmbed
                   videoId={block.content.videoid}
                   title={block.content.title}
@@ -117,7 +118,7 @@ export default (props) => {
             );
           } else if (block.type === "image") {
             return (
-              <div className="grid grid-cols-inner">
+              <div className="grid grid-cols-inner" key={"block" + i}>
                 <Image
                   src={
                     block.content.location === "kirby"
@@ -143,12 +144,13 @@ export default (props) => {
       <Footer
         copyright={props.bottomline}
         socialMediaGrow={false}
-        menu={props?.menu.children}
+        menu={props?.footermenu.children}
         supportedBy={props.supportedby}
         socialMedia={props?.socialmedia?.map((media) => ({
           href: media.href,
           type: media.platform,
         }))}
+        policyLinks={props?.policylinks}
       />
     </>
   );
