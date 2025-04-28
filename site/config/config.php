@@ -7,4 +7,10 @@ unset(Kirby\Sane\Sane::$aliases['image/svg+xml']);
 
 return [
     'debug' => true,
+    'thumbs' => [
+        'presets' => [
+            'opengraph' => ['width' => 1200, 'quality' => 90],
+            'hero' => ['width' => 1800, 'quality' => 90]
+        ],
+    ]
 ];

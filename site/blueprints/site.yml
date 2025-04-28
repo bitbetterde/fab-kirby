@@ -124,3 +124,16 @@ tabs:
             type: text
             help: Der Inhalt dieses Felds wird ganz am Ende jeder Seite angezeigt und kann z.B. für Copyright-Hinweise genutzt werden.
 
+  general:
+    label: Metadaten
+    icon: ticket
+    sections:
+      generalSection:
+        type: fields
+        fields:
+          metaDescription:
+            label: Webseiten-Beschreibung
+            help: Diese Beschreibung ist Teil der (unsichtbaren) Metadaten und wird z.B. von Suchmaschinen indexiert.
+            type: textarea
+            buttons: false
+            required: true

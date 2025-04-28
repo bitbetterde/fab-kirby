@@ -10,7 +10,7 @@ include 'site/helpers/menu.php';
 function getDefaultInertiaProps(Page $page, Site $site)
 {
     $pageArr = $page->toArray();
-    $heroImageArr = $page->heroimage()->toFile()->toArray();
+    $heroImage = $page->heroimage()->toFile();
 
     return [
         'page' => $pageArr,
@@ -22,11 +22,11 @@ function getDefaultInertiaProps(Page $page, Site $site)
         'bottomline' => $site->content()->bottomLine()->toString(),
         'socialmedia' => serializeSocialMedia($site),
         'heroimage' => [
-            'url' => $heroImageArr['url'],
-            'alt' => $heroImageArr['content']['alt'] ?? null,
-            'credits' => $heroImageArr['content']['credits'] ?? null,
-            'height' => $heroImageArr['dimensions']['height'],
-            'width' => $heroImageArr['dimensions']['width']
+            'url' => $heroImage->thumb('hero')->url(),
+            'alt' => $heroImage->alt() ?? null,
+            'credits' => $heroImage->credits() ?? null,
+            'height' => $heroImage->dimensions()->height(),
+            'width' => $heroImage->dimensions()->width()
         ],
     ];
 }
