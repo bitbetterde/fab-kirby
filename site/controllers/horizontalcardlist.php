@@ -41,7 +41,7 @@ return function (Page $page, Site $site) {
         foreach ($page->children() as $child) {
             if (!$child->isDraft()) {
                 $resolvedChild = $child->toArray();
-                $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile() ? $child->heroimage()->toFile()->toArray() : null;
+                $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile() ? $child->heroimage()->toFile()->thumb('card-square')->toArray() : null;
                 $resolvedChildren[] = $resolvedChild;
             }
         }

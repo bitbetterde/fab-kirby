@@ -81,7 +81,7 @@ function serializeMiniCardBlock($block): array
   $result = $block->toArray();
   $miniCardPage = $block->selectedPage()->toPage();
   $result['content']['target'] = $miniCardPage ? $miniCardPage->toArray() : null;
-  $result['content']['target']['content']['heroimage'] = $miniCardPage ? $miniCardPage->heroimage()->toFile()->toArray() : null;
+  $result['content']['target']['content']['heroimage'] = $miniCardPage ? $miniCardPage->heroimage()->toFile()->thumb('card-square')->toArray() : null;
   return $result;
 }
 
@@ -101,7 +101,7 @@ function serializePersonBlock($block): array
   $result = $block->toArray();
   foreach ($block->content()->people()->toStructure() as $i => $person) {
 
-    $result['content']['people'][$i]['image'] = $person->image()->toFile()->toArray();
+    $result['content']['people'][$i]['image'] = $person->image()->toFile()->thumb('person')->toArray();
   }
   return $result;
 }
@@ -121,7 +121,7 @@ function serializeYoutubeBlock($block): array
   }
 
   $result['content']['videoid'] = $videoId;
-  
+
   return $result;
 }
 
@@ -151,7 +151,7 @@ function serializeHorizontalCardBlock($block): array
   $result = $block->toArray();
   $cardPage = $block->target()->toPage();
   $result['content']['target'] = $cardPage ? $cardPage->toArray() : null;
-  $result['content']['target']['content']['heroimage'] = $cardPage ? $cardPage->heroimage()->toFile()->toArray() : null;
+  $result['content']['target']['content']['heroimage'] = $cardPage ? $cardPage->heroimage()->toFile()->thumb('card-square')->toArray() : null;
   return $result;
 }
 
@@ -164,7 +164,7 @@ function serializeVerticalNewsCardSliderBlock($block): array
     if ($cardPage) {
       foreach ($cardPage->children()->listed() as $child) {
         $resolvedChild = $child->toArray();
-        $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()->toArray();
+        $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()->thumb('card-square')->toArray();
         $resolvedChildren[] = $resolvedChild;
       }
     }
@@ -175,7 +175,7 @@ function serializeVerticalNewsCardSliderBlock($block): array
     if ($cardPages) {
       foreach ($cardPages->listed() as $page) {
         $resolvedPage = $page->toArray();
-        $resolvedPage['content']['heroimage'] = $page->heroimage()->toFile()->toArray();
+        $resolvedPage['content']['heroimage'] = $page->heroimage()->toFile()->thumb('card-square')->toArray();
         $resolvedPages[] = $resolvedPage;
       }
     }
