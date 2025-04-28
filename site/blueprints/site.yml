@@ -94,6 +94,7 @@ tabs:
                 type: files
                 required: true
                 multiple: false
+                uploads: footer-supportedby
               alt:
                 label: Alt Text
                 type: text

@@ -25,7 +25,7 @@ function traverseMenu($item, $includeHiddenItems = true)
 
         // If it's a category template, it should not be clickable / have content of its own
         if ($item->intendedTemplate() != 'category') {
-            $itemArr[] = ['target' => $item->url()];
+            $itemArr['target'] = $item->url();
         }
 
         return $itemArr;

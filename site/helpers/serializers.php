@@ -31,6 +31,8 @@ function serializeBlocks($blocks)
       $result[] = $block->toArray();
     } elseif ($block->type() === 'logogrid') {
       $result[] = serializeLogoGridBlock($block);
+    } elseif ($block->type() === 'youtube') {
+      $result[] = serializeYoutubeBlock($block);
     } else {
       $result[] = $block->toArray();
     }
@@ -103,6 +105,26 @@ function serializePersonBlock($block): array
   }
   return $result;
 }
+
+function serializeYoutubeBlock($block): array
+{
+  $result = $block->toArray();
+
+  $videoId = $block->videoid()->toString();
+
+  $isFullUrl = str_starts_with($videoId, "http") | str_starts_with($videoId, "www") | str_starts_with($videoId, "youtube");
+
+  if ($isFullUrl) {
+    if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[\w\-?&!#=,;]+/[\w\-?&!#=/,;]+/|(?:v|e(?:mbed)?)/|[\w\-?&!#=,;]*[?&]v=)|youtu\.be/)([\w-]{11})(?:[^\w-]|\Z)%i', $videoId, $match)) {
+      $videoId = $match[1];
+    }
+  }
+
+  $result['content']['videoid'] = $videoId;
+  
+  return $result;
+}
+
 
 function serializeImageBlock($block): array
 {

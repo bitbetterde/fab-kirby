@@ -3,9 +3,10 @@ icon: youtube
 preview: fields
 fields:
   videoId:
-    label: YouTube ID
+    label: YouTube URL/ID
     type: text
     required: true
+    help: Wahlweise eine vollständige YouTube URL, oder nur die ID des Videos.
   title:
     label: Titel
     type: text

@@ -31,6 +31,8 @@ fields:
         label: Bild
         type: files
         required: true
+        uploads:
+          template: blocks-person
       facebook:
         label: Facebook
         type: url
