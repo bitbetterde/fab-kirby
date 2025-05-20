@@ -11,13 +11,15 @@ import { CarbonIcon } from "../components/CarbonIcon";
 import FabCityMap from "@fchh/fcos-suite-map";
 
 import { Header } from "@fchh/fcos-suite-ui";
+import { InertiaLinkWrapper } from "../components/InertiaLinkWrapper";
 
 const MAPBOX_TOKEN = import.meta.env.VITE_PUBLIC_MAPBOX_TOKEN;
 
 export default (props) => {
-  console.log("Poi Template:", props);
+  // console.log("Poi Template:", props);
 
   return (
+    <InertiaLinkWrapper>
     <div className="h-full">
       <Header
         disableAnimation
@@ -48,5 +50,6 @@ export default (props) => {
         />
       </main>
     </div>
+    </InertiaLinkWrapper>
   );
 };

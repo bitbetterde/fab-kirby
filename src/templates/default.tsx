@@ -7,6 +7,7 @@ import "@fontsource/ibm-plex-sans";
 // Local styles
 import "../base.css";
 import { CarbonIcon } from "../components/CarbonIcon";
+import { InertiaLinkWrapper } from "../components/InertiaLinkWrapper";
 
 import {
   Footer,
@@ -19,12 +20,12 @@ import {
 } from "@fchh/fcos-suite-ui";
 
 export default (props) => {
-  console.log("Default Template:", props);
+  // console.log("Default Template:", props);
 
   const blocks = props?.page?.content?.text ?? [];
 
   return (
-    <>
+    <InertiaLinkWrapper>
       <Header
         topBarItems={props?.menu.children}
         toolBarItems={props?.toolbar?.map((item) => ({
@@ -152,6 +153,6 @@ export default (props) => {
         }))}
         policyLinks={props?.policylinks}
       />
-    </>
+    </InertiaLinkWrapper>
   );
 };

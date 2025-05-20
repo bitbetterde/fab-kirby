@@ -26,6 +26,7 @@ import {
 } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
+import { InertiaLinkWrapper } from "../components/InertiaLinkWrapper";
 
 // interface ArticleTemplateProps {
 //   toolbar: IToolbarItem[];
@@ -34,12 +35,12 @@ import { CarbonIcon } from "../components/CarbonIcon";
 
 // The article template is for any kind of "article" like content. Could be a blog post, a news post or an event. It is not intended as home page.
 export default (props) => {
-  console.log("Article Template", props);
+  // console.log("Article Template", props);
 
   const blocks = props?.page?.content?.text ?? [];
 
   return (
-    <>
+    <InertiaLinkWrapper>
       <Header
         topBarItems={props?.menu.children}
         toolBarItems={props?.toolbar?.map((item) => ({
@@ -279,6 +280,6 @@ export default (props) => {
         }))}
         policyLinks={props?.policylinks}
       />
-    </>
+    </InertiaLinkWrapper>
   );
 };

@@ -11,12 +11,13 @@ import { Footer, Header } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
 import { FilterableHorizontalNewsCardList } from "../components/FilterableHorizontalNewsCardList";
+import { InertiaLinkWrapper } from "../components/InertiaLinkWrapper";
 
 export default (props) => {
-  console.log("HorizontalView Template", props);
+  // console.log("HorizontalView Template", props);
 
   return (
-    <>
+    <InertiaLinkWrapper>
       <Header
         topBarItems={props?.menu.children}
         toolBarItems={props?.toolbar?.map((item) => ({
@@ -65,6 +66,6 @@ export default (props) => {
         }))}
         policyLinks={props?.policylinks}
       />
-    </>
+    </InertiaLinkWrapper>
   );
 };
