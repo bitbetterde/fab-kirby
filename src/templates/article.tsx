@@ -204,7 +204,7 @@ export default (props) => {
                 type="dark"
                 name={block.content.target.content.title}
                 subtitle={truncateStringAtWhitespace(
-                  block.content.target.content.text,
+                  block.content.target.content.text || "",
                   200
                 )}
                 image={{
