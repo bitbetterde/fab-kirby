@@ -27,6 +27,7 @@ import {
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
 import { InertiaLinkWrapper } from "../components/InertiaLinkWrapper";
+import { truncateStringAtWhitespace } from "../helpers/truncate";
 
 // interface ArticleTemplateProps {
 //   toolbar: IToolbarItem[];
@@ -202,7 +203,10 @@ export default (props) => {
                 className="fs-not-prose my-8"
                 type="dark"
                 name={block.content.target.content.title}
-                subtitle={block.content.target.content.text}
+                subtitle={truncateStringAtWhitespace(
+                  block.content.target.content.text,
+                  200
+                )}
                 image={{
                   alt: block.content.target.content.heroimage?.name,
                   src: block.content.target.content.heroimage?.url,
