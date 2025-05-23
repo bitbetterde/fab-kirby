@@ -27,6 +27,7 @@
 	<?php if ($page->heroimage()->isNotEmpty()): ?>
 		<meta name="og:image" content="<?= $page->heroimage()->toFile()->thumb('opengraph')->url() ?>" />
 	<?php endif ?>
+	<?= $kirby->option('headerSnippet') ?>
 
 	<?= vite()->reactRefresh() ?>
 	<?= vite(['src/index.tsx']) ?>

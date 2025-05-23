@@ -23,7 +23,7 @@ function getDefaultInertiaProps(Page $page, Site $site)
         'heroimage' => [
             'url' => $heroImage->thumb('hero')->url(),
             'alt' => $heroImage->alt() ?? null,
-            'credits' => $heroImage->credits() ?? null,
+            'credits' => $heroImage->credits()->toString() ?? null,
             'height' => $heroImage->dimensions()->height(),
             'width' => $heroImage->dimensions()->width()
         ],

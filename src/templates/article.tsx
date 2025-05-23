@@ -58,7 +58,7 @@ export default (props) => {
       <Article
         titleImage={props?.heroimage?.url}
         titleImageAlt={props?.heroimage?.alt}
-        imageTag={props?.heroimage?.credits}
+        titleImageTag={props?.heroimage?.credits}
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
           i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb
         )}
@@ -67,13 +67,16 @@ export default (props) => {
         subtitle={props?.page?.content.subheading}
         teaser={props?.page.content.teaser}
       >
-        {blocks?.map((block) => {
+        {blocks?.map((block, i) => {
           if (block.type === "person") {
             return (
-              <div className="grid grid-cols-3 py-8">
-                {block.content?.people?.map((person) => (
+              <div
+                className="grid grid-cols-3 py-8"
+                key={block.id || "block" + i}
+              >
+                {block.content?.people?.map((person, i) => (
                   <Person
-                    key={person.name}
+                    key={person.name || "person" + i}
                     image={person.image?.url}
                     name={person.name}
                     position={person.position}
@@ -94,12 +97,14 @@ export default (props) => {
             const HeadlineTag = block.content.level;
             return (
               <HeadlineTag
+                key={block.id || "block" + i}
                 dangerouslySetInnerHTML={{ __html: block.content.text }}
               ></HeadlineTag>
             );
           } else if (block.type === "image") {
             return (
               <Image
+                key={block.id || "block" + i}
                 src={
                   block.content.location === "kirby"
                     ? block.content.image?.url
@@ -118,7 +123,7 @@ export default (props) => {
             );
           } else if (block.type === "code") {
             return (
-              <pre>
+              <pre key={block.id || "block" + i}>
                 <code className={`language-${block.content.language}`}>
                   {block.content.code}
                 </code>
@@ -127,6 +132,7 @@ export default (props) => {
           } else if (block.type === "youtube") {
             return (
               <YoutubeEmbed
+                key={block.id || "block" + i}
                 videoId={block.content.videoid}
                 title={block.content.title}
               />
@@ -134,6 +140,7 @@ export default (props) => {
           } else if (block.type === "imageslider") {
             return (
               <ImageSlider
+                key={block.id || "block" + i}
                 title={block.content.title}
                 images={block.content.images?.map((img) => ({
                   src: img.location === "kirby" ? img.image?.url : img.src,
@@ -151,6 +158,7 @@ export default (props) => {
           } else if (block.type === "actionbox") {
             return (
               <ActionBox
+                key={block.id || "block" + i}
                 title={block.content.title}
                 description={block.content.description}
               >
@@ -174,6 +182,7 @@ export default (props) => {
           } else if (block.type === "horizontalcard") {
             return (
               <HorizontalNewsCard
+                key={block.id || "block" + i}
                 className="fs-not-prose"
                 variant="dark"
                 title={block.content.target.content.title}
@@ -189,6 +198,7 @@ export default (props) => {
           } else if (block.type === "minicard") {
             return (
               <MiniCard
+                key={block.id || "block" + i}
                 className="fs-not-prose my-8"
                 type="dark"
                 name={block.content.target.content.title}
@@ -208,6 +218,7 @@ export default (props) => {
                 : block.content.resolvedChildren;
             return (
               <VerticalNewsCardSlider
+                key={block.id || "block" + i}
                 className="fs-not-prose"
                 variant="dark"
                 title={block.content.title}
@@ -227,6 +238,7 @@ export default (props) => {
           } else if (block.type === "tabs") {
             return (
               <Tabs
+                key={block.id || "block" + i}
                 entries={block.content.tabs?.map((tab) => ({
                   label: tab.title,
                   content: tab.text.text,
@@ -235,7 +247,7 @@ export default (props) => {
             );
           } else if (block.type === "accordion") {
             return (
-              <div className="py-8">
+              <div className="py-8" key={block.id || "block" + i}>
                 {block.content.accordionitems?.map((item) => (
                   <AccordionItem
                     key={item.title}
@@ -250,6 +262,7 @@ export default (props) => {
           } else if (block.type === "logogrid") {
             return (
               <LogoGrid
+                key={block.id || "block" + i}
                 title={block.content.title}
                 columns={block.content.columns}
                 entries={block.content.logos?.map((img) => ({
@@ -263,7 +276,7 @@ export default (props) => {
 
           return (
             <div
-              key={block.id}
+              key={block.id || "block" + i}
               dangerouslySetInnerHTML={{ __html: block.content.text }}
             ></div>
           );
