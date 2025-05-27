@@ -229,7 +229,7 @@ export default (props) => {
                 fullBleed={block.content.fullbleed === "true"}
                 items={pages?.map((page) => ({
                   title: page.content.title,
-                  category: { id: 1, title: "Seite" },
+                  category: { id: 1, title: "Seite", href: page.url },
                   description: page.content.teaser,
                   href: page.url,
                   image: {
