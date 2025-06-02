@@ -1,0 +1,10 @@
+# We need .well-known file for Matrix to work correctly – it's not part of the repo but shouldn't be overwritten in the deployments
+.well-known/
+# Config files are deployment-specific and the repo only contains very basic configurations which shouldn't be overwritten
+site/config/
+# User accounts are not part of the repo and should not be overwritten
+site/accounts/
+# Cache is deployment specific and should not be overwritten
+site/cache/
+# Obviously Kirby content should not be overwritten
+content/

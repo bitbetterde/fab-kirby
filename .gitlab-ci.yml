@@ -1,0 +1,52 @@
+image: php:8.3-bookworm
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_COMMIT_BRANCH == "main"
+
+build:
+  stage: build
+  before_script:
+    - apt update
+    - apt install -y zip git
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    - source ~/.bashrc || true
+    - nvm install 22
+    - curl -o- https://raw.githubusercontent.com/composer/getcomposer.org/refs/heads/main/web/installer | php
+    - apt-get install -y libfreetype-dev libjpeg62-turbo-dev libpng-dev
+    - docker-php-ext-configure gd --with-freetype --with-jpeg
+    - docker-php-ext-install -j$(nproc) gd
+  script:
+    - node --version
+    - npm ci
+    - npm run build
+    - php composer.phar install --ignore-platform-reqs
+  artifacts:
+    name: "$CI_COMMIT_REF_SLUG"
+    expire_in: 1 day
+    paths:
+      - build
+      - site
+      - vendor
+      - kirby
+      - content
+      - index.php
+      - .htaccess
+      - .lftpexclude
+
+deploy:
+  variables:
+    GIT_STRATEGY: none
+  dependencies: ["build"]
+  stage: deploy
+  before_script:
+    - apt update
+    - apt install -y lftp
+    - mkdir -p ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+  script:
+    - ls -la
+    - lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --exclude-glob-from .lftpexclude --reverse ./ $SFTP_FOLDER/kirby-$CI_COMMIT_REF_SLUG/; bye"
+
