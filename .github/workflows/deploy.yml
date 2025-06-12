@@ -47,33 +47,37 @@ jobs:
             content/
             index.php
             .htaccess
+            .lftpexclude
           include-hidden-files: true
 
-# deploy:
-#   needs: build
-#   environment: cscp-hosteurope
-#   runs-on: ubuntu-latest
+deploy:
+  needs: build
+  environment: cscp-hosteurope
+  runs-on: ubuntu-latest
 
-#   steps:
-#     - name: Download artifact
-#       uses: actions/download-artifact@v4
-#       with:
-#         name: deployment
-#         path: dist
-#     - name: Incremental sync via FTPS
-#       uses: SamKirkland/FTP-Deploy-Action@v4.1.0
-#       with:
-#         protocol: ftps
-#         local-dir: dist/
-#         server-dir: ${{ secrets.FTPS_FOLDER }}
-#         server: ${{ secrets.FTPS_HOST }}
-#         username: ${{ secrets.FTPS_USER }}
-#         password: ${{ secrets.FTPS_PASSWORD }}
-#         exclude: |
-#           **/.git*
-#           **/.git*/**
-#           **/node_modules/**
-#           **/site/accounts/**
-#           **/site/cache/**
-#           **/site/config/**
-#           **/content/**
+  steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: deployment
+        path: dist
+    - name: Install lftp
+      run: sudo apt install -y lftp
+    - run: lftp version
+    # - name: Incremental sync via FTPS
+    #   uses: SamKirkland/FTP-Deploy-Action@v4.1.0
+    #   with:
+    #     protocol: ftps
+    #     local-dir: dist/
+    #     server-dir: ${{ secrets.FTPS_FOLDER }}
+    #     server: ${{ secrets.FTPS_HOST }}
+    #     username: ${{ secrets.FTPS_USER }}
+    #     password: ${{ secrets.FTPS_PASSWORD }}
+    #     exclude: |
+    #       **/.git*
+    #       **/.git*/**
+    #       **/node_modules/**
+    #       **/site/accounts/**
+    #       **/site/cache/**
+    #       **/site/config/**
+    #       **/content/**
