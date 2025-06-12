@@ -21,6 +21,7 @@ function getDefaultInertiaProps(Page $page, Site $site)
         'supportedby' => serializeSupportedBy($site),
         'bottomline' => $site->content()->bottomLine()->toString(),
         'socialmedia' => serializeSocialMedia($site),
+        'organization' => option('organization', 'frbs'),
         'heroimage' => [
             'url' => $heroImage->thumb('hero')->url(),
             'alt' => $heroImage->alt() ?? null,

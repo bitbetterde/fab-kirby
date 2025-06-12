@@ -15,6 +15,7 @@ function getDefaultInertiaProps(Page $page, Site $site)
         'page' => $pageArr,
         'menu' => traverseMenu($site),
         'toolbar' => serializeToolbar($site),
+        'organization' => option('organization', 'frbs')
     ];
 }
 

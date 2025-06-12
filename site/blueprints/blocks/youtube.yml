@@ -7,6 +7,13 @@ fields:
     type: text
     required: true
     help: Wahlweise eine vollständige YouTube URL, oder nur die ID des Videos.
-  title:
-    label: Titel
-    type: text
+  thumbnail:
+    label: Thumbnail Size
+    type: select
+    default: maxresdefault
+    options:
+      default: Default
+      mqdefault: Mqdefault
+      hqdefault: Hqdefault
+      sddefault: Sddefault
+      maxresdefault: Maxresdefault

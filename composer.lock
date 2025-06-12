@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "fee3c3456ce53adf0ff80ff55035c470",
+  "content-hash": "a3f523238d41ff7d6e469ee589ead405",
   "packages": [
     {
       "name": "christian-riesen/base32",
@@ -272,16 +272,16 @@
     },
     {
       "name": "getkirby/cms",
-      "version": "5.0.0-rc.2",
+      "version": "5.0.0-rc.3",
       "source": {
         "type": "git",
         "url": "https://github.com/getkirby/kirby.git",
-        "reference": "67221abbb3bf1cf47c89279dcd6578f8f1598a64"
+        "reference": "6dac5cd0e1d579685509d4306b2561962e06f013"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/getkirby/kirby/zipball/67221abbb3bf1cf47c89279dcd6578f8f1598a64",
-        "reference": "67221abbb3bf1cf47c89279dcd6578f8f1598a64",
+        "url": "https://api.github.com/repos/getkirby/kirby/zipball/6dac5cd0e1d579685509d4306b2561962e06f013",
+        "reference": "6dac5cd0e1d579685509d4306b2561962e06f013",
         "shasum": ""
       },
       "require": {
@@ -307,7 +307,7 @@
         "phpmailer/phpmailer": "6.10.0",
         "symfony/polyfill-intl-idn": "1.32.0",
         "symfony/polyfill-mbstring": "1.32.0",
-        "symfony/yaml": "7.2.6"
+        "symfony/yaml": "7.3.0"
       },
       "replace": {
         "symfony/polyfill-php72": "*"
@@ -372,7 +372,7 @@
           "type": "custom"
         }
       ],
-      "time": "2025-05-27T09:08:10+00:00"
+      "time": "2025-06-03T11:50:31+00:00"
     },
     {
       "name": "getkirby/composer-installer",
@@ -1160,16 +1160,16 @@
     },
     {
       "name": "symfony/yaml",
-      "version": "v7.2.6",
+      "version": "v7.3.0",
       "source": {
         "type": "git",
         "url": "https://github.com/symfony/yaml.git",
-        "reference": "0feafffb843860624ddfd13478f481f4c3cd8b23"
+        "reference": "cea40a48279d58dc3efee8112634cb90141156c2"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/symfony/yaml/zipball/0feafffb843860624ddfd13478f481f4c3cd8b23",
-        "reference": "0feafffb843860624ddfd13478f481f4c3cd8b23",
+        "url": "https://api.github.com/repos/symfony/yaml/zipball/cea40a48279d58dc3efee8112634cb90141156c2",
+        "reference": "cea40a48279d58dc3efee8112634cb90141156c2",
         "shasum": ""
       },
       "require": {
@@ -1212,7 +1212,7 @@
       "description": "Loads and dumps YAML files",
       "homepage": "https://symfony.com",
       "support": {
-        "source": "https://github.com/symfony/yaml/tree/v7.2.6"
+        "source": "https://github.com/symfony/yaml/tree/v7.3.0"
       },
       "funding": [
         {
@@ -1228,7 +1228,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2025-04-04T10:10:11+00:00"
+      "time": "2025-04-04T10:10:33+00:00"
     },
     {
       "name": "tobimori/kirby-inertia",

@@ -37,7 +37,7 @@ export default (props) => {
           backgroundImageClasses="bg-[url('/assets/map-pattern.svg')] bg-cover bg-no-repeat"
           className="!static"
           itemsAlwaysLight
-          organization="frbs"
+          organization={props.organization || "frbs"}
         />
         <main className="h-[calc(100%-56px)] lg:h-[calc(100%-155px)] basis-full relative">
           <FabCityMap

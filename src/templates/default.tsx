@@ -38,7 +38,7 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
-        organization="frbs"
+        organization={props.organization || "frbs"}
       />
       <HeroSection src={props?.heroimage?.url} />
       <main
@@ -113,6 +113,7 @@ export default (props) => {
                 <YoutubeEmbed
                   videoId={block.content.videoid}
                   title={block.content.title}
+                  thumbnail={block.content.thumbnail}
                   className="col-start-2 col-end-13 lg:col-start-4 lg:col-end-11 my-8"
                 />
               </div>

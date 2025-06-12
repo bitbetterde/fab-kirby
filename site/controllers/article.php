@@ -28,6 +28,7 @@ function getDefaultInertiaProps(Page $page, Site $site)
             'width' => $heroImage->dimensions()->width()
         ],
         'socialmedia' => serializeSocialMedia($site),
+        'organization' => option('organization', 'frbs')
     ];
 }
 

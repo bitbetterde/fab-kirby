@@ -30,7 +30,7 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
-        organization="frbs"
+        organization={props.organization || "frbs"}
       />
       <FilterableHorizontalNewsCardList
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
