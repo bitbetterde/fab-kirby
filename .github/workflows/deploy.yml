@@ -38,6 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: deployment
+          include-hidden-files: true
           retention-days: 5
           path: |
             build/
@@ -48,22 +49,21 @@ jobs:
             index.php
             .htaccess
             .lftpexclude
-          include-hidden-files: true
 
-deploy:
-  needs: build
-  environment: cscp-hosteurope
-  runs-on: ubuntu-latest
+  deploy:
+    needs: build
+    environment: cscp-hosteurope
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Download artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: deployment
-        path: dist
-    - name: Install lftp
-      run: sudo apt install -y lftp
-    - run: lftp version
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: deployment
+          path: dist
+      - name: Install lftp
+        run: sudo apt install -y lftp
+      - run: lftp version
     # - name: Incremental sync via FTPS
     #   uses: SamKirkland/FTP-Deploy-Action@v4.1.0
     #   with:
