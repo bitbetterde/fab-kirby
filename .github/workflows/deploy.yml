@@ -54,6 +54,11 @@ jobs:
     needs: build
     environment: cscp-hosteurope
     runs-on: ubuntu-latest
+    env:
+      FTPS_HOST: ${{ secrets.FTPS_HOST }}
+      FTPS_USER: ${{ secrets.FTPS_USER }}
+      FTPS_PASSWORD: ${{ secrets.FTPS_PASSWORD }}
+      FTPS_FOLDER: ${{ secrets.FTPS_FOLDER }}
 
     steps:
       - name: Download artifact
@@ -64,4 +69,4 @@ jobs:
       - name: Install lftp
         run: sudo apt install -y lftp
       - run: lftp --version
-      - run: lftp -e "set ftp:ssl-auth TLS; set ftp:ssl-force true; set ftp:ssl-protect-list yes; set ftp:ssl-protect-data yes; set ftp:ssl-protect-fxp yes; set ssl:verify-certificate noset; ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$FTPS_HOST; user $FTPS_USER $FTPS_PASSWORD; mirror --exclude-glob-from ./dist/.lftpexclude --reverse ./dist/ $FTPS_FOLDER/; bye"
+      - run: lftp -e "set ftp:ssl-auth TLS; set ftp:ssl-force true; set ftp:ssl-protect-list yes; set ftp:ssl-protect-data yes; set ftp:ssl-protect-fxp yes; set ssl:verify-certificate no; set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$FTPS_HOST; user $FTPS_USER $FTPS_PASSWORD; mirror --exclude-glob-from ./dist/.lftpexclude --reverse ./dist/ $FTPS_FOLDER/; bye"
