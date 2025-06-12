@@ -136,6 +136,7 @@ export default (props) => {
                 key={block.id || "block" + i}
                 videoId={block.content.videoid}
                 title={block.content.title}
+                thumbnail={block.content.thumbnail}
               />
             );
           } else if (block.type === "imageslider") {
