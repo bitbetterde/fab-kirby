@@ -2,9 +2,9 @@ image: php:8.3-bookworm
 
 workflow:
   rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_PIPELINE_SOURCE == "web"
-    - if: $CI_COMMIT_BRANCH == "main"
+    # - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    # - if: $CI_COMMIT_BRANCH == "main"
 
 build:
   stage: build
@@ -48,5 +48,5 @@ deploy:
     - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
   script:
     - ls -la
-    - lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --exclude-glob-from .lftpexclude --reverse ./ $SFTP_FOLDER/kirby-$CI_COMMIT_REF_SLUG/; bye"
+    - lftp -v -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --exclude-glob-from .lftpexclude --reverse ./ $SFTP_FOLDER/kirby-$CI_COMMIT_REF_SLUG/; bye"
 
