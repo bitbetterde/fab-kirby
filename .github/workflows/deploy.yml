@@ -63,21 +63,5 @@ jobs:
           path: dist
       - name: Install lftp
         run: sudo apt install -y lftp
-      - run: lftp version
-    # - name: Incremental sync via FTPS
-    #   uses: SamKirkland/FTP-Deploy-Action@v4.1.0
-    #   with:
-    #     protocol: ftps
-    #     local-dir: dist/
-    #     server-dir: ${{ secrets.FTPS_FOLDER }}
-    #     server: ${{ secrets.FTPS_HOST }}
-    #     username: ${{ secrets.FTPS_USER }}
-    #     password: ${{ secrets.FTPS_PASSWORD }}
-    #     exclude: |
-    #       **/.git*
-    #       **/.git*/**
-    #       **/node_modules/**
-    #       **/site/accounts/**
-    #       **/site/cache/**
-    #       **/site/config/**
-    #       **/content/**
+      - run: lftp --version
+      - run: lftp -e "set ftp:ssl-auth TLS; set ftp:ssl-force true; set ftp:ssl-protect-list yes; set ftp:ssl-protect-data yes; set ftp:ssl-protect-fxp yes; set ssl:verify-certificate noset; ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$FTPS_HOST; user $FTPS_USER $FTPS_PASSWORD; mirror --exclude-glob-from .lftpexclude --reverse ./ $FTPS_FOLDER/; bye"
