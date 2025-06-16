@@ -54,7 +54,7 @@ export default (props) => {
           ),
         }))}
         hideSearchIcon
-        organization="frbs"
+        organization={props.organization || "frbs"}
       />
       <Article
         titleImage={props?.heroimage?.url}
