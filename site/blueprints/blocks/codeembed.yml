@@ -1,0 +1,16 @@
+name: Code Embed
+icon: code
+preview: fields
+fields:
+  code:
+    label: Code
+    type: textarea
+    required: true
+    buttons: false
+    font: monospace
+  info:
+    label: Warnung
+    type: info
+    theme: warning
+    text: |
+      Sämtlicher Code der hier eingebettet wird, wird direkt in die Seite eingefügt und wird an jeden Besucher der Seite ausgeliefert und dort ausgeführt. Bitte stelle sicher, dass du genau weißt, was der Code tut, der hier eingefügt wird. Wenn hier JavaScript eingebunden wird, kann das Einfluss auf die Sicherheit und Datenschutz-Aspekte der Seite haben, und du musst ggf. die Datenschutzerklärung anpassen.

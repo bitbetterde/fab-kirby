@@ -11,7 +11,7 @@
 	<link rel="canonical" href="<?= $page->url() ?>" />
 	<meta property="og:url" content="<?= $page->url() ?>" />
 
-	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/build/assets/favicon.ico">
 	<?php if($page->isHomepage()): ?>
 		<meta property="og:type" content="website" />
 	<?php elseif ($page->intendedTemplate() == "article"): ?>

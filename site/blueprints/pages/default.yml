@@ -50,5 +50,6 @@ columns:
           - default
           - article
           - horizontalcardlist
+          - codeembed
       files:
         type: files

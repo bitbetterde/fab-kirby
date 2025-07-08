@@ -32,6 +32,7 @@ columns:
               - tabs
               - accordion
               - logogrid
+              - codeembed
             label: Inhalt
             required: true
 
