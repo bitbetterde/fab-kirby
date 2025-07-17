@@ -12,7 +12,7 @@ function getDefaultInertiaProps(Page $page, Site $site)
     $pageArr = $page->toArray();
     $heroImage = $page->heroimage()->toFile();
 
-    return [
+    $props = [
         'page' => $pageArr,
         'menu' => traverseMenu($site),
         'footermenu' => traverseMenu($site, false),
@@ -22,14 +22,19 @@ function getDefaultInertiaProps(Page $page, Site $site)
         'bottomline' => $site->content()->bottomLine()->toString(),
         'socialmedia' => serializeSocialMedia($site),
         'organization' => option('organization', 'frbs'),
-        'heroimage' => [
+    ];
+
+    if ($heroImage) {
+        $props['heroimage'] = [
             'url' => $heroImage->thumb('hero')->url(),
             'alt' => $heroImage->alt() ?? null,
             'credits' => $heroImage->credits()->toString() ?? null,
             'height' => $heroImage->dimensions()->height(),
             'width' => $heroImage->dimensions()->width()
-        ],
-    ];
+        ];
+    }
+
+    return $props;
 }
 
 

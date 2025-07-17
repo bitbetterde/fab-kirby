@@ -21,7 +21,7 @@ import { BlockMultiplexer } from "../components/BlockMultiplexer";
 
 // The article template is for any kind of "article" like content. Could be a blog post, a news post or an event. It is not intended as home page.
 export default (props) => {
-  console.log("Article Template", props);
+  // console.log("Article Template", props);
 
   const blocks = props?.page?.content?.text ?? [];
 
