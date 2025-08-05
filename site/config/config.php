@@ -15,5 +15,9 @@ return [
             'person' => ['width' => 300, 'quality' => 90],
             'card-square' => ['width' => 500, 'quality' => 90]
         ],
+    ],
+    'bitbetter.soundbox' => [
+        'enabled' => true,
+        'maxFileSize' => 0.5 * 1024 * 1024,
     ]
 ];

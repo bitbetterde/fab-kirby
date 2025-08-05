@@ -1,8 +1,12 @@
 <?php
 
 use Kirby\Toolkit\Date;
+use Kirby\Http\Response;
 
 Kirby::plugin('bitbetter/soundbox', [
+  'options' => [
+    'cache' => true
+  ],
   'api' => [
     'routes' => [
       [
@@ -10,7 +14,41 @@ Kirby::plugin('bitbetter/soundbox', [
         'method'  => 'POST',
         'auth'    => false,
         'action'  => function () {
+          if (!option('bitbetter.soundbox.enabled', false)) {
+            return new Response(
+              json_encode(['status' => 'error', 'message' => 'Soundbox is disabled.']),
+              'application/json',
+              403
+            );
+          }
+
           $kirby = kirby();
+
+          $cacheDurationInMinutes = 60;
+
+          $ip ??= strval($kirby->visitor()->ip());
+          $limit = 60;
+          $key = sha1(__DIR__ . $ip . date('Ymd'));
+          $count = $kirby->cache('bitbetter.soundbox.ratelimit')->get(
+            $key,
+            0
+          );
+
+          $count++;
+
+          if ($count > $limit) {
+            // Rate limit exceeded
+            return new Response(
+              json_encode(['status' => 'error', 'message' => 'Rate limit exceeded. Please try again later.']),
+              'application/json',
+              429
+            );
+          }
+
+          // Rate limit not exceeded, proceed with the upload
+          $kirby->cache('bitbetter.soundbox.ratelimit')->set($key, $count, $cacheDurationInMinutes);
+
+
           $kirby->impersonate('kirby');
           $request = $kirby->request();
           $targetPage = $kirby->site()->pages()->findBy('intendedTemplate', 'soundbox');
@@ -31,7 +69,7 @@ Kirby::plugin('bitbetter/soundbox', [
             }
 
             // Check file size (1MB = 1048576 bytes)
-            $maxSize = 0.5 * 1024 * 1024; // 0.5MB in bytes
+            $maxSize = $kirby->option('bitbetter.soundbox.maxFileSize', 0.5 * 1024 * 1024);
 
             if ($uploads['size'] > $maxSize) {
               throw new Exception('File is too large. ');
@@ -45,7 +83,7 @@ Kirby::plugin('bitbetter/soundbox', [
               'filename'    => 'recording_' . $createdDate->format('y-m-d_H-i-s') . '_' . bin2hex(random_bytes(3)) . '.ogg',
               'template'    => 'recording', // from your file blueprint
               'content'     => [
-                'title'     => "Audioaufnahme",
+                'title'     => $request->get('title', "Audioaufnahme"),
                 'created'   => $createdDate,
                 'published' => false,
                 'color'     => $request->get('color'),

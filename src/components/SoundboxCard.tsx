@@ -4,7 +4,7 @@ import { PauseIcon, PlayIcon } from "./RecorderIcons";
 interface Recording {
   created: number;
   url: string;
-  title: string;
+  title?: string;
   color?: string;
   lightText?: boolean;
 }
@@ -16,6 +16,7 @@ interface SoundboxCardProps {
 export function SoundboxCard({ recording }: SoundboxCardProps) {
   const playerRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [audioDuration, setAudioDuration] = useState<number | null>(null);
   const recordingDate = new Date(recording.created * 1000);
 
   const togglePlayPause = () => {
@@ -63,13 +64,20 @@ export function SoundboxCard({ recording }: SoundboxCardProps) {
         </p>
       </div>
       <div className="flex flex-col items-center w-full gap-2">
-        {playerRef.current?.duration && (
-          <p className="text-sm">Dauer: {Math.round(playerRef.current?.duration || 0)} Sekunden</p>
+        {audioDuration && (
+          <p className="text-sm">
+            Dauer: {Math.round(audioDuration || 0)} Sekunden
+          </p>
         )}
         <audio
           controls
           className="w-full mt-2 hidden"
           ref={playerRef}
+          onLoadedMetadata={() => {
+            if (playerRef.current) {
+              setAudioDuration(playerRef.current.duration);
+            }
+          }}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={() => setIsPlaying(false)}
@@ -80,11 +88,15 @@ export function SoundboxCard({ recording }: SoundboxCardProps) {
 
         <button
           type="button"
-          className="cursor-pointer relative size-32 hover:bg-gray-300 bg-white text-gray-900 rounded-full flex items-center justify-center"
+          className="aspect-square cursor-pointer relative size-full max-h-32 max-w-32 hover:bg-gray-300 bg-white text-gray-900 rounded-full flex items-center justify-center p-4"
           onClick={togglePlayPause}
           title="Aufnahme abspielen/pausieren"
         >
-          {isPlaying ? <PauseIcon /> : <PlayIcon />}
+          {isPlaying ? (
+            <PauseIcon className="max-w-16 max-h-16 size-full" />
+          ) : (
+            <PlayIcon className="max-w-16 max-h-16 size-full" />
+          )}
         </button>
       </div>
     </li>

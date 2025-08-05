@@ -1,16 +1,13 @@
 import clsx from "clsx";
-import { ButtonHTMLAttributes } from "react";
-
-const commonButtonClasses = "relative";
 
 export function RecordIcon({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
-      className={clsx("size-32 text-white hover:text-gray-300", className)}
+      className={clsx("text-white hover:text-gray-300", className)}
     >
-      <circle cx="50" cy="50" r="25" fill="red" />
+      <circle cx="50" cy="50" r="50" fill="red" />
     </svg>
   );
 }
@@ -33,7 +30,7 @@ export function MailIcon({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
       fill="currentColor"
-      className={className}
+      className={clsx("text-white hover:text-gray-300", className)}
     >
       <polygon points="16.59 20.41 20.17 24 20.17 24 16.58 27.59 18 29 23 24 18 19 16.59 20.41" />
       <polygon points="23.59 20.41 27.17 24 27.17 24 23.58 27.59 25 29 30 24 25 19 23.59 20.41" />
@@ -47,15 +44,15 @@ export function StopIcon({ className }: { className?: string }) {
     <svg
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
-      className={clsx("size-32 text-white hover:text-gray-300", className)}
+      className={clsx("text-white hover:text-gray-300", className)}
     >
       <rect
-        width="50"
-        height="50"
-        x="25"
-        y="25"
-        rx="10"
-        ry="10"
+        width="100"
+        height="100"
+        x="0"
+        y="0"
+        rx="20"
+        ry="20"
         fill="currentColor"
       />
     </svg>
@@ -65,11 +62,11 @@ export function StopIcon({ className }: { className?: string }) {
 export function PlayIcon({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 100 100"
+      viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      className={clsx("size-32", className)}
+      className={className}
     >
-      <polygon points="35,22 80,50 35,78" fill="currentColor" />
+      <polygon points="6,0 6,30 30,15" fill="currentColor" />
     </svg>
   );
 }
@@ -79,10 +76,10 @@ export function PauseIcon({ className }: { className?: string }) {
     <svg
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
-      className={clsx("size-32", className)}
+      className={className}
     >
-      <rect x="35" y="25" width="10" height="50" fill="currentColor" />
-      <rect x="55" y="25" width="10" height="50" fill="currentColor" />
+      <rect x="20" y="0" width="20" height="100" fill="currentColor" />
+      <rect x="60" y="0" width="20" height="100" fill="currentColor" />
     </svg>
   );
 }

@@ -265,9 +265,10 @@ export const BlockMultiplexer: React.FC<BlockMultiplexerProps> = ({
         title={block.content.title}
         description={block.content.description}
         showVisualizer={Boolean(block.content.showvisualizer)}
-        successMessage={block.content.successMessage}
+        successMessage={block.content.successmessage}
         color={block.content.color}
-        lightText={block.content.lightText}
+        lightText={block.content.lighttext}
+        cardTitle={block.content.cardtitle}
       />
     );
   } else if (block?.type === "codeembed") {

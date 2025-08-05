@@ -12,6 +12,6 @@ columns:
   isPublished:
     label: Veröffentlicht
     type: text
-    value: "{{ file.published ? 'Ja' : 'Nein' }}"
+    value: "{{ file.published.toBool ? 'Ja' : 'Nein' }}"
 template: recording
 empty: "Es gibt noch keine Aufnahmen."

@@ -8,6 +8,7 @@ import {
   StopIcon,
   TrashIcon,
 } from "./RecorderIcons";
+import clsx from "clsx";
 
 export interface RecorderProps {
   className?: string;
@@ -17,6 +18,7 @@ export interface RecorderProps {
   color?: string;
   successMessage?: string;
   lightText?: boolean;
+  cardTitle?: string;
 }
 
 export const Recorder: React.FC<RecorderProps> = ({
@@ -26,7 +28,8 @@ export const Recorder: React.FC<RecorderProps> = ({
   showVisualizer,
   color,
   successMessage,
-  lightText
+  lightText,
+  cardTitle
 }: RecorderProps) => {
   const [recordedUrl, setRecordedUrl] = useState("");
   const mediaStream = useRef<MediaStream | null>(null);
@@ -57,6 +60,7 @@ export const Recorder: React.FC<RecorderProps> = ({
 
       const formData = new FormData();
       formData.append("file", file);
+      if (cardTitle) formData.append("title", cardTitle);
       if (color) formData.append("color", color);
       if (lightText) formData.append("lightText", String(lightText));
 
@@ -257,6 +261,9 @@ export const Recorder: React.FC<RecorderProps> = ({
     };
   }, []);
 
+  const commonButtonClasses =
+    "relative aspect-square max-w-32 max-h-32 size-full bg-white rounded-full hover:bg-gray-300 flex items-center justify-center overflow-hidden p-4";
+
   return (
     <div
       className={
@@ -269,11 +276,11 @@ export const Recorder: React.FC<RecorderProps> = ({
       )}
       {description && <p>{description}</p>}
       {showVisualizer && <canvas ref={canvas} height="40px"></canvas>}
-      <div className="w-full flex justify-center gap-4">
+      <div className="w-full flex justify-center items-start gap-4">
         {(progressState === "recorded" || progressState === "playing") && (
           <button
             type="button"
-            className="size-32 bg-white rounded-full p-8 hover:bg-gray-300"
+            className={commonButtonClasses}
             onClick={() => {
               setProgressState("init");
               console.log("Resetting");
@@ -284,12 +291,15 @@ export const Recorder: React.FC<RecorderProps> = ({
             }}
             title="Aufnahme löschen"
           >
-            <TrashIcon />
+            <TrashIcon className="max-w-16 w-full max-h-16 h-full"/>
           </button>
         )}
         {progressState !== "submitted" && (
           <button
-            className="cursor-pointer relative size-32 hover:bg-gray-300 bg-white text-gray-900 rounded-full flex items-center justify-center overflow-hidden"
+            className={clsx(
+              commonButtonClasses,
+              progressState === "recording" && "!bg-[red]"
+            )}
             title={(() => {
               switch (progressState) {
                 case "init":
@@ -330,16 +340,22 @@ export const Recorder: React.FC<RecorderProps> = ({
             }}
           >
             <>
-              {progressState === "init" && <RecordIcon />}
-              {progressState === "recording" && (
-                <StopIcon className={"!bg-[red]"} />
+              {progressState === "init" && (
+                <RecordIcon className="max-w-16 w-full max-h-16 h-full" />
               )}
-              {progressState === "recorded" && <PlayIcon />}
-              {progressState === "playing" && <PauseIcon />}
+              {progressState === "recording" && (
+                <StopIcon className="max-w-16 w-full max-h-16 h-full" />
+              )}
+              {progressState === "recorded" && (
+                <PlayIcon className="max-w-16 w-full max-h-16 h-full" />
+              )}
+              {progressState === "playing" && (
+                <PauseIcon className="max-w-16 w-full max-h-16 h-full" />
+              )}
             </>
 
             {progressState === "recording" && (
-              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
                 <span className="">
                   {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
                 </span>
@@ -354,7 +370,7 @@ export const Recorder: React.FC<RecorderProps> = ({
         {(progressState === "recorded" || progressState === "playing") && (
           <button
             type="button"
-            className="cursor-pointer size-32 bg-[red] text-white rounded-full p-8 hover:text-gray-300"
+            className={clsx(commonButtonClasses, "!bg-[red]")}
             onClick={() => {
               setProgressState("submitted");
               console.log("Uploading");
@@ -366,12 +382,12 @@ export const Recorder: React.FC<RecorderProps> = ({
             }}
             title="Aufnahme abschicken"
           >
-            <MailIcon />
+            <MailIcon className="max-w-16 w-full max-h-16 h-full" />
           </button>
         )}
         {progressState === "submitted" && (
-          <button className="size-32 bg-white rounded-full p-8" disabled>
-            <CheckIcon />
+          <button className={commonButtonClasses} disabled>
+            <CheckIcon className="max-w-16 w-full max-h-16 h-full" />
           </button>
         )}
       </div>
