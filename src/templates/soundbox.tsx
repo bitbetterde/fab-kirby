@@ -11,7 +11,6 @@ import { Article, Footer, Header } from "@fchh/fcos-suite-ui";
 import { Home } from "@carbon/icons-react";
 import { CarbonIcon } from "../components/CarbonIcon";
 import { InertiaLinkWrapper } from "../components/InertiaLinkWrapper";
-import React, { useRef, useState } from "react";
 import { BlockMultiplexer } from "../components/BlockMultiplexer";
 import { SoundboxCard } from "../components/SoundboxCard";
 
@@ -20,12 +19,9 @@ import { SoundboxCard } from "../components/SoundboxCard";
 //   menu: IMenuItem[];
 // }
 
-// The article template is for any kind of "article" like content. Could be a blog post, a news post or an event. It is not intended as home page.
+// The soundbox template is identical to the article template, but it adds the soundbox section below the content
 export default (props) => {
   const blocks = props?.page?.content?.text ?? [];
-  const soundboxContainerRef = useRef<HTMLUListElement | null>(null);
-
-  console.log("props", props);
 
   return (
     <InertiaLinkWrapper>
@@ -60,7 +56,7 @@ export default (props) => {
         ))}
         {props.recordings && props.recordings.length > 0 && (
           <div className="py-8 fs-not-prose">
-            <ul className="grid grid-cols-3 gap-4" ref={soundboxContainerRef}>
+            <ul className="grid grid-cols-3 gap-4">
               {props.recordings.map((recording, i) => {
                 return <SoundboxCard key={i} recording={recording} />;
               })}

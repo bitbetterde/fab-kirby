@@ -1,4 +1,7 @@
 title: Audio Recording
+options:
+  changeTemplate: false
+  replace: false
 
 accept: audio/webm, audio/ogg, audio/mpeg, audio/wav
 fields:
