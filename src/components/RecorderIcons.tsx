@@ -62,27 +62,6 @@ export function StopIcon({ className }: { className?: string }) {
   );
 }
 
-export function StopButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
-  return (
-    <button
-      type="button"
-      {...props}
-      className={commonButtonClasses}
-      title="Stoppen"
-    >
-      <StopIcon />
-      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-        <span className="">
-          {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
-        </span>
-        <span className="">
-          {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}
-        </span>
-      </div>
-    </button>
-  );
-}
-
 export function PlayIcon({ className }: { className?: string }) {
   return (
     <svg
