@@ -6,8 +6,8 @@
     "version": "1.0.0",
     "authors": [
         {
-            "name": "Moritz Stückler",
-            "email": "moritz@bitbetter.de"
+            "name": "bitbetter GmbH",
+            "email": "info@bitbetter.de"
         }
     ],
     "require": {
