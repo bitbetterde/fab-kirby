@@ -15,6 +15,7 @@ tabs:
           - map
           - horizontalcardlist
           - category
+          - soundbox
 
   toolbar:
     label: Toolbar

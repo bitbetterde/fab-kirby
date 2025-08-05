@@ -1,0 +1,18 @@
+title: Audio Recorder Upload User
+description: This blueprint is used to create a user that can upload audio recordings and nothing else.
+permissions:
+  access:
+    *: false
+    panel: true
+  files:
+    *: false
+    create: true
+    update: true
+  pages:
+    *: false
+    access: true
+    read: true
+  languages: false
+  site: false
+  users: false
+  user: false

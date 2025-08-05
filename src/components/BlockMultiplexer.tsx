@@ -14,6 +14,7 @@ import {
 } from "@fchh/fcos-suite-ui";
 import { CarbonIcon } from "../components/CarbonIcon";
 import { truncateStringAtWhitespace } from "../helpers/truncate";
+import { Recorder } from "./Recorder";
 
 export interface BlockMultiplexerProps {
   fullBleed?: boolean;
@@ -258,6 +259,17 @@ export const BlockMultiplexer: React.FC<BlockMultiplexerProps> = ({
         />
       );
     }
+  } else if (block?.type === "recorder") {
+    return (
+      <Recorder
+        title={block.content.title}
+        description={block.content.description}
+        showVisualizer={Boolean(block.content.showvisualizer)}
+        successMessage={block.content.successMessage}
+        color={block.content.color}
+        lightText={block.content.lightText}
+      />
+    );
   } else if (block?.type === "codeembed") {
     return <div dangerouslySetInnerHTML={{ __html: block?.content.code }} />;
     // Full Bleed Blocks

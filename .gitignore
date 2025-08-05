@@ -53,9 +53,12 @@ node_modules
 build
 site/plugins/*
 !site/plugins/icon-dropdown
+!site/plugins/soundbox
 
 vendor
 kirby
 
 .env
 hot
+
+content

@@ -7,6 +7,10 @@ unset(Kirby\Sane\Sane::$aliases['image/svg+xml']);
 
 return [
     'debug' => true,
+    'date'  => [
+        'handler' => 'intl'
+    ],
+    'locale' => 'de_DE.utf-8',
     'thumbs' => [
         'presets' => [
             'opengraph' => ['width' => 1200, 'quality' => 90],

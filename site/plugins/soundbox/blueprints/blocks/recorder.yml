@@ -1,0 +1,33 @@
+name: Audio Recorder
+icon: megaphone
+preview: fields
+fields:
+  info:
+    label: Info
+    type: info
+    text: |
+      Damit der Audio Recorder funktioniert, muss vorher eine Seite mit dem "Soundbox"-Template angelegt werden. Dort werden die Aufnahmen gespeichert.
+  title:
+    label: Titel
+    type: text
+  description:
+    label: Beschreibung
+    type: textarea
+  showVisualizer:
+    label: Wellenform-Visualisierung anzeigen?
+    type: toggle
+  event:
+    label: Event
+    type: text
+  success:
+    label: Bestätigungstext
+    type: text
+  color:
+    extends: fields/fc-colors
+    label: Kachelfarbe in der Soundbox
+  lightText:
+    type: toggle
+    label: Helle Schrift?
+    text:
+      - "Nein"
+      - "Ja"

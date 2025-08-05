@@ -1,0 +1,15 @@
+type: files
+label: Aufnahmen
+layout: table
+image: false
+text: "{{ file.title }}"
+sortBy: created desc
+icon: key
+image: true
+columns:
+  isPublished:
+    label: Veröffentlicht
+    type: text
+    value: "{{ file.published ? 'Ja' : 'Nein' }}"
+template: recording
+empty: "Es gibt noch keine Aufnahmen."

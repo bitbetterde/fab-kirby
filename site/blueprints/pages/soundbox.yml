@@ -1,4 +1,4 @@
-title: Artikel
+title: Soundbox
 
 columns:
   main:
@@ -6,6 +6,16 @@ columns:
     sections:
       fields:
         extends: sections/default-fields
+        fields:
+          info:
+            label: Info
+            type: info
+            text: |
+              Die Soundbox ist eine Art akustisches Gästebuch, in dem Menschen ihre Gedanken, Ideen und Geschichten in Form von Audioaufnahmen teilen können. Alle Aufnahmen, die mithilfe des "Recorder"-Blocks erstellt werden, landen hier.
+
+      recordings:
+        extends: sections/soundbox-fields
+
 
   sidebar:
     width: 1/3

@@ -1,0 +1,26 @@
+title: Audio Recording
+
+accept: audio/webm, audio/ogg, audio/mpeg, audio/wav
+fields:
+  title:
+    label: Titel
+    type: text
+  created:
+    label: Erstellt am
+    type: date
+    time: true
+    disabled: true
+    step:
+      size: 1
+      unit: second
+  published:
+    label: Veröffentlicht?
+    type: toggle
+    default: false
+    help: "Die Aufnahme wird erst nach der Veröffentlichung auf der Soundbox-Seite angezeigt."
+  color:
+    extends: fields/fc-colors
+    label: Kachelfarbe in der Soundbox
+  lightText:
+    type: toggle
+    label: Helle Schrift?

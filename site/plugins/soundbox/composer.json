@@ -1,0 +1,16 @@
+{
+    "name": "bitbetter/soundbox",
+    "description": "Kirby Soundbox Plugin",
+    "license": "MIT",
+    "type": "kirby-plugin",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Moritz Stückler",
+            "email": "moritz@bitbetter.de"
+        }
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.1"
+    }
+}
