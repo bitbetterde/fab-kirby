@@ -3,6 +3,7 @@ label: Aufnahmen
 layout: table
 image: false
 text: "{{ file.title }}"
+info: "{{ file.created.toDate('d.m.Y H:i') }}"
 sortBy: created desc
 icon: key
 image: true

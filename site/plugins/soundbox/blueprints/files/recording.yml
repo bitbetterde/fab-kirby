@@ -8,6 +8,7 @@ fields:
   created:
     label: Erstellt am
     type: date
+    display: DD.MM.YYYY
     time: true
     disabled: true
     step:
