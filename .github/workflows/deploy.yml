@@ -39,6 +39,7 @@ jobs:
           include-hidden-files: true
           retention-days: 5
           path: |
+            assets/
             build/
             site/
             vendor/
