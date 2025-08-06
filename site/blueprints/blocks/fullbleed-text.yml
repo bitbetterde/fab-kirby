@@ -6,15 +6,8 @@ fields:
     type: writer
     label: Inhalt
   bgColor:
-    type: color
+    extends: fields/fc-colors
     label: Hintergrundfarbe
-    options:
-      - "#efece5"
-      - "#101626"
-      - "#f2bc4d"
-      - "#1ab474"
-      - "#eb434d"
-      - "#465eab"
   lightText:
     type: toggle
     label: Helle Schrift?

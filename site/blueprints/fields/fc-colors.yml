@@ -1,0 +1,9 @@
+label: Farbe
+type: color
+options:
+  - "#efece5"
+  - "#101626"
+  - "#f2bc4d"
+  - "#1ab474"
+  - "#eb434d"
+  - "#465eab"

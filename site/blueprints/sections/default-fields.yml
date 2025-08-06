@@ -1,0 +1,31 @@
+type: fields
+fields:
+  subheading:
+    type: text
+    label: Subtitel
+  teaser:
+    type: textarea
+    label: Teaser
+    buttons: false
+  text:
+    type: blocks
+    label: Inhalt
+    required: true
+    fieldsets:
+      - heading
+      - text
+      - list
+      - image
+      - code
+      - person
+      - youtube
+      - horizontalcard
+      - actionbox
+      - imageslider
+      - minicard
+      - verticalnewscardslider
+      - tabs
+      - accordion
+      - logogrid
+      - codeembed
+      - recorder

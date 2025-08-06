@@ -39,16 +39,8 @@ columns:
                   type: query
                   query: page.children.pluck("category", ",", true)
               color:
-                label: Farbe
-                type: color
+                extends: fields/fc-colors
                 required: true
-                options:
-                  - "#efece5"
-                  - "#101626"
-                  - "#f2bc4d"
-                  - "#1ab474"
-                  - "#eb434d"
-                  - "#465eab"
           tagColorMapping:
             type: structure
             label: Tagfarben
@@ -64,14 +56,6 @@ columns:
                   type: query
                   query: page.children.pluck("tags", ",", true)
               color:
-                label: Farbe
-                type: color
+                extends: fields/fc-colors
                 required: true
-                options:
-                  - "#efece5"
-                  - "#101626"
-                  - "#f2bc4d"
-                  - "#1ab474"
-                  - "#eb434d"
-                  - "#465eab"
 

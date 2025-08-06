@@ -1,0 +1,41 @@
+name: Audio Recorder
+icon: megaphone
+preview: fields
+fields:
+  info:
+    label: Info
+    type: info
+    text: |
+      Damit der Audio Recorder funktioniert, muss vorher eine Seite mit dem "Soundbox"-Template angelegt werden. Dort werden die Aufnahmen gespeichert.
+  title:
+    label: Rekorder-Titel
+    type: text
+    help: |
+      Dieser Titel wird als Überschrift im Rekorder-Block angezeigt.
+  description:
+    label: Beschreibung
+    type: textarea
+  showVisualizer:
+    label: Wellenform-Visualisierung anzeigen?
+    type: toggle
+  cardTitle:
+    label: Kachel-Titel
+    type: text
+    help: |
+      Dieser Titel wird in der Soundbox-Kachel angezeigt. Kann z.B. für Veranstaltungen genutzt werden, um den Titel der Veranstaltung anzuzeigen.
+  success:
+    label: Bestätigungstext
+    type: text
+    help: |
+      Dieser Text wird angezeigt, wenn die Aufnahme erfolgreich abgeschickt wurde.
+  color:
+    extends: fields/fc-colors
+    label: Kachelfarbe in der Soundbox
+    help: |
+      Die Kachelfarbe wird nur in der Soundbox-Seite angezeigt, nicht im Block.
+  lightText:
+    type: toggle
+    label: Helle Schrift?
+    text:
+      - "Nein"
+      - "Ja"

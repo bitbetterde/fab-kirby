@@ -5,64 +5,13 @@ columns:
     width: 2/3
     sections:
       fields:
-        type: fields
-        fields:
-          subheading:
-            type: text
-            label: Subtitel
-          teaser:
-            type: textarea
-            label: Teaser
-            buttons: false
-          text:
-            type: blocks
-            fieldsets:
-              - heading
-              - text
-              - list
-              - image
-              - code
-              - person
-              - youtube
-              - horizontalcard
-              - actionbox
-              - imageslider
-              - minicard
-              - verticalnewscardslider
-              - tabs
-              - accordion
-              - logogrid
-              - codeembed
-            label: Inhalt
-            required: true
+        extends: sections/default-fields
 
   sidebar:
     width: 1/3
     sections:
       fieldsRight:
-        type: fields
-        fields:
-          heroimage:
-              type: files
-              layout: cards
-              label: Headerbild
-              help: Das Bild wird auf die volle Bildschirmbreite des Besuchers skaliert. Damit es auch auf großen Monitoren gut aussieht bietet sich eine Breite von mindestens 2000 Pixeln an. Es sollte außerdem ein Seitenverhältnis von ca. 21:9 aufweisen. Eine gute Größe wäre zum Beispiel 2100x900 Pixel.
-              required: true
-              multiple: false
-              query: page.images.template('article-heroimage')
-              uploads:
-                template: article-heroimage
-          tag:
-            type: tags
-            max: 1
-            label: Tag
-          hideInFooter:
-            type: toggle
-            label: Seite (inkl. Unterseiten) im Footer-Menü ausblenden
-            default: false
-            text:
-              - "Nein"
-              - "Ja"
+        extends: sections/default-sidebar
       pages:
         type: pages
         label: Unterseiten
