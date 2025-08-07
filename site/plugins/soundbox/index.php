@@ -80,7 +80,7 @@ Kirby::plugin('bitbetter/soundbox', [
             // Create the file and attach a random "salt" to the filename so the filenames are not easily guessable (because all are publicly accessible)
             $file = $targetPage->createFile([
               'source'      => $uploads['tmp_name'],
-              'filename'    => 'recording_' . $createdDate->format('y-m-d_H-i-s') . '_' . bin2hex(random_bytes(3)) . '.ogg',
+              'filename'    => 'recording_' . $createdDate->format('y-m-d_H-i-s') . '_' . bin2hex(random_bytes(3)) . '.webm',
               'template'    => 'recording', // from your file blueprint
               'content'     => [
                 'title'     => $request->get('title', "Audioaufnahme"),

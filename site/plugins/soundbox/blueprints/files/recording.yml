@@ -3,7 +3,7 @@ options:
   changeTemplate: false
   replace: false
 
-accept: audio/webm, audio/ogg, audio/mpeg, audio/wav
+accept: audio/webm, audio/ogg, audio/mpeg, audio/wav, video/webm
 fields:
   title:
     label: Titel
