@@ -19,5 +19,6 @@ columns:
           - default
           - article
           - horizontalcardlist
+          - soundbox
       files:
         type: files
