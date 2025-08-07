@@ -42,6 +42,9 @@ jobs:
             assets/
             build/
             site/
+            !site/accounts/**
+            !site/cache/**
+            !site/sessions/**
             vendor/
             kirby/
             content/
