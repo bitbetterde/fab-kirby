@@ -53,8 +53,8 @@ export const Recorder: React.FC<RecorderProps> = ({
         .then((r) => r.blob())
         .then(
           (blobFile) =>
-            new File([blobFile], `recording.ogg`, {
-              type: "audio/ogg; codecs=opus",
+            new File([blobFile], `recording.webm`, {
+              type: "audio/webm; codecs=opus",
             })
         );
 
@@ -128,7 +128,7 @@ export const Recorder: React.FC<RecorderProps> = ({
       setIsRecording(true);
       setProgressState("recording");
       mediaStream.current = stream;
-      mediaRecorder.current = new MediaRecorder(stream);
+      mediaRecorder.current = new MediaRecorder(stream, {mimeType: "audio/webm; codecs=opus"});
       if (showVisualizer) visualize(stream);
 
       mediaRecorder.current.ondataavailable = (e) => {
@@ -139,7 +139,7 @@ export const Recorder: React.FC<RecorderProps> = ({
 
       mediaRecorder.current.onstop = () => {
         const recordedBlob = new Blob(chunks.current, {
-          type: "audio/ogg; codecs=opus",
+          type: "audio/webm; codecs=opus",
         });
         const url = URL.createObjectURL(recordedBlob);
         setRecordedUrl(url);
