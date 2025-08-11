@@ -31,6 +31,8 @@ export default (props) => {
         }))}
         hideSearchIcon
         organization={props.organization || "frbs"}
+        languages={props.languages}
+        selectedLanguage={props?.activelanguage}
       />
       <FilterableHorizontalNewsCardList
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>

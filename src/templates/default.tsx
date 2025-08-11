@@ -9,11 +9,7 @@ import "../base.css";
 import { CarbonIcon } from "../components/CarbonIcon";
 import { InertiaLinkWrapper } from "../components/InertiaLinkWrapper";
 
-import {
-  Footer,
-  Header,
-  HeroSection,
-} from "@fchh/fcos-suite-ui";
+import { Footer, Header, HeroSection } from "@fchh/fcos-suite-ui";
 import { BlockMultiplexer } from "../components/BlockMultiplexer";
 
 export default (props) => {
@@ -36,6 +32,8 @@ export default (props) => {
         }))}
         hideSearchIcon
         organization={props.organization || "frbs"}
+        languages={props?.languages}
+        selectedLanguage={props?.activelanguage}
       />
       <HeroSection src={props?.heroimage?.url} />
       <main
@@ -44,7 +42,11 @@ export default (props) => {
         }
       >
         {blocks?.map((block, i) => (
-          <BlockMultiplexer block={block} key={block.id || "block" + i} fullBleed />
+          <BlockMultiplexer
+            block={block}
+            key={block.id || "block" + i}
+            fullBleed
+          />
         ))}
       </main>
       <Footer

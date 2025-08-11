@@ -38,15 +38,17 @@ export default (props) => {
           className="!static"
           itemsAlwaysLight
           organization={props.organization || "frbs"}
+          selectedLanguage={props?.activelanguage}
+          languages={props?.languages}
         />
         <main className="h-[calc(100%-56px)] lg:h-[calc(100%-155px)] basis-full relative">
           <FabCityMap
-            baseUrl={props.basePath}
+            baseUrl={props.basepath}
             data={props.pois}
             mapboxToken={MAPBOX_TOKEN}
             poiRoutePrefix={""}
-            categoryColorMapping={props.categoryColorMapping}
-            tagColorMapping={props.tagColorMapping}
+            categoryColorMapping={props.categorycolormapping}
+            tagColorMapping={props.tagcolormapping}
           />
         </main>
       </div>
