@@ -22,6 +22,7 @@ import { SoundboxCard } from "../components/SoundboxCard";
 // The soundbox template is identical to the article template, but it adds the soundbox section below the content
 export default (props) => {
   const blocks = props?.page?.content?.text ?? [];
+  // console.log("Soundbox Template:", props);
 
   return (
     <InertiaLinkWrapper>
@@ -38,6 +39,8 @@ export default (props) => {
         }))}
         hideSearchIcon
         organization={props.organization || "frbs"}
+        selectedLanguage={props?.activelanguage}
+        languages={props?.languages}
       />
       <Article
         titleImage={props?.heroimage?.url}

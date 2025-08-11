@@ -41,12 +41,12 @@ export default (props) => {
       />
       <main className="h-full basis-full relative">
         <FabCityMap
-          baseUrl={props.basePath}
+          baseUrl={props.basepath}
           data={props.pois}
           mapboxToken={MAPBOX_TOKEN}
           poiRoutePrefix={""}
-          categoryColorMapping={props.categoryColorMapping}
-          tagColorMapping={props.tagColorMapping}
+          categoryColorMapping={props.categorycolormapping}
+          tagColorMapping={props.tagcolormapping}
         />
       </main>
     </div>

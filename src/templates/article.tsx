@@ -40,6 +40,8 @@ export default (props) => {
         }))}
         hideSearchIcon
         organization={props.organization || "frbs"}
+        languages={props?.languages}
+        selectedLanguage={props?.activelanguage}
       />
       <Article
         titleImage={props?.heroimage?.url}

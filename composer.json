@@ -1,6 +1,6 @@
 {
-  "name": "bitbetter/fab-bergisch",
-  "description": "Fab Region Bergisches Städtedreieck",
+  "name": "bitbetter/fab-kirby",
+  "description": "Kirby based website for Fab Region Bergisches Städtedreieck and Fab City Hamburg",
   "type": "project",
   "keywords": [
     "kirby",

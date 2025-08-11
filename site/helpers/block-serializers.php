@@ -1,8 +1,5 @@
 <?php
 
-use Kirby\Cms\Page;
-use Kirby\Cms\Site;
-
 function serializeBlocks($blocks)
 {
   $result = [];
@@ -182,82 +179,4 @@ function serializeVerticalNewsCardSliderBlock($block): array
     $result['content']['pages'] = $resolvedPages;
   }
   return $result;
-}
-
-function serializeSocialMedia($site): array
-{
-  $socialMediaArray = [];
-
-  foreach ($site->content()->social()->toStructure() as $medium) {
-    $socialMedia = [
-      'platform' => $medium->platform()->toString(),
-      'href' => $medium->target()->toString(),
-    ];
-    $socialMediaArray[] = $socialMedia;
-  }
-  return $socialMediaArray;
-}
-
-function serializeToolbar($site): array|null
-{
-  $showToolbar = !$site->content()->hideToolbar()->toBool();
-
-  if ($showToolbar) {
-    $toolbarArr = [];
-
-    $toolbarStructure = $site->toolbarElements()->toStructure();
-
-    foreach ($toolbarStructure as $item) {
-      $modifiedMenuItem = [
-        'icon' => $item->icon()->toString(),
-        'title' => $item->title()->toString(),
-        'href' => $item->href()->toPage() ? $item->href()->toPage()->url() : null,
-      ];
-      $toolbarArr[] = $modifiedMenuItem;
-    }
-    return $toolbarArr;
-  }
-
-  return null;
-}
-
-function serializeSupportedBy($site): array
-{
-  $supportedByStructure = $site->supportedBy()->toStructure();
-
-  $supportedByArr = [];
-
-  if ($supportedByStructure->isNotEmpty()) {
-
-    foreach ($supportedByStructure as $item) {
-      $supportedByItem = [
-        'img' => $item->img()->toFile()->url(),
-        'alt' => $item->alt()->toString(),
-        'href' => $item->href()->toString(),
-      ];
-      $supportedByArr[] = $supportedByItem;
-    }
-  }
-
-  return $supportedByArr;
-}
-
-function serializePolicyLinks($site): array
-{
-  $policyLinksStructure = $site->policyLinks()->toStructure();
-
-  $policyLinksArr = [];
-
-  if ($policyLinksStructure->isNotEmpty()) {
-
-    foreach ($policyLinksStructure as $item) {
-      $policyLinksItem = [
-        'title' => $item->title()->toString(),
-        'href' => $item->href()->toPage()->url(),
-      ];
-      $policyLinksArr[] = $policyLinksItem;
-    }
-  }
-
-  return $policyLinksArr;
 }
