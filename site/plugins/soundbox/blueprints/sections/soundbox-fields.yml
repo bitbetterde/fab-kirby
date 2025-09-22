@@ -7,7 +7,6 @@ info: "{{ file.created.toDate('d.m.Y H:i') }}"
 sortBy: created desc
 icon: key
 image: true
-max: 1
 columns:
   isPublished:
     label: Veröffentlicht
