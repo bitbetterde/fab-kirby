@@ -14,12 +14,6 @@ return function (Page $page, Site $site) {
         $page->intendedTemplate(),
         [
             ...$defaultProps,
-            'breadcrumbs' => $site->breadcrumb()->map(function ($crumb) {
-                return [
-                    'href' => $crumb->url(),
-                    'title' => $crumb->title()->value
-                ];
-            })->values(),
             'recordings' => $page->files()->filterBy('template', 'recording')->filterBy('published', true)->sortBy('created', 'desc')->map(function ($file) {
                 return [
                     'url' => $file->url(),

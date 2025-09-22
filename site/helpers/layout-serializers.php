@@ -148,12 +148,33 @@ function serializePois(Page $page)
   ];
 }
 
-// These props are needed on article and default template
+function serializeBreadcrumbs(Site $site)
+{
+  return $site->breadcrumb()->map(function ($crumb) {
+    return [
+      'href' => $crumb->url(),
+      'title' => $crumb->title()->value
+    ];
+  })->values();
+}
+
+function serializeHorizontalCardListView(Page $page): array
+{
+  $result = [];
+  $resolvedChildren = [];
+  foreach ($page->children() as $child) {
+    if (!$child->isDraft()) {
+      $resolvedChild = $child->toArray();
+      $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile() ? $child->heroimage()->toFile()->thumb('card-square')->toArray() : null;
+      $resolvedChildren[] = $resolvedChild;
+    }
+  }
+  return $resolvedChildren;
+}
+
+// These props are needed on article, default and horizontalcardlist template
 function getDefaultProps(Page $page, Site $site)
 {
-  // Setup
-  $kirby = kirby();
-
   // By default convert everything to array as a fallback, use special serializer if available
   $pageArr = $page->toArray();
 
@@ -173,6 +194,7 @@ function getDefaultProps(Page $page, Site $site)
     'supportedby' => serializeSupportedBy($site),
     'bottomline' => $site->content()->bottomLine()->toString(),
     'socialmedia' => serializeSocialMedia($site),
+    'breadcrumbs' => serializeBreadcrumbs($site)
   ];
 
   if ($heroImage) {
