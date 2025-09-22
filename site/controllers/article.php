@@ -13,14 +13,6 @@ return function (Page $page, Site $site) {
 
     return Inertia::createResponse(
         $page->intendedTemplate(),
-        [
-            ...$defaultProps,
-            'breadcrumbs' => $site->breadcrumb()->map(function ($crumb) {
-                return [
-                    'href' => $crumb->url(),
-                    'title' => $crumb->title()->value
-                ];
-            })->values()
-        ]
+        $defaultProps
     );
 };
