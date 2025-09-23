@@ -18,7 +18,6 @@ fields:
       - image
       - code
       - person
-      - youtube
       - horizontalcard
       - actionbox
       - imageslider
@@ -29,3 +28,4 @@ fields:
       - logogrid
       - codeembed
       - recorder
+      - youtube-embed

@@ -1,0 +1,17 @@
+name: YouTube Embed
+icon: video
+preview: fields
+
+fields:
+  url:
+    label: YouTube URL
+    type: url
+    placeholder: https://www.youtube.com/watch?v=...
+    help: Enter a YouTube video URL
+    required: true
+
+  showtitle:
+    label: Show Title
+    type: toggle
+    text: Display the video title as an overlay on the thumbnail
+    default: false

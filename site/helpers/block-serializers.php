@@ -1,5 +1,7 @@
 <?php
 
+use YoutubeEmbed\YouTubeHelper;
+
 function serializeBlocks($blocks)
 {
   $result = [];
@@ -28,7 +30,7 @@ function serializeBlocks($blocks)
       $result[] = $block->toArray();
     } elseif ($block->type() === 'logogrid') {
       $result[] = serializeLogoGridBlock($block);
-    } elseif ($block->type() === 'youtube') {
+    } elseif ($block->type() === 'youtube-embed') {
       $result[] = serializeYoutubeBlock($block);
     } else {
       $result[] = $block->toArray();
@@ -105,19 +107,42 @@ function serializePersonBlock($block): array
 
 function serializeYoutubeBlock($block): array
 {
-  $result = $block->toArray();
+  // Get the block data
+  $url = $block->url()->value();
+  $caption = $block->caption()->value();
 
-  $videoId = $block->videoid()->toString();
-
-  $isFullUrl = str_starts_with($videoId, "http") | str_starts_with($videoId, "www") | str_starts_with($videoId, "youtube");
-
-  if ($isFullUrl) {
-    if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[\w\-?&!#=,;]+/[\w\-?&!#=/,;]+/|(?:v|e(?:mbed)?)/|[\w\-?&!#=,;]*[?&]v=)|youtu\.be/)([\w-]{11})(?:[^\w-]|\Z)%i', $videoId, $match)) {
-      $videoId = $match[1];
-    }
+  // Validate and extract video ID
+  if (empty($url)) {
+      return [''];
   }
 
-  $result['content']['videoid'] = $videoId;
+  $videoId = YouTubeHelper::getVideoId($url);
+  if (!$videoId) {
+      return [''];
+  }
+
+  // Get thumbnail and video title
+  $thumbnailUrl = YouTubeHelper::downloadThumbnail($videoId, 'maxresdefault');
+  $videoTitle = YouTubeHelper::getVideoTitle($videoId);
+
+
+  $embedUrl = YouTubeHelper::getEmbedUrl($videoId);
+
+  // Generate unique ID for this embed
+  $embedId = 'youtube-embed-' . $videoId . '-' . uniqid();
+
+  $result = [
+      'type' => 'youtube-embed',
+      'content' => [
+          'rawUrl' => $url,
+          // 'caption' => $caption,
+          'videoId' => $videoId,
+          'thumbnail' => $thumbnailUrl,
+          'title' => $videoTitle,
+          'embedUrl' => $embedUrl,
+          'embedId' => $embedId
+      ]
+  ];
 
   return $result;
 }

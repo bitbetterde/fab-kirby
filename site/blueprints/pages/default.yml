@@ -13,7 +13,7 @@ columns:
               - fullbleed-text
               - verticalnewscardslider
               - logogrid
-              - youtube
+              - youtube-embed
               - image
             label: Inhalt
             required: true

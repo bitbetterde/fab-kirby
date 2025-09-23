@@ -1,0 +1,178 @@
+/**
+ * YouTube Embed Plugin Styles
+ * Provides styling for lazy-loaded YouTube embeds
+ */
+
+.youtube-embed {
+    position: relative;
+    margin: 1.5rem 0;
+    max-width: 100%;
+}
+
+.youtube-embed__preview {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: #000;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.youtube-embed__preview:focus {
+    outline: 2px solid #1976d2;
+    outline-offset: 2px;
+}
+
+.youtube-embed__preview.youtube-embed__loaded {
+    cursor: default;
+}
+
+.youtube-embed__thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.youtube-embed__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+}
+
+.youtube-embed__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 48px;
+    transition: transform 0.2s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    z-index: 2;
+}
+
+.youtube-embed__title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem 1rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    z-index: 1;
+}
+
+.youtube-embed__caption {
+    margin-top: 0.75rem;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+.youtube-embed-error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Loading state */
+.youtube-embed__preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.youtube-embed__preview:active::before {
+    opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .youtube-embed {
+        margin: 1rem 0;
+    }
+    
+    .youtube-embed__title {
+        font-size: 0.9rem;
+        padding: 1.5rem 0.75rem 0.75rem;
+    }
+    
+    .youtube-embed__play-button {
+        width: 56px;
+        height: 40px;
+    }
+    
+    .youtube-embed__preview:hover {
+        transform: none; /* Disable hover transform on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .youtube-embed__caption {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .youtube-embed__preview {
+        border: 2px solid currentColor;
+    }
+    
+    .youtube-embed__title {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .youtube-embed__preview {
+        transition: none;
+    }
+    
+    .youtube-embed__play-button {
+        transition: none;
+    }
+    
+    .youtube-embed__preview:hover {
+        transform: none;
+    }
+    
+    .youtube-embed__preview:hover .youtube-embed__play-button {
+        transform: translate(-50%, -50%);
+    }
+}

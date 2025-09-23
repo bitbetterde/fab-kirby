@@ -1,0 +1,7 @@
+title: Footer Supported By Logo
+accept:
+  type: image
+fields:
+  alt:
+    label: Alt Text (Beschreibung für Assistenztechnologien)
+    type: text

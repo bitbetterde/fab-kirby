@@ -2,7 +2,6 @@ import {
   HorizontalNewsCard,
   Image,
   Person,
-  YoutubeEmbed,
   ActionBox,
   Button,
   ImageSlider,
@@ -15,6 +14,7 @@ import {
 import { CarbonIcon } from "../components/CarbonIcon";
 import { truncateStringAtWhitespace } from "../helpers/truncate";
 import { Recorder } from "./Recorder";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 export interface BlockMultiplexerProps {
   fullBleed?: boolean;
@@ -93,19 +93,19 @@ export const BlockMultiplexer: React.FC<BlockMultiplexerProps> = ({
         </code>
       </pre>
     );
-  } else if (block?.type === "youtube") {
+  } else if (block?.type === "youtube-embed") {
     const youtubeElement = (
       <YoutubeEmbed
-        videoId={block.content.videoid}
+        rawUrl={block.content.rawUrl}
+        caption={block.content.caption}
+        videoId={block.content.videoId}
+        thumbnail={ block.content.thumbnail}
+        embedUrl={block.content.embedUrl}
+        embedId={block.content.embedId}
         title={block.content.title}
-        thumbnail={block.content.thumbnail}
-        className={
-          fullBleed
-            ? "col-start-2 col-end-13 lg:col-start-4 lg:col-end-11 my-8"
-            : ""
-        }
       />
     );
+
     if (fullBleed) {
       return <div className="grid grid-cols-inner">{youtubeElement}</div>;
     } else {
