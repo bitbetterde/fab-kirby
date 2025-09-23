@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useState } from "react";
 
 interface YoutubeEmbedProps {
@@ -8,6 +9,7 @@ interface YoutubeEmbedProps {
   title?: string;
   embedUrl: string;
   embedId?: string;
+  className?: string;
 }
 
 /**
@@ -21,11 +23,12 @@ function YoutubeEmbed({
   title,
   embedUrl,
   embedId,
+  className
 }: YoutubeEmbedProps) {
   const [hasBeenClicked, setHasBeenClicked] = useState(false);
   return (
     <div
-      className="relative max-w-full w-full fs-not-prose"
+      className={clsx("relative max-w-full w-full fs-not-prose", className)}
       data-video-id={videoId}
       data-embed-url={embedUrl}
     >
