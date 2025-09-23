@@ -96,10 +96,15 @@ export const BlockMultiplexer: React.FC<BlockMultiplexerProps> = ({
   } else if (block?.type === "youtube-embed") {
     const youtubeElement = (
       <YoutubeEmbed
+        className={
+          fullBleed
+            ? "col-start-2 col-end-13 lg:col-start-4 lg:col-end-11 my-8"
+            : ""
+        }
         rawUrl={block.content.rawUrl}
         caption={block.content.caption}
         videoId={block.content.videoId}
-        thumbnail={ block.content.thumbnail}
+        thumbnail={block.content.thumbnail}
         embedUrl={block.content.embedUrl}
         embedId={block.content.embedId}
         title={block.content.title}
