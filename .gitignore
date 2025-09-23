@@ -53,6 +53,7 @@ node_modules
 build
 site/plugins/*
 !site/plugins/icon-dropdown
+!site/plugins/kirby-tube
 !site/plugins/soundbox
 
 vendor
