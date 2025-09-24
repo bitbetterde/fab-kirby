@@ -36,11 +36,12 @@ export default (props) => {
       />
       <FilterableHorizontalNewsCardList
         breadcrumbs={props?.breadcrumbs.map((crumb, i) =>
-          i == 0 ? { ...crumb, icon: <Home className="size-4" /> } : crumb,
+          i == 0 ? { ...crumb, icon: <Home className="size-4 shrink-0" /> } : crumb,
         )}
         title={props.page.content.title}
         subtitle={props.page.content.subheading}
         titleImage={props.heroimage.url}
+        pageSize={props.page.pageSize}
         cards={props.page.content.text.content.resolvedChildren.map(
           (child) => ({
             id: child.url,

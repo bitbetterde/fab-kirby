@@ -11,6 +11,7 @@ return function (Page $page, Site $site) {
 
     $defaultProps = getDefaultProps($page, $site);
     $defaultProps['page']['content']['text']['content']['resolvedChildren'] = serializeHorizontalCardListView($page);
+    $defaultProps['page']['pageSize'] = $page->content()->pagesize()->toInt();
 
     return Inertia::createResponse(
         $page->intendedTemplate(),

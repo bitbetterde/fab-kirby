@@ -160,7 +160,6 @@ function serializeBreadcrumbs(Site $site)
 
 function serializeHorizontalCardListView(Page $page): array
 {
-  $result = [];
   $resolvedChildren = [];
   foreach ($page->children() as $child) {
     if (!$child->isDraft()) {
