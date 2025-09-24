@@ -110,6 +110,7 @@ function serializeYoutubeBlock($block): array
   // Get the block data
   $url = $block->url()->value();
   $caption = $block->caption()->value();
+  $showTitle = $block->showtitle()->toBool();
 
   // Validate and extract video ID
   if (empty($url)) {
@@ -138,7 +139,7 @@ function serializeYoutubeBlock($block): array
           // 'caption' => $caption,
           'videoId' => $videoId,
           'thumbnail' => $thumbnailUrl,
-          'title' => $videoTitle,
+          'title' => $showTitle ? $videoTitle : '',
           'embedUrl' => $embedUrl,
           'embedId' => $embedId
       ]

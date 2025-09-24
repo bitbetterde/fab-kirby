@@ -25,6 +25,13 @@ columns:
       fields:
         type: fields
         fields:
+          pagesize:
+            type: number
+            label: Seitengröße
+            help: Die Anzahl der Artikel, die pro Seite angezeigt werden. Ist die Gesamtanzahl der Artikel größer als diese Zahl, wird eine Pagination eingeblendet.
+            default: 10
+            min: 1
+            required: true
           heroimage:
             type: files
             label: Headerbild
