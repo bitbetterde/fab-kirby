@@ -30,7 +30,7 @@ export const FilterableHorizontalNewsCardList = ({
   cards,
   breadcrumbs,
   imageTag,
-  pageSize = 10
+  pageSize = 10,
 }: Props) => {
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
 
@@ -104,6 +104,17 @@ export const FilterableHorizontalNewsCardList = ({
       paginationStart={start}
       nextHref={nextLink}
       previousHref={previousLink}
+      currentPageFormatter={(start, end, overall) =>
+        start && end && overall ? (
+          <>
+            Zeige <span className="fs-font-semibold">{start}</span> bis{" "}
+            <span className="fs-font-semibold">{end}</span> von{" "}
+            <span className="fs-font-semibold">{overall}</span> Elementen
+          </>
+        ) : (
+          <></>
+        )
+      }
     />
   );
 };
