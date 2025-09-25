@@ -108,6 +108,7 @@ export const BlockMultiplexer: React.FC<BlockMultiplexerProps> = ({
         embedUrl={block.content.embedUrl}
         embedId={block.content.embedId}
         title={block.content.title}
+        privacyText={block.content.privacyText}
       />
     );
 

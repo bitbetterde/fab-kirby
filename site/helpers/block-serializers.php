@@ -2,7 +2,7 @@
 
 use YoutubeEmbed\YouTubeHelper;
 
-function serializeBlocks($blocks)
+function serializeBlocks($blocks, $site)
 {
   $result = [];
   foreach ($blocks as $block) {
@@ -31,7 +31,7 @@ function serializeBlocks($blocks)
     } elseif ($block->type() === 'logogrid') {
       $result[] = serializeLogoGridBlock($block);
     } elseif ($block->type() === 'youtube-embed') {
-      $result[] = serializeYoutubeBlock($block);
+      $result[] = serializeYoutubeBlock($block, $site);
     } else {
       $result[] = $block->toArray();
     }
@@ -105,12 +105,13 @@ function serializePersonBlock($block): array
   return $result;
 }
 
-function serializeYoutubeBlock($block): array
+function serializeYoutubeBlock($block, $site): array
 {
   // Get the block data
   $url = $block->url()->value();
   $caption = $block->caption()->value();
   $showTitle = $block->showtitle()->toBool();
+  $privacyText = $site->content()->youtubeprivacytext()->value();
 
   // Validate and extract video ID
   if (empty($url)) {
@@ -141,7 +142,8 @@ function serializeYoutubeBlock($block): array
           'thumbnail' => $thumbnailUrl,
           'title' => $showTitle ? $videoTitle : '',
           'embedUrl' => $embedUrl,
-          'embedId' => $embedId
+          'embedId' => $embedId,
+          'privacyText' => $privacyText
       ]
   ];
 

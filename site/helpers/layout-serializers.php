@@ -177,7 +177,7 @@ function getDefaultProps(Page $page, Site $site)
   // By default convert everything to array as a fallback, use special serializer if available
   $pageArr = $page->toArray();
 
-  $resolvedBlocks = serializeBlocks($page->text()->toBlocks());
+  $resolvedBlocks = serializeBlocks($page->text()->toBlocks(), $site);
 
   $pageArr['content']['text'] = $resolvedBlocks;
   $heroImage = $page->heroimage()->toFile();
