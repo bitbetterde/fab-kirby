@@ -10,6 +10,7 @@ interface YoutubeEmbedProps {
   embedUrl: string;
   embedId?: string;
   className?: string;
+  privacyText?: string;
 }
 
 /**
@@ -23,7 +24,8 @@ function YoutubeEmbed({
   title,
   embedUrl,
   embedId,
-  className
+  className,
+  privacyText,
 }: YoutubeEmbedProps) {
   const [hasBeenClicked, setHasBeenClicked] = useState(false);
   return (
@@ -72,6 +74,11 @@ function YoutubeEmbed({
             {title && (
               <div className="absolute bottom-0 left-0 right-0 text-white font-medium px-4 pt-8 pb-4 text-base/6 bg-gradient-to-b from-transparent to-black">
                 {title}
+              </div>
+            )}
+            {privacyText && (
+              <div className="absolute top-0 left-0 right-0 text-center pt-4 text-white font-medium text-xl bg-gradient-to-b from-black to-transparent">
+                {privacyText}
               </div>
             )}
           </div>
