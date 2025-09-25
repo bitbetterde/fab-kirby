@@ -61,6 +61,7 @@ jobs:
       FTPS_USER: ${{ secrets.FTPS_USER }}
       FTPS_PASSWORD: ${{ secrets.FTPS_PASSWORD }}
       FTPS_FOLDER: ${{ secrets.FTPS_FOLDER }}
+      HTACCESS: ${{ vars.HTACCESS }}
 
     steps:
       - name: Download artifact
@@ -68,6 +69,7 @@ jobs:
         with:
           name: deployment
           path: dist
+      - run: echo "$HTACCESS" > dist/.htaccess
       - name: Install lftp
         run: sudo apt install -y lftp
       - run: ls -la
