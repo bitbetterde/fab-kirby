@@ -156,7 +156,6 @@ export const BlockMultiplexer: React.FC<BlockMultiplexerProps> = ({
         className="fs-not-prose"
         variant="dark"
         title={block?.content.target.content.title}
-        category={{ id: 1, title: "Seite" }}
         description={block?.content.target.content.teaser}
         href={block?.content.target.url}
         image={{
@@ -197,7 +196,6 @@ export const BlockMultiplexer: React.FC<BlockMultiplexerProps> = ({
         fullBleed={block?.content.fullbleed === "true"}
         items={pages?.map((page) => ({
           title: page.content.title,
-          category: { id: 1, title: "Seite", href: page.url },
           description: page.content.teaser,
           href: page.url,
           image: {
