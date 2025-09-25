@@ -21,6 +21,7 @@ class YouTubeHelper
             // Standard youtube.com URLs
             '/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/',
             '/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/',
+            '/youtube\.com\/live\/([a-zA-Z0-9_-]+)/',
             '/youtube\.com\/v\/([a-zA-Z0-9_-]+)/',
             // YouTube short URLs
             '/youtu\.be\/([a-zA-Z0-9_-]+)/',
