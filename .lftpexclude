@@ -6,5 +6,7 @@ site/config/
 site/accounts/
 # Cache is deployment specific and should not be overwritten
 site/cache/
+# Languages are deployment specific and should not be overwritten (if they even exist)
+site/languages/
 # Obviously Kirby content should not be overwritten
 content/
