@@ -138,3 +138,10 @@ tabs:
             type: textarea
             buttons: false
             required: true
+          youtubePrivacyText:
+            label: YouTube Embed Datenschutzhinweis
+            help: Dieser Text wird innerhalb von YouTube Embeds angezeigt, bevor der Nutzer auf Play klickt.
+            default: "Datenschutz-Hinweis: Wenn du auf Play klickst, wird eine Verbindung zu YouTube.com aufgebaut"
+            type: textarea
+            buttons: false
+            required: false
