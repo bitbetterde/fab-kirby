@@ -94,11 +94,13 @@ function serializeLanguages(Page $page): array
 
   $languages = [];
   foreach ($kirby->languages() as $language) {
-    $languages[] = [
-      'locale' => $language->code(),
-      'label' => $language->name(),
-      'href' => $page->url($language->code()),
-    ];
+    if ($page->translation($language->code())->exists()) {
+      $languages[] = [
+        'locale' => $language->code(),
+        'label' => $language->name(),
+        'href' => $page->url($language->code()),
+      ];
+    }
   }
   return $languages;
 }
