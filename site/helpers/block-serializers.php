@@ -80,7 +80,7 @@ function serializeMiniCardBlock($block): array
   $result = $block->toArray();
   $miniCardPage = $block->selectedPage()->toPage();
   $result['content']['target'] = $miniCardPage ? $miniCardPage->toArray() : null;
-  $result['content']['target']['content']['heroimage'] = $miniCardPage ? $miniCardPage->heroimage()->toFile()->thumb('card-square')->toArray() : null;
+  $result['content']['target']['content']['heroimage'] = $miniCardPage ? $miniCardPage->heroimage()->toFile()?->thumb('card-square')?->toArray() : null;
   return $result;
 }
 
@@ -176,7 +176,7 @@ function serializeHorizontalCardBlock($block): array
   $result = $block->toArray();
   $cardPage = $block->target()->toPage();
   $result['content']['target'] = $cardPage ? $cardPage->toArray() : null;
-  $result['content']['target']['content']['heroimage'] = $cardPage ? $cardPage->heroimage()->toFile()->thumb('card-square')->toArray() : null;
+  $result['content']['target']['content']['heroimage'] = $cardPage ? $cardPage->heroimage()->toFile()?->thumb('card-square')?->toArray() : null;
   return $result;
 }
 
@@ -189,7 +189,7 @@ function serializeVerticalNewsCardSliderBlock($block): array
     if ($cardPage) {
       foreach ($cardPage->children()->listed() as $child) {
         $resolvedChild = $child->toArray();
-        $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()->thumb('card-square')->toArray();
+        $resolvedChild['content']['heroimage'] = $child->heroimage()->toFile()?->thumb('card-square')?->toArray();
         $resolvedChildren[] = $resolvedChild;
       }
     }
@@ -200,7 +200,7 @@ function serializeVerticalNewsCardSliderBlock($block): array
     if ($cardPages) {
       foreach ($cardPages->listed() as $page) {
         $resolvedPage = $page->toArray();
-        $resolvedPage['content']['heroimage'] = $page->heroimage()->toFile()->thumb('card-square')->toArray();
+        $resolvedPage['content']['heroimage'] = $page->heroimage()->toFile()?->thumb('card-square')?->toArray();
         $resolvedPages[] = $resolvedPage;
       }
     }
