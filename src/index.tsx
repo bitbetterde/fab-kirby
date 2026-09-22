@@ -1,6 +1,6 @@
 import React from "react";
 import { createInertiaApp } from "@inertiajs/react";
-import { createRoot, hydrateRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 
 createInertiaApp({
@@ -10,12 +10,9 @@ createInertiaApp({
       import.meta.glob("./templates/**/*.tsx"),
     ),
   setup({ el, App, props }) {
-    const node = <App {...props} />;
-
-    if (import.meta.env.DEV) {
-      createRoot(el).render(node); // inertia doesn't support SSR in dev mode
-    } else {
-      hydrateRoot(el, node);
-    }
+    // The server does not render the app (no Inertia SSR), so there is no
+    // markup to hydrate. hydrateRoot would report a mismatch and fall back to
+    // client rendering anyway.
+    createRoot(el).render(<App {...props} />);
   },
 });
