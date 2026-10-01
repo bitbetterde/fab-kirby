@@ -12,5 +12,6 @@ This repository contains the source code (not the actual content) for the [websi
 > This project requires PHP (>8.2) and Node.js – both of these need to be installed for the following instructions to work correctly. For the PHP part, we recommend to use [Laravel Herd](https://herd.laravel.com/).
 - Clone the repository and switch into the new folder
 - Run `composer install` to install all PHP dependencies (i.e. Kirby and the Inertia Adapter)
+- Run `npm install` to install all frontend dependencies
 - Run `npm run build` to build the frontend components once
 - Run `npm run dev` to start the development server. It should print a link to your console, where you can open the frontend in your browser (e.g. `localhost:5173`).
