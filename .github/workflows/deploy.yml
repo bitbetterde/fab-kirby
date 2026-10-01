@@ -2,7 +2,12 @@ name: Live Deployment
 
 on:
   workflow_dispatch:
-  
+    inputs:
+      dry_run:
+        description: Only list what would be transferred or deleted
+        type: boolean
+        default: false
+
 # Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
@@ -51,17 +56,18 @@ jobs:
             content/
             index.php
             .htaccess
-            .lftpexclude
+            .rsync-filter
 
   deploy:
     needs: build
     environment: cscp-hosteurope
     runs-on: ubuntu-latest
     env:
-      FTPS_HOST: ${{ secrets.FTPS_HOST }}
-      FTPS_USER: ${{ secrets.FTPS_USER }}
-      FTPS_PASSWORD: ${{ secrets.FTPS_PASSWORD }}
-      FTPS_FOLDER: ${{ secrets.FTPS_FOLDER }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+      SSH_FOLDER: ${{ secrets.SSH_FOLDER }}
       HTACCESS: ${{ vars.HTACCESS }}
 
     steps:
@@ -71,7 +77,19 @@ jobs:
           name: deployment
           path: dist
       - run: echo "$HTACCESS" > dist/.htaccess
-      - name: Install lftp
-        run: sudo apt install -y lftp
-      - run: ls -la
-      - run: lftp -e "set ftp:ssl-auth TLS; set ftp:ssl-force true; set ftp:ssl-protect-list yes; set ftp:ssl-protect-data yes; set ftp:ssl-protect-fxp yes; set ssl:verify-certificate no; set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open $FTPS_HOST; user $FTPS_USER $FTPS_PASSWORD; mirror --exclude-glob-from ./dist/.lftpexclude --reverse ./dist/ $FTPS_FOLDER/; bye"
+      - name: Configure SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      # --checksum compares file contents instead of timestamps (which are new on
+      # every CI run), so only files that actually changed are transferred.
+      # --delete-after removes stale files, limited by the rules in .rsync-filter.
+      - name: Sync files to server
+        run: |
+          rsync --recursive --links --compress --checksum --delete-after --itemize-changes \
+            ${{ inputs.dry_run && '--dry-run' || '' }} \
+            --filter='merge dist/.rsync-filter' \
+            -e "ssh -i ~/.ssh/deploy_key" \
+            dist/ "$SSH_USER@$SSH_HOST:$SSH_FOLDER/"

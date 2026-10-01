@@ -55,6 +55,7 @@ site/plugins/*
 !site/plugins/icon-dropdown
 !site/plugins/kirby-tube
 !site/plugins/soundbox
+!site/plugins/kirby-fabby
 
 vendor
 kirby
