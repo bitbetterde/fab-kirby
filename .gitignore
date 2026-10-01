@@ -44,6 +44,11 @@ Icon
 /site/sessions/*
 !/site/sessions/index.html
 
+# Logs
+# ---------------
+
+/site/logs/
+
 # License
 # ---------------
 
