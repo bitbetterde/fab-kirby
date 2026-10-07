@@ -276,7 +276,22 @@ export const BlockMultiplexer: React.FC<BlockMultiplexerProps> = ({
       />
     );
   } else if (block?.type === "codeembed") {
-    return <div dangerouslySetInnerHTML={{ __html: block?.content.code }} />;
+    const html = { __html: block?.content.code };
+    // On full bleed layouts, keep the embed inside the content column unless
+    // the editor explicitly switched on "Volle Breite" for this block.
+    if (fullBleed && block?.content.fullbleed !== "true") {
+      return (
+        <div className="py-8 grid grid-cols-1 md:grid-cols-subgrid md:[&>*]:col-start-2 md:[&>*]:col-end-2">
+          <div className="grid grid-cols-inner">
+            <div
+              className="col-start-2 col-end-13 lg:col-start-4 lg:col-end-11"
+              dangerouslySetInnerHTML={html}
+            />
+          </div>
+        </div>
+      );
+    }
+    return <div dangerouslySetInnerHTML={html} />;
     // Full Bleed Blocks
   } else if (block?.type === "fullbleed-text") {
     return (

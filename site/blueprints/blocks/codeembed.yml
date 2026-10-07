@@ -8,9 +8,17 @@ fields:
     required: true
     buttons: false
     font: monospace
+  fullbleed:
+    label: Volle Breite
+    type: toggle
+    default: false
+    text:
+      - "Nein"
+      - "Ja"
+    help: Wenn aktiviert, wird der eingebettete Inhalt über die gesamte Seitenbreite dargestellt, andernfalls in der normalen Inhaltsspalte.
   info:
     label: Warnung
     type: info
     theme: warning
     text: |
-      Sämtlicher Code der hier eingebettet wird, wird direkt in die Seite eingefügt und wird an jeden Besucher der Seite ausgeliefert und dort ausgeführt. Bitte stelle sicher, dass du genau weißt, was der Code tut, der hier eingefügt wird. Wenn hier JavaScript eingebunden wird, kann das Einfluss auf die Sicherheit und Datenschutz-Aspekte der Seite haben, und du musst ggf. die Datenschutzerklärung anpassen.
+      Sämtlicher Code der hier eingebettet wird, wird direkt in die Seite eingefügt und wird an jeden Besucher der Seite ausgeliefert und dort ausgeführt. Bitte stelle sicher, dass du genau weißt, was der Code tut, der hier eingefügt wird. Dieser Block kann Einfluss auf die Sicherheit und Datenschutz-Aspekte der Seite haben, und du musst danach ggf. die Datenschutzerklärung anpassen.

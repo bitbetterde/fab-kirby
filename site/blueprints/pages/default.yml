@@ -15,6 +15,7 @@ columns:
               - logogrid
               - youtube-embed
               - image
+              - codeembed
             label: Inhalt
             required: true
   sidebar:
