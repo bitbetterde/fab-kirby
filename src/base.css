@@ -3,6 +3,20 @@
 @tailwind utilities;
 
  
+:root {
+  /* Minimum column width of the toolbar items in the mobile menu. Has to fit
+     the longest word of the labels ("Reparaturrekord"). */
+  --toolbar-item-min-width: 9.5rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    /* From here on labels are single-line and get truncated if they don't fit,
+       so the longest label ("Reparaturrekord in NRW") has to fit. */
+    --toolbar-item-min-width: 13rem;
+  }
+}
+
 #app {
   height: 100%;
 }
